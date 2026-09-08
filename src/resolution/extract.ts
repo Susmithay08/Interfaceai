@@ -18,7 +18,7 @@ export function applyTransforms(input: string, ts: readonly Transform[]): Transf
     if (typeof cur === "number" && t.kind !== "toNumber") {
       return { ok: false, error: `${t.kind}: input is already a number` };
     }
-    const s = String(cur);
+    const s: string = String(cur);
 
     switch (t.kind) {
       case "trim":
@@ -43,7 +43,7 @@ export function applyTransforms(input: string, ts: readonly Transform[]): Transf
         break;
       }
       case "currencyToNumber": {
-        const n = Number(s.replace(/[$,\s]/g, ""));
+        const n: number = Number(s.replace(/[$,\s]/g, ""));
         if (!Number.isFinite(n) || s.trim() === "") {
           return { ok: false, error: `currencyToNumber: cannot parse "${s}"` };
         }
@@ -51,7 +51,7 @@ export function applyTransforms(input: string, ts: readonly Transform[]): Transf
         break;
       }
       case "toNumber": {
-        const n = Number(String(cur).replace(/[,\s]/g, ""));
+        const n: number = Number(String(cur).replace(/[,\s]/g, ""));
         if (!Number.isFinite(n) || String(cur).trim() === "") {
           return { ok: false, error: `toNumber: cannot parse "${String(cur)}"` };
         }
