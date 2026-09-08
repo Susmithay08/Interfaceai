@@ -1,0 +1,26 @@
+{
+  "observationId": "obs_results_1",
+  "surfaceKind": "web",
+  "locationHint": "/teller/search",
+  "title": "CoreBank Teller - Search Results",
+  "screenSignature": "sig_search_results_v8",
+  "capturedAt": "2026-09-08T11:42:10Z",
+  "nodes": [
+    { "ref": "f1n1", "role": "table", "name": "Search Results", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Search Results" } },
+      "anchors": [] },
+    { "ref": "f1n2", "role": "link", "name": "100234", "value": "100234",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Search Results" } },
+      "anchors": [{ "kind": "rowHeader", "text": "100234" },
+                  { "kind": "columnHeader", "text": "Member" }] },
+    { "ref": "f1n3", "role": "link", "name": "100999", "value": "100999",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Search Results" } },
+      "anchors": [{ "kind": "rowHeader", "text": "100999" },
+                  { "kind": "columnHeader", "text": "Member" }] }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "observationId": "obs_validation_1",
+  "surfaceKind": "web",
+  "locationHint": "/teller/search",
+  "title": "CoreBank Teller - Member Search",
+  "screenSignature": "sig_validation_v8",
+  "capturedAt": "2026-09-08T11:42:13Z",
+  "nodes": [
+    { "ref": "f1n1", "role": "alert", "value": "Member ID must be 6 digits.",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Member Search" } },
+      "anchors": [] },
+    { "ref": "f1n2", "role": "textbox", "name": "Member ID", "value": "12",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Member Search" } },
+      "anchors": [{ "kind": "label", "text": "Member ID" }] }
+  ]
+}

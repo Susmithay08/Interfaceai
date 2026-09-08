@@ -1,0 +1,35 @@
+{
+  "name": "corebank-capability-engine",
+  "version": "0.1.0",
+  "description": "Computer-use automation: LLM discovery -> capability artifact -> deterministic replay",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "cli": "tsx apps/cli/index.ts",
+    "target-app": "tsx apps/target-app/server.ts",
+    "operator": "tsx apps/operator-console/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "express": "^4.22.2",
+    "groq-sdk": "^1.6.0",
+    "nanoid": "^5.1.16",
+    "playwright": "^1.63.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.25",
+    "@types/node": "^22.20.1",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  }
+}

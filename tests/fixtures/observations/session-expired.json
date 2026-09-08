@@ -1,0 +1,30 @@
+{
+  "observationId": "obs_session_1",
+  "surfaceKind": "web",
+  "locationHint": "/teller/search",
+  "title": "CoreBank Teller - Sign On",
+  "screenSignature": "sig_session_expired_v8",
+  "capturedAt": "2026-09-08T11:42:14Z",
+  "nodes": [
+    { "ref": "f1n1", "role": "heading", "name": "Session Expired",
+      "value": "Session Expired", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Session Expired" } },
+      "anchors": [] },
+    { "ref": "f1n2", "role": "textbox", "name": "User ID", "value": "",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Session Expired" } },
+      "anchors": [{ "kind": "label", "text": "User ID" }] },
+    { "ref": "f1n3", "role": "textbox", "name": "Password", "value": "",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Session Expired" } },
+      "anchors": [{ "kind": "label", "text": "Password" }],
+      "attrs": { "inputType": "password" } },
+    { "ref": "f1n4", "role": "button", "name": "Sign On", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Session Expired" } },
+      "anchors": [] }
+  ]
+}

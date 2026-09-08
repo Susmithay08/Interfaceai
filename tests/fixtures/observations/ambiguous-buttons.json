@@ -1,0 +1,18 @@
+{
+  "observationId": "obs_ambig_1",
+  "surfaceKind": "web",
+  "locationHint": "/teller/search",
+  "title": "CoreBank Teller - Member Search",
+  "screenSignature": "sig_ambiguous_v8",
+  "capturedAt": "2026-09-08T11:42:09Z",
+  "nodes": [
+    { "ref": "f1n1", "role": "button", "name": "Search", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Member Search" } },
+      "anchors": [] },
+    { "ref": "f1n2", "role": "button", "name": "Search", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Account Search" } },
+      "anchors": [] }
+  ]
+}

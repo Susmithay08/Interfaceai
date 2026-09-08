@@ -1,0 +1,27 @@
+{
+  "observationId": "obs_search_1",
+  "surfaceKind": "web",
+  "locationHint": "/teller/search",
+  "title": "CoreBank Teller - Member Search",
+  "screenSignature": "sig_member_search_v8",
+  "capturedAt": "2026-09-08T11:42:07Z",
+  "nodes": [
+    { "ref": "f0n1", "role": "link", "name": "Member Search", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "nav" }] }, "anchors": [] },
+    { "ref": "f1n1", "role": "heading", "name": "Member Search",
+      "value": "Member Search", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Member Search" } },
+      "anchors": [] },
+    { "ref": "f1n2", "role": "textbox", "name": "Member ID", "value": "",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Member Search" } },
+      "anchors": [{ "kind": "label", "text": "Member ID" }],
+      "attrs": { "inputType": "text" } },
+    { "ref": "f1n3", "role": "button", "name": "Search", "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Member Search" } },
+      "anchors": [] }
+  ]
+}

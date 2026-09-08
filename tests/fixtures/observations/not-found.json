@@ -1,0 +1,20 @@
+{
+  "observationId": "obs_notfound_1",
+  "surfaceKind": "web",
+  "locationHint": "/teller/search",
+  "title": "CoreBank Teller - Search Results",
+  "screenSignature": "sig_not_found_v8",
+  "capturedAt": "2026-09-08T11:42:12Z",
+  "nodes": [
+    { "ref": "f1n1", "role": "status", "value": "No matching member for that ID.",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Search Results" } },
+      "anchors": [] },
+    { "ref": "f1n2", "role": "textbox", "name": "Member ID", "value": "999999",
+      "state": { "visible": true },
+      "scope": { "path": [{ "by": "name", "value": "content" }],
+                 "region": { "by": "heading", "value": "Member Search" } },
+      "anchors": [{ "kind": "label", "text": "Member ID" }] }
+  ]
+}
