@@ -45,7 +45,10 @@ export interface ReplayOptions {
   readonly operatorTimeoutSeconds?: number;
 }
 
-const RESOLVE_RETRY_MS = 4000;
+// How long a step waits for its control to appear before giving up. Generous on purpose:
+// a legacy page that is still rendering is not an unresolved target, and escalating to a
+// human over a slow render is worse than waiting a few more seconds.
+const RESOLVE_RETRY_MS = 10_000;
 const RESOLVE_POLL_MS = 250;
 
 export class ReplayEngine {
