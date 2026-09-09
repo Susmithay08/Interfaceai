@@ -39,7 +39,15 @@ export function createTargetApp(): Express {
 
   const intercept = (req: Request, res: Response, next: NextFunction): void => {
     // Mounted at /teller, so req.path is already prefix-stripped.
-    if (req.path === "/signon" || req.path === "/acknowledge") {
+    // The frameset shell itself is never intercepted: a real session timeout appears
+    // INSIDE the content frame, leaving the shell in place. Intercepting the shell
+    // would also destroy the frame scoping that targeting depends on.
+    if (
+      req.path === "/" ||
+      req.path === "" ||
+      req.path === "/signon" ||
+      req.path === "/acknowledge"
+    ) {
       next();
       return;
     }
@@ -56,6 +64,7 @@ export function createTargetApp(): Express {
       return;
     }
     if (faults.isArmed("slowLoad")) {
+      faults.clearOnce(); // transient by definition - the retry succeeds
       setTimeout(next, SLOW_LOAD_MS);
       return;
     }

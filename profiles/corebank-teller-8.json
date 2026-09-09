@@ -1,0 +1,157 @@
+{
+  "profile": "corebank-teller@8",
+  "outcomes": [
+    {
+      "code": "SESSION_EXPIRED",
+      "class": "recoverable",
+      "scope": "anyStep",
+      "description": "Session timed out and the app fell back to the sign-on screen. Re-authenticate and restart the capability from its first step.",
+      "detect": {
+        "kind": "exists",
+        "target": {
+          "scope": { "path": [{ "by": "name", "value": "content" }] },
+          "expectedRole": "textbox",
+          "primary": { "kind": "labelled", "params": { "label": "Password" } },
+          "fallbacks": [],
+          "cardinality": "exactlyOne",
+          "rationale": "The sign-on password field reappearing is the unambiguous signal that the session died."
+        }
+      },
+      "recovery": {
+        "actions": [
+          {
+            "kind": "fill",
+            "value": { "from": "credential", "ref": "corebank.teller.username" },
+            "target": {
+              "scope": { "path": [{ "by": "name", "value": "content" }] },
+              "expectedRole": "textbox",
+              "primary": { "kind": "labelled", "params": { "label": "User ID" } },
+              "fallbacks": [],
+              "cardinality": "exactlyOne",
+              "rationale": "Sign-on user field, identified by its label; the form has no ids worth trusting."
+            }
+          },
+          {
+            "kind": "fill",
+            "value": { "from": "credential", "ref": "corebank.teller.password" },
+            "target": {
+              "scope": { "path": [{ "by": "name", "value": "content" }] },
+              "expectedRole": "textbox",
+              "primary": { "kind": "labelled", "params": { "label": "Password" } },
+              "fallbacks": [],
+              "cardinality": "exactlyOne",
+              "rationale": "Sign-on password field, identified by its label. The value never touches this artifact."
+            }
+          },
+          {
+            "kind": "click",
+            "target": {
+              "scope": { "path": [{ "by": "name", "value": "content" }] },
+              "expectedRole": "button",
+              "primary": { "kind": "roleAndName", "params": { "role": "button", "name": "Sign On" } },
+              "fallbacks": [],
+              "cardinality": "exactlyOne",
+              "rationale": "Sole submit control on the sign-on form; its accessible name comes from the input value."
+            }
+          }
+        ],
+        "verify": {
+          "kind": "absent",
+          "target": {
+            "scope": { "path": [{ "by": "name", "value": "content" }] },
+            "expectedRole": "textbox",
+            "primary": { "kind": "labelled", "params": { "label": "Password" } },
+            "fallbacks": [],
+            "cardinality": "exactlyOne",
+            "rationale": "Sign-on form gone means re-authentication succeeded."
+          }
+        },
+        "resume": "restart",
+        "maxAttempts": 2
+      }
+    },
+    {
+      "code": "INTERSTITIAL_NOTICE",
+      "class": "recoverable",
+      "scope": "anyStep",
+      "description": "Periodic system-notice modal interrupted the flow. Acknowledge it and retry the interrupted step.",
+      "detect": {
+        "kind": "exists",
+        "target": {
+          "scope": { "path": [{ "by": "name", "value": "content" }] },
+          "expectedRole": "button",
+          "primary": { "kind": "roleAndName", "params": { "role": "button", "name": "Acknowledge" } },
+          "fallbacks": [],
+          "cardinality": "exactlyOne",
+          "rationale": "The Acknowledge control only exists on the system-notice interstitial."
+        }
+      },
+      "recovery": {
+        "actions": [
+          {
+            "kind": "dismiss",
+            "target": {
+              "scope": { "path": [{ "by": "name", "value": "content" }] },
+              "expectedRole": "button",
+              "primary": { "kind": "roleAndName", "params": { "role": "button", "name": "Acknowledge" } },
+              "fallbacks": [],
+              "cardinality": "exactlyOne",
+              "rationale": "Dismissing the notice is the only way past it."
+            }
+          }
+        ],
+        "verify": {
+          "kind": "absent",
+          "target": {
+            "scope": { "path": [{ "by": "name", "value": "content" }] },
+            "expectedRole": "button",
+            "primary": { "kind": "roleAndName", "params": { "role": "button", "name": "Acknowledge" } },
+            "fallbacks": [],
+            "cardinality": "exactlyOne",
+            "rationale": "Notice gone means the interstitial cleared."
+          }
+        },
+        "resume": "retryStep",
+        "maxAttempts": 2
+      }
+    },
+    {
+      "code": "APP_ERROR",
+      "class": "hard",
+      "scope": "anyStep",
+      "description": "Unhandled server error. Stop: a human must assess whether any state was mutated before this point.",
+      "detect": {
+        "kind": "text",
+        "target": {
+          "scope": { "path": [{ "by": "name", "value": "content" }] },
+          "expectedRole": "heading",
+          "primary": { "kind": "roleAndName", "params": { "role": "heading", "name": "Unexpected system error" } },
+          "fallbacks": [],
+          "cardinality": "exactlyOne",
+          "rationale": "The error page heading is the only reliable marker; the reference code varies per incident."
+        },
+        "match": { "op": "contains", "value": "Unexpected system error" }
+      },
+      "escalate": true
+    },
+    {
+      "code": "PERMISSION_DENIED",
+      "class": "hard",
+      "scope": "anyStep",
+      "description": "The automation identity lacks entitlement for this screen. Requires a human decision, and must never be retried.",
+      "detect": {
+        "kind": "text",
+        "target": {
+          "scope": { "path": [{ "by": "name", "value": "content" }] },
+          "expectedRole": "alert",
+          "primary": { "kind": "roleInRegion", "params": { "region": "Access Denied", "role": "alert" } },
+          "fallbacks": [],
+          "cardinality": "exactlyOne",
+          "rationale": "Authorization failures render as a page-level alert under an Access Denied heading."
+        },
+        "match": { "op": "contains", "value": "not authorized" }
+      },
+      "escalate": true
+    }
+  ]
+}
