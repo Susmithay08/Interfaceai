@@ -211,6 +211,14 @@ export class PlaywrightWebSurface implements Surface {
     return this.evidence.attach("screenshot", `${Date.now()}-${safe}`, png);
   }
 
+  /**
+   * The live page itself. Only the operator's own browser window and the handoff test
+   * touch this: automation goes through execute(), which asserts the control lease.
+   */
+  rawPage(): Page {
+    return this.page;
+  }
+
   async instrument(on: boolean): Promise<void> {
     if (on === this.#instrumented) return;
     this.#instrumented = on;

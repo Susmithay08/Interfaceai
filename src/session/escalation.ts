@@ -34,11 +34,7 @@ export class EscalationService {
       at: full.createdAt,
     });
 
-    if (this.evidence) {
-      const dir = join(this.evidence.runDir, "interventions");
-      mkdirSync(dir, { recursive: true });
-      writeFileSync(join(dir, `${full.id}.json`), JSON.stringify(full, null, 2), "utf8");
-    }
+    this.#persist(full);
 
     for (const cb of [...this.#listeners]) cb(full);
     return full;
@@ -86,10 +82,15 @@ export class EscalationService {
     if (!current) return;
     const next = { ...current, ...patch } as InterventionRequest;
     this.#open.set(id, next);
-    if (this.evidence) {
-      const dir = join(this.evidence.runDir, "interventions");
-      mkdirSync(dir, { recursive: true });
-      writeFileSync(join(dir, `${id}.json`), JSON.stringify(next, null, 2), "utf8");
-    }
+    this.#persist(next);
+  }
+
+  /** An in-memory sink has no run directory, so there is nothing to write beside it. */
+  #persist(r: InterventionRequest): void {
+    const runDir = this.evidence?.runDir;
+    if (!runDir || runDir.startsWith(":")) return;
+    const dir = join(runDir, "interventions");
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, `${r.id}.json`), JSON.stringify(r, null, 2), "utf8");
   }
 }
