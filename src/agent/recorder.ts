@@ -23,7 +23,6 @@ interface Candidate {
   readonly why: string;
 }
 
-const isPlainString = (p: TargetParam): p is string => typeof p === "string";
 
 /**
  * Replaces a param that exactly equals a supplied input value with a reference to that
