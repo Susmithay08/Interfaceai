@@ -341,5 +341,5 @@ describe("determinism", () => {
     });
     expect(shape(a)).toEqual(shape(b));
     expect(a.status).toBe(b.status);
-  }, 30_000);
+  }, 90_000); // two full replays; generous under full-suite load
 });

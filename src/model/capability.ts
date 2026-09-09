@@ -1,5 +1,10 @@
 import { z } from "zod";
-import type { StepAction as StepActionType } from "./action.js";
+import type { PathTemplate, StepAction, StepAction as StepActionType } from "./action.js";
+import type { Condition } from "./condition.js";
+import type { TargetDescriptor } from "./target.js";
+import type { Transform } from "./transform.js";
+import type { AppProfile, OutcomeDefinition } from "./outcome.js";
+
 
 /* ── scope & targeting ──────────────────────────────────────────────── */
 
@@ -117,6 +122,8 @@ const StepActionSchema = z.discriminatedUnion("kind", [
 ]);
 
 /* ── inputs & outputs ───────────────────────────────────────────────── */
+
+export type Sensitivity = "none" | "identifier" | "pii" | "financial" | "secret";
 
 const SensitivitySchema = z.enum(["none", "identifier", "pii", "financial", "secret"]);
 
@@ -374,12 +381,100 @@ function assertReplayable(c: CapabilityShape, ctx: z.RefinementCtx): void {
 
 export const CapabilitySchema = CapabilityBase.superRefine(assertReplayable);
 
-export type Capability = z.infer<typeof CapabilityBase>;
-export type AppProfile = z.infer<typeof AppProfileSchema>;
-export type Step = z.infer<typeof StepSchema>;
-export type InputSpec = z.infer<typeof InputSpecSchema>;
-export type OutputSpec = z.infer<typeof OutputSpecSchema>;
-export type OutcomeDefinition = z.infer<typeof OutcomeDefinitionSchema>;
+/*
+ * The hand-written types below are authoritative; Zod is the runtime validator.
+ *
+ * Inferring the types from the schema instead would produce a second, mutable copy of
+ * the model that drifts from the readonly types in model/, and the two would silently
+ * disagree at every boundary. The schema contains no defaults or transforms, so a value
+ * that validates is structurally identical to what was parsed.
+ */
+
+export interface InputSpec {
+  readonly type: "string" | "number" | "boolean" | "enum";
+  readonly description: string;
+  readonly required: boolean;
+  readonly pattern?: string;
+  readonly enum?: readonly string[];
+  readonly default?: string | number | boolean;
+  readonly sensitivity: Sensitivity;
+  readonly example?: string;
+}
+
+export interface OutputSpec {
+  readonly type: "string" | "number" | "boolean";
+  readonly description: string;
+  readonly required: boolean;
+  readonly sensitivity: Sensitivity;
+  readonly source: {
+    readonly from: string;
+    readonly target: TargetDescriptor;
+    readonly read: "text" | "value" | "name";
+  };
+  readonly transform: readonly Transform[];
+}
+
+export interface Step {
+  readonly id: string;
+  readonly intent: string;
+  readonly action: StepAction;
+  readonly checkpoint: Condition | null;
+  readonly checkpointOmittedReason?: string;
+  readonly robustness: "strong" | "weak";
+  readonly robustnessNote?: string;
+  readonly provenance: "llm" | "human" | "reviewer";
+}
+
+export interface Capability {
+  readonly schemaVersion: "1.0";
+  readonly id: string;
+  readonly version: string;
+  readonly title: string;
+  readonly description: string;
+  readonly app: {
+    readonly product: string;
+    readonly productVersion: string;
+    readonly variant: string;
+    readonly entry: PathTemplate;
+  };
+  readonly entryCheckpoint: Condition;
+  readonly status: "draft" | "in_review" | "approved" | "deprecated";
+  readonly risk: "readOnly" | "reversible" | "irreversible";
+  readonly inputs: Readonly<Record<string, InputSpec>>;
+  readonly outputs: Readonly<Record<string, OutputSpec>>;
+  readonly preconditions: readonly Condition[];
+  readonly steps: readonly Step[];
+  readonly successCheckpoint: Condition;
+  readonly inheritsOutcomesFrom?: string;
+  readonly outcomes: readonly OutcomeDefinition[];
+  readonly escalation: {
+    readonly onHardFailure: "escalate" | "fail";
+    readonly onUnresolvedTarget: "escalate" | "fail";
+    readonly onAmbiguousTarget: "escalate" | "fail";
+    readonly onUnknownState: "escalate" | "fail";
+    readonly operatorTimeoutSeconds: number;
+  };
+  readonly provenance: {
+    readonly generatedBy: "llm-discovery" | "human-authored";
+    readonly discoveredAt: string;
+    readonly runId: string;
+    readonly provider: string;
+    readonly model: string;
+    readonly evidenceRunRef: string;
+    readonly goal: string;
+    readonly llmStepCount: number;
+    readonly humanStepCount: number;
+  };
+  readonly review: {
+    readonly reviewedBy?: string;
+    readonly reviewedAt?: string;
+    readonly notes?: string;
+    readonly weakTargets: readonly string[];
+  };
+}
+
+export type { OutcomeDefinition, AppProfile, Recovery } from "./outcome.js";
+
 
 export class CapabilityValidationError extends Error {
   constructor(public readonly issues: z.ZodIssue[]) {
@@ -394,11 +489,11 @@ export class CapabilityValidationError extends Error {
 export function parseCapability(json: unknown): Capability {
   const r = CapabilitySchema.safeParse(json);
   if (!r.success) throw new CapabilityValidationError(r.error.issues);
-  return r.data;
+  return r.data as Capability;
 }
 
 export function parseAppProfile(json: unknown): AppProfile {
   const r = AppProfileSchema.safeParse(json);
   if (!r.success) throw new CapabilityValidationError(r.error.issues);
-  return r.data;
+  return r.data as AppProfile;
 }
