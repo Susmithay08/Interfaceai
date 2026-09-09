@@ -1,6 +1,6 @@
 import type { Observation, ScopePath, UiNode } from "../model/observation.js";
 import { sameScope } from "../model/observation.js";
-import type { MatchMode, TargetStrategy } from "../model/target.js";
+import type { ConcreteTargetStrategy, MatchMode } from "../model/target.js";
 
 export function normalizeText(s: string): string {
   return s.replace(/\s+/g, " ").trim();
@@ -29,7 +29,11 @@ const str = (p: Readonly<Record<string, string | number>>, k: string): string =>
  * Role is deliberately NOT checked here - resolveTarget checks it separately so that
  * "matched the wrong kind of thing" is distinguishable from "matched nothing".
  */
-export function matchStrategy(s: TargetStrategy, scope: ScopePath, o: Observation): UiNode[] {
+export function matchStrategy(
+  s: ConcreteTargetStrategy,
+  scope: ScopePath,
+  o: Observation,
+): UiNode[] {
   const mode = s.match ?? "normalized";
   const inScope = o.nodes.filter((n) => sameScope(n.scope, scope));
 

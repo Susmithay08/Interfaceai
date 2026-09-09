@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { resolveTarget } from "../../../src/resolution/resolve-target.js";
 import { loadObservation } from "../../fixtures/load.js";
-import type { TargetDescriptor } from "../../../src/model/target.js";
+import type { ConcreteTargetDescriptor } from "../../../src/model/target.js";
 
 const content = { path: [{ by: "name" as const, value: "content" }] };
 
-const searchButton = (over: Partial<TargetDescriptor> = {}): TargetDescriptor => ({
+const searchButton = (over: Partial<ConcreteTargetDescriptor> = {}): ConcreteTargetDescriptor => ({
   scope: content,
   expectedRole: "button",
   primary: { kind: "roleAndName", params: { role: "button", name: "Search" } },

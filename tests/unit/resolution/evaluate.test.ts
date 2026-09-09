@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { evaluateCondition, matchText } from "../../../src/resolution/evaluate.js";
 import { loadObservation } from "../../fixtures/load.js";
-import type { TargetDescriptor } from "../../../src/model/target.js";
+import type { ConcreteTargetDescriptor } from "../../../src/model/target.js";
 
-const notice: TargetDescriptor = {
+const notice: ConcreteTargetDescriptor = {
   scope: {
     path: [{ by: "name", value: "content" }],
     region: { by: "heading", value: "Search Results" },
@@ -68,7 +68,7 @@ describe("evaluateCondition", () => {
   });
 
   it("reports an unresolvable target as a failure, never a throw", () => {
-    const bad: TargetDescriptor = {
+    const bad: ConcreteTargetDescriptor = {
       ...notice,
       primary: { kind: "roleAndName", params: { role: "button", name: "Nope" } },
     };

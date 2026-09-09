@@ -1,7 +1,7 @@
 import type {
-  Condition,
+  ConcreteCondition,
+  ConcreteLeafCondition,
   ConditionResult,
-  LeafCondition,
   TextMatcher,
 } from "../model/condition.js";
 import type { Observation, UiNode } from "../model/observation.js";
@@ -30,7 +30,7 @@ export function matchText(actual: string | undefined, m: TextMatcher): boolean {
 
 const nodeText = (n: UiNode): string | undefined => n.value ?? n.name;
 
-function evaluateLeaf(c: LeafCondition, o: Observation): ConditionResult {
+function evaluateLeaf(c: ConcreteLeafCondition, o: Observation): ConditionResult {
   if (c.kind === "location") {
     return {
       passed: matchText(o.locationHint, c.match),
@@ -76,7 +76,7 @@ function evaluateLeaf(c: LeafCondition, o: Observation): ConditionResult {
   }
 }
 
-export function evaluateCondition(c: Condition, o: Observation): ConditionResult {
+export function evaluateCondition(c: ConcreteCondition, o: Observation): ConditionResult {
   if (c.kind === "all" || c.kind === "any") {
     const results = c.of.map((leaf) => evaluateLeaf(leaf, o));
     const passed = c.kind === "all" ? results.every((r) => r.passed) : results.some((r) => r.passed);

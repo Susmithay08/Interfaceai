@@ -1,9 +1,9 @@
 import type { Observation, UiNode } from "../model/observation.js";
 import type {
+  ConcreteTargetDescriptor,
+  ConcreteTargetStrategy,
   Resolution,
   StrategyAttempt,
-  TargetDescriptor,
-  TargetStrategy,
 } from "../model/target.js";
 import { matchStrategy } from "./strategies.js";
 
@@ -13,9 +13,9 @@ import { matchStrategy } from "./strategies.js";
  *
  * Never throws and never guesses: an ambiguous match is a failure value, not a coin flip.
  */
-export function resolveTarget(t: TargetDescriptor, o: Observation): Resolution {
+export function resolveTarget(t: ConcreteTargetDescriptor, o: Observation): Resolution {
   const attempts: StrategyAttempt[] = [];
-  const ladder: TargetStrategy[] = [t.primary, ...t.fallbacks];
+  const ladder: ConcreteTargetStrategy[] = [t.primary, ...t.fallbacks];
 
   for (let tier = 0; tier < ladder.length; tier++) {
     const strategy = ladder[tier]!;
