@@ -289,8 +289,7 @@ type CapabilityShape = z.infer<typeof CapabilityBase>;
  * Mirrors policy/risk.ts classifyAction. model/ stays dependency-free by design,
  * so the rule is duplicated here; a test in tests/unit/policy asserts the two agree.
  */
-const MUTATING =
-  /\b(submit|confirm|post|transfer|delete|remove|approve|close|authorize)\b/i;
+const MUTATING = /\b(transfer|post|delete|remove|approve|authorize|confirm|withdraw|disburse)\b/i;
 
 function localRisk(a: StepActionType): "readOnly" | "reversible" | "irreversible" {
   switch (a.kind) {
