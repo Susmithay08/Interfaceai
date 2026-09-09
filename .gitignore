@@ -6,3 +6,4 @@ dist/
 *.log
 # assignment brief — not part of the deliverable
 Assignment A — Computer-Use Automation System.pdf
+.scratch/
