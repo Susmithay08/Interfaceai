@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 import express from "express";
 import type { Express, Request, Response, NextFunction } from "express";
 import { MEMBERS, MEMBER_ID_PATTERN, findMembers } from "./state.js";
@@ -127,8 +129,11 @@ export function createTargetApp(): Express {
   return app;
 }
 
+// Compare real paths, not URL text: a directory containing a space is percent-encoded in
+// import.meta.url and would never match argv[1].
 const isEntrypoint =
-  process.argv[1] !== undefined && import.meta.url.endsWith(process.argv[1].replace(/\\/g, "/"));
+  process.argv[1] !== undefined &&
+  resolve(fileURLToPath(import.meta.url)) === resolve(process.argv[1]);
 
 if (isEntrypoint) {
   const port = Number(process.env["TARGET_APP_PORT"] ?? 4000);

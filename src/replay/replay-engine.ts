@@ -41,6 +41,8 @@ export interface ReplayDeps {
 export interface ReplayOptions {
   readonly unattended: boolean;
   readonly runId: string;
+  /** Overrides the artifact's operator timeout. Shorter for demos and tests, never longer silently. */
+  readonly operatorTimeoutSeconds?: number;
 }
 
 const RESOLVE_RETRY_MS = 4000;
@@ -859,7 +861,7 @@ export class ReplayEngine {
     try {
       await this.deps.lease.waitUntilHeldBy(
         "automation",
-        capability.escalation.operatorTimeoutSeconds * 1000,
+        (opts.operatorTimeoutSeconds ?? capability.escalation.operatorTimeoutSeconds) * 1000,
       );
     } catch {
       this.deps.escalation.timeOut(intervention.id, "no operator took control in time");

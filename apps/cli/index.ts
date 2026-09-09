@@ -8,7 +8,16 @@ import { FileCapabilityStore } from "../../src/store/capability-store.js";
 import type { ReplayResult } from "../../src/model/result.js";
 import { OperatorHandoff } from "../../src/session/operator-handoff.js";
 import { startOperatorConsole } from "../operator-console/server.js";
-import { baseUrl, bootstrap, credentials, evidencePathFor, newRunId } from "./runtime.js";
+import {
+  baseUrl,
+  bootstrap,
+  credentials,
+  evidencePathFor,
+  loadEnv,
+  newRunId,
+} from "./runtime.js";
+
+loadEnv();
 
 /**
  * Exit codes are the contract for anything scripting this:
@@ -102,6 +111,7 @@ program
   .option("--evidence-dir <dir>", "where to write the evidence bundle")
   .option("--attended", "allow steps that require a human to confirm", false)
   .option("--console-port <n>", "serve the operator console for this run on a port")
+  .option("--operator-timeout <seconds>", "how long an escalated run waits for a human")
   .option("--headed", "watch the browser", false)
   .action(async (ref: string, o) => {
     const [id, version] = ref.split("@");
@@ -132,8 +142,11 @@ program
       const result = await engine.replay(capability, parseInputs(o.inputs), {
         unattended: !o.attended,
         runId,
+        ...(o.operatorTimeout ? { operatorTimeoutSeconds: Number(o.operatorTimeout) } : {}),
       });
       await console_?.stop();
+      // The result sits beside the event log, so a bundle can be read without replaying it.
+      writeFileSync(`${rt.evidence.runDir}/result.json`, JSON.stringify(result, null, 2), "utf8");
       process.exitCode = report(result);
     } finally {
       await rt.surface.dispose();

@@ -1,0 +1,592 @@
+{
+  "observationId": "obs_6",
+  "surfaceKind": "web",
+  "locationHint": "/teller",
+  "title": "CoreBank Teller",
+  "screenSignature": "fd4417de741a02c0",
+  "nodes": [
+    {
+      "ref": "obs_6f1n4",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_6f1n7",
+      "role": "cell",
+      "name": "Member Search Account Servicing",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search Account Servicing"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f1n8",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_6f1n11",
+      "role": "cell",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f1n12",
+      "role": "link",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_6f1n14",
+      "role": "cell",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Servicing"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f1n15",
+      "role": "link",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_6f2n4",
+      "role": "table",
+      "value": "Search Results No matching member for that ID. Member Search Member ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_6f2n7",
+      "role": "cell",
+      "name": "Search Results No matching member for that ID. Member Search Member ID",
+      "value": "Search Results No matching member for that ID. Member Search Member ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Search Results No matching member for that ID. Member Search Member ID"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f2n8",
+      "role": "heading",
+      "name": "Search Results",
+      "value": "Search Results",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_6f2n9",
+      "role": "table",
+      "name": "Search Results",
+      "value": "No matching member for that ID.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_6f2n12",
+      "role": "cell",
+      "name": "No matching member for that ID.",
+      "value": "No matching member for that ID.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "No matching member for that ID."
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f2n13",
+      "role": "status",
+      "name": "No matching member for that ID.",
+      "value": "No matching member for that ID.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "span"
+      }
+    },
+    {
+      "ref": "obs_6f2n15",
+      "role": "heading",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_6f2n16",
+      "role": "form",
+      "name": "Member ID",
+      "value": "Member ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "form"
+      }
+    },
+    {
+      "ref": "obs_6f2n17",
+      "role": "table",
+      "value": "Member ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_6f2n20",
+      "role": "cell",
+      "name": "Member ID",
+      "value": "Member ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f2n22",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f2n23",
+      "role": "textbox",
+      "name": "Member ID",
+      "value": "",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "label",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "text"
+      }
+    },
+    {
+      "ref": "obs_6f2n25",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": ""
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f2n26",
+      "role": "button",
+      "name": "Search",
+      "value": "Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "submit"
+      }
+    }
+  ],
+  "capturedAt": "2026-09-09T22:31:48.249Z"
+}

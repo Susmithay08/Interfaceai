@@ -1,0 +1,516 @@
+{
+  "observationId": "obs_7",
+  "surfaceKind": "web",
+  "locationHint": "/teller",
+  "title": "CoreBank Teller",
+  "screenSignature": "d6312f00a31e4fd6",
+  "nodes": [
+    {
+      "ref": "obs_7f1n4",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_7f1n7",
+      "role": "cell",
+      "name": "Member Search Account Servicing",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search Account Servicing"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_7f1n8",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_7f1n11",
+      "role": "cell",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_7f1n12",
+      "role": "link",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_7f1n14",
+      "role": "cell",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Servicing"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_7f1n15",
+      "role": "link",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_7f2n4",
+      "role": "table",
+      "value": "Search Results MemberNameStatus 100234 Dana Whitfield Active",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_7f2n7",
+      "role": "cell",
+      "name": "Search Results MemberNameStatus 100234 Dana Whitfield Active",
+      "value": "Search Results MemberNameStatus 100234 Dana Whitfield Active",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Search Results MemberNameStatus 100234 Dana Whitfield Active"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_7f2n8",
+      "role": "heading",
+      "name": "Search Results",
+      "value": "Search Results",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_7f2n11",
+      "role": "table",
+      "value": "MemberNameStatus 100234 Dana Whitfield Active",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_7f2n14",
+      "role": "cell",
+      "name": "Member",
+      "value": "Member",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "th"
+      }
+    },
+    {
+      "ref": "obs_7f2n15",
+      "role": "cell",
+      "name": "Name",
+      "value": "Name",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "th"
+      }
+    },
+    {
+      "ref": "obs_7f2n16",
+      "role": "cell",
+      "name": "Status",
+      "value": "Status",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "th"
+      }
+    },
+    {
+      "ref": "obs_7f2n18",
+      "role": "cell",
+      "name": "100234",
+      "value": "100234",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "100234"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Member"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_7f2n19",
+      "role": "link",
+      "name": "100234",
+      "value": "100234",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_7f2n20",
+      "role": "cell",
+      "name": "Dana Whitfield",
+      "value": "Dana Whitfield",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "100234"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Name"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_7f2n21",
+      "role": "cell",
+      "name": "Active",
+      "value": "Active",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Search Results"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "100234"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Status"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Search Results"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    }
+  ],
+  "capturedAt": "2026-09-09T22:31:45.875Z"
+}

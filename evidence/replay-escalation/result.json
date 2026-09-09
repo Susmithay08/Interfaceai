@@ -1,0 +1,22 @@
+{
+  "status": "escalated",
+  "interventionId": "iv_a5d99211",
+  "reason": "riskyAction",
+  "steps": [
+    {
+      "stepId": "s1",
+      "intent": "Enter the member ID into the search form",
+      "actionKind": "fill",
+      "tier": 0,
+      "durationMs": 42
+    },
+    {
+      "stepId": "s2",
+      "intent": "Submit the member search",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 63
+    }
+  ],
+  "evidenceRef": "evidence/replay-escalation"
+}

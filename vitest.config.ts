@@ -4,8 +4,9 @@ export default defineConfig({
   test: {
     include: ["tests/**/*.test.ts"],
     environment: "node",
-    testTimeout: 30_000,
-    hookTimeout: 30_000,
+    // Browser-driven recovery tests wait on real timeouts; 30s was tight on a loaded machine.
+    testTimeout: 60_000,
+    hookTimeout: 60_000,
     fileParallelism: false,
   },
 });

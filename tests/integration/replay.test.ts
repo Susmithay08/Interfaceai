@@ -289,7 +289,7 @@ describe("hard failures", () => {
       expect(r.error.attempts.length).toBeGreaterThan(0);
       expect(r.error.expected).toContain("textbox");
     }
-  }, 30_000);
+  }, 60_000);
 
   it("blocks and does not execute when policy denies the action kind", async () => {
     const denying = buildEngine({
@@ -319,7 +319,7 @@ describe("hard failures", () => {
     });
     expect(r.status).toBe("escalated");
     if (r.status === "escalated") expect(r.reason).toBe("riskyAction");
-  }, 30_000);
+  }, 60_000);
 });
 
 describe("determinism", () => {

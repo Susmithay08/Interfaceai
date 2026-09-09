@@ -1,0 +1,56 @@
+{
+  "status": "success",
+  "outputs": {
+    "memberName": "Dana Whitfield",
+    "savingsBalance": 4182.55,
+    "savingsAccountLast4": "4417"
+  },
+  "steps": [
+    {
+      "stepId": "s1",
+      "intent": "Enter the member ID into the search form",
+      "actionKind": "fill",
+      "tier": 0,
+      "durationMs": 38
+    },
+    {
+      "stepId": "s2",
+      "intent": "Submit the member search",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 58
+    },
+    {
+      "stepId": "s3",
+      "intent": "Open the matching member's detail screen from the results table",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 46
+    },
+    {
+      "stepId": "s4",
+      "intent": "Wait for the accounts table to be present before reading the balance",
+      "actionKind": "wait",
+      "tier": null,
+      "durationMs": 10
+    }
+  ],
+  "evidenceRef": "evidence/replay-success",
+  "resolutionReport": [
+    {
+      "stepId": "s1",
+      "tier": 0,
+      "strategyKind": "labelled"
+    },
+    {
+      "stepId": "s2",
+      "tier": 0,
+      "strategyKind": "roleAndName"
+    },
+    {
+      "stepId": "s3",
+      "tier": 0,
+      "strategyKind": "roleAndName"
+    }
+  ]
+}

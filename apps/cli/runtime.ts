@@ -1,4 +1,4 @@
-import { mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
 import { FileEvidenceSink } from "../../src/evidence/sink.js";
@@ -12,6 +12,21 @@ export interface RuntimeOptions {
   readonly evidenceDir: string;
   readonly headed?: boolean;
   readonly slowMoMs?: number;
+}
+
+/**
+ * Reads .env without a dependency. Values already in the environment win, so CI and a
+ * shell export both override the file. Nothing here is ever written back out.
+ */
+export function loadEnv(path = ".env"): void {
+  if (!existsSync(path)) return;
+  for (const raw of readFileSync(path, "utf8").split(/\r?\n/)) {
+    const line = raw.trim();
+    const m = /^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/.exec(line);
+    if (!m || line.startsWith("#")) continue;
+    const value = m[2]!.trim().replace(/^["']|["']$/g, "");
+    if (process.env[m[1]!] === undefined) process.env[m[1]!] = value;
+  }
 }
 
 export const newRunId = (prefix: string): string => `${prefix}_${randomUUID().slice(0, 8)}`;

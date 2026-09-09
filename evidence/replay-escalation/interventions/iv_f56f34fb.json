@@ -1,0 +1,22 @@
+{
+  "runId": "replay_0decc01b",
+  "mode": "replay",
+  "capabilityId": "corebank.member.readSavingsBalance",
+  "goal": "Read a member's current savings balance",
+  "stepId": "s2",
+  "stepIntent": "Submit the member search",
+  "reason": "riskyAction",
+  "expected": "no declared outcome permitting progress",
+  "observed": "PERMISSION_DENIED: The automation identity lacks entitlement for this screen. Requires a human decision, and must never be retried.",
+  "observationRef": "evidence\\replay-escalation\\observations\\escalation-1788992661973.json",
+  "screenshotRef": "evidence\\replay-escalation\\screenshots\\1788992661963-escalation-riskyAction.png",
+  "resumePlan": {
+    "resumeAtStepId": "s2",
+    "mode": "retryStep"
+  },
+  "id": "iv_f56f34fb",
+  "createdAt": "2026-09-09T22:24:21.974Z",
+  "status": "timedOut",
+  "resolutionNote": "no operator took control in time",
+  "resolvedAt": "2026-09-09T22:24:26.978Z"
+}

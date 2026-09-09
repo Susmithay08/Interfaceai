@@ -1,0 +1,22 @@
+{
+  "status": "business_outcome",
+  "code": "MEMBER_NOT_FOUND",
+  "message": "No matching member for that ID.",
+  "steps": [
+    {
+      "stepId": "s1",
+      "intent": "Enter the member ID into the search form",
+      "actionKind": "fill",
+      "tier": 0,
+      "durationMs": 38
+    },
+    {
+      "stepId": "s2",
+      "intent": "Submit the member search",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 67
+    }
+  ],
+  "evidenceRef": "evidence/replay-business-outcome"
+}

@@ -1,0 +1,30 @@
+{"type":"run_started","runId":"replay_128af76d","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-09T22:24:05.552Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-09T22:24:05.553Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_1.json","at":"2026-09-09T22:24:05.614Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_2.json","at":"2026-09-09T22:24:05.633Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-09T22:24:05.634Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_3.json","at":"2026-09-09T22:24:05.651Z"}
+{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":49,"at":"2026-09-09T22:24:05.683Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_4.json","at":"2026-09-09T22:24:05.693Z"}
+{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-09T22:24:05.694Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-09T22:24:05.694Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_5.json","at":"2026-09-09T22:24:05.702Z"}
+{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":70,"at":"2026-09-09T22:24:05.764Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"fd4417de741a02c0","nodeCount":21,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_6.json","at":"2026-09-09T22:24:05.779Z"}
+{"type":"outcome_detected","stepId":"s2","code":"MEMBER_NOT_FOUND","outcomeClass":"business","observed":"No matching member for that ID.","at":"2026-09-09T22:24:05.781Z"}
+{"type":"run_finished","runId":"replay_128af76d","status":"business_outcome","code":"MEMBER_NOT_FOUND","durationMs":265,"at":"2026-09-09T22:24:05.817Z"}
+{"type":"run_started","runId":"replay_2e221f7d","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-09T22:31:48.046Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-09T22:31:48.047Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_1.json","at":"2026-09-09T22:31:48.105Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_2.json","at":"2026-09-09T22:31:48.119Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-09T22:31:48.120Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_3.json","at":"2026-09-09T22:31:48.134Z"}
+{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":38,"at":"2026-09-09T22:31:48.158Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_4.json","at":"2026-09-09T22:31:48.167Z"}
+{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-09T22:31:48.168Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-09T22:31:48.168Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_5.json","at":"2026-09-09T22:31:48.177Z"}
+{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":67,"at":"2026-09-09T22:31:48.235Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"fd4417de741a02c0","nodeCount":21,"locationHint":"/teller","ref":"evidence\\replay-business-outcome\\observations\\obs_6.json","at":"2026-09-09T22:31:48.249Z"}
+{"type":"outcome_detected","stepId":"s2","code":"MEMBER_NOT_FOUND","outcomeClass":"business","observed":"No matching member for that ID.","at":"2026-09-09T22:31:48.250Z"}
+{"type":"run_finished","runId":"replay_2e221f7d","status":"business_outcome","code":"MEMBER_NOT_FOUND","durationMs":240,"at":"2026-09-09T22:31:48.286Z"}
