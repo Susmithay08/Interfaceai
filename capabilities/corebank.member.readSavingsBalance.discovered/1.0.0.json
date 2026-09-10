@@ -1,0 +1,425 @@
+{
+  "schemaVersion": "1.0",
+  "id": "corebank.member.readSavingsBalance.discovered",
+  "version": "1.0.0",
+  "title": "look up member 100234 and read their current savings balance",
+  "description": "Discovered from the goal: look up member 100234 and read their current savings balance",
+  "app": {
+    "product": "corebank-teller",
+    "productVersion": "8.x",
+    "variant": "base",
+    "entry": {
+      "path": "/teller"
+    }
+  },
+  "entryCheckpoint": {
+    "kind": "exists",
+    "target": {
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "expectedRole": "textbox",
+      "primary": {
+        "kind": "labelled",
+        "params": {
+          "label": "Member ID"
+        }
+      },
+      "fallbacks": [
+        {
+          "kind": "roleAndName",
+          "params": {
+            "role": "textbox",
+            "name": "Member ID"
+          }
+        },
+        {
+          "kind": "roleInRegion",
+          "params": {
+            "region": "Member Search",
+            "role": "textbox"
+          }
+        },
+        {
+          "kind": "ordinalInScope",
+          "params": {
+            "role": "textbox",
+            "index": 0
+          }
+        }
+      ],
+      "cardinality": "exactlyOne",
+      "rationale": "Identified by an explicit label association, the most stable identifier available on a form with no test ids. This surface has no test ids and uses table-based layout, so structural selectors are not viable. 3 verified fallback(s) recorded."
+    }
+  },
+  "status": "approved",
+  "risk": "reversible",
+  "inputs": {
+    "memberId": {
+      "type": "string",
+      "description": "Supplied by the caller at replay time. Discovery used \"100234\".",
+      "required": true,
+      "sensitivity": "identifier",
+      "example": "100234"
+    }
+  },
+  "outputs": {
+    "currentSavingsBalance": {
+      "type": "string",
+      "description": "Value read from the cell identified during discovery.",
+      "required": true,
+      "sensitivity": "financial",
+      "source": {
+        "from": "s3",
+        "target": {
+          "scope": {
+            "path": [
+              {
+                "by": "name",
+                "value": "content"
+              }
+            ],
+            "region": {
+              "by": "heading",
+              "value": "Accounts"
+            }
+          },
+          "expectedRole": "cell",
+          "primary": {
+            "kind": "anchoredCell",
+            "params": {
+              "rowKey": "Savings",
+              "columnHeader": "Current Balance"
+            }
+          },
+          "fallbacks": [],
+          "cardinality": "exactlyOne",
+          "rationale": "Identified by row-key by column-header anchoring, which survives column reordering and added columns on a table with no ids. This surface has no test ids and uses table-based layout, so structural selectors are not viable."
+        },
+        "read": "value"
+      },
+      "transform": [
+        {
+          "kind": "trim"
+        }
+      ]
+    }
+  },
+  "preconditions": [],
+  "steps": [
+    {
+      "id": "s1",
+      "intent": "Enter member ID to search",
+      "action": {
+        "kind": "fill",
+        "target": {
+          "scope": {
+            "path": [
+              {
+                "by": "name",
+                "value": "content"
+              }
+            ]
+          },
+          "expectedRole": "textbox",
+          "primary": {
+            "kind": "labelled",
+            "params": {
+              "label": "Member ID"
+            }
+          },
+          "fallbacks": [
+            {
+              "kind": "roleAndName",
+              "params": {
+                "role": "textbox",
+                "name": "Member ID"
+              }
+            },
+            {
+              "kind": "roleInRegion",
+              "params": {
+                "region": "Member Search",
+                "role": "textbox"
+              }
+            },
+            {
+              "kind": "ordinalInScope",
+              "params": {
+                "role": "textbox",
+                "index": 0
+              }
+            }
+          ],
+          "cardinality": "exactlyOne",
+          "rationale": "Identified by an explicit label association, the most stable identifier available on a form with no test ids. This surface has no test ids and uses table-based layout, so structural selectors are not viable. 3 verified fallback(s) recorded."
+        },
+        "value": {
+          "from": "input",
+          "name": "memberId"
+        }
+      },
+      "checkpoint": {
+        "kind": "exists",
+        "target": {
+          "scope": {
+            "path": [
+              {
+                "by": "name",
+                "value": "content"
+              }
+            ]
+          },
+          "expectedRole": "button",
+          "primary": {
+            "kind": "roleAndName",
+            "params": {
+              "role": "button",
+              "name": "Search"
+            }
+          },
+          "fallbacks": [
+            {
+              "kind": "roleInRegion",
+              "params": {
+                "region": "Member Search",
+                "role": "button"
+              }
+            },
+            {
+              "kind": "ordinalInScope",
+              "params": {
+                "role": "button",
+                "index": 0
+              }
+            }
+          ],
+          "cardinality": "exactlyOne",
+          "rationale": "Identified by role plus accessible name, which is stable across this product's versions. This surface has no test ids and uses table-based layout, so structural selectors are not viable. 2 verified fallback(s) recorded."
+        }
+      },
+      "robustness": "strong",
+      "provenance": "llm"
+    },
+    {
+      "id": "s2",
+      "intent": "Click Search to retrieve member details after entering Member ID",
+      "action": {
+        "kind": "click",
+        "target": {
+          "scope": {
+            "path": [
+              {
+                "by": "name",
+                "value": "content"
+              }
+            ]
+          },
+          "expectedRole": "button",
+          "primary": {
+            "kind": "roleAndName",
+            "params": {
+              "role": "button",
+              "name": "Search"
+            }
+          },
+          "fallbacks": [
+            {
+              "kind": "roleInRegion",
+              "params": {
+                "region": "Member Search",
+                "role": "button"
+              }
+            },
+            {
+              "kind": "ordinalInScope",
+              "params": {
+                "role": "button",
+                "index": 0
+              }
+            }
+          ],
+          "cardinality": "exactlyOne",
+          "rationale": "Identified by role plus accessible name, which is stable across this product's versions. This surface has no test ids and uses table-based layout, so structural selectors are not viable. 2 verified fallback(s) recorded."
+        }
+      },
+      "checkpoint": {
+        "kind": "exists",
+        "target": {
+          "scope": {
+            "path": [
+              {
+                "by": "name",
+                "value": "content"
+              }
+            ]
+          },
+          "expectedRole": "link",
+          "primary": {
+            "kind": "roleAndName",
+            "params": {
+              "role": "link",
+              "name": {
+                "from": "input",
+                "name": "memberId"
+              }
+            }
+          },
+          "fallbacks": [
+            {
+              "kind": "roleInRegion",
+              "params": {
+                "region": "Search Results",
+                "role": "link"
+              }
+            },
+            {
+              "kind": "ordinalInScope",
+              "params": {
+                "role": "link",
+                "index": 0
+              }
+            }
+          ],
+          "cardinality": "exactlyOne",
+          "rationale": "Identified by role plus accessible name, which is stable across this product's versions. This surface has no test ids and uses table-based layout, so structural selectors are not viable. 2 verified fallback(s) recorded."
+        }
+      },
+      "robustness": "strong",
+      "provenance": "llm"
+    },
+    {
+      "id": "s3",
+      "intent": "Open member details for ID 100234 to view savings balance",
+      "action": {
+        "kind": "click",
+        "target": {
+          "scope": {
+            "path": [
+              {
+                "by": "name",
+                "value": "content"
+              }
+            ]
+          },
+          "expectedRole": "link",
+          "primary": {
+            "kind": "roleAndName",
+            "params": {
+              "role": "link",
+              "name": {
+                "from": "input",
+                "name": "memberId"
+              }
+            }
+          },
+          "fallbacks": [
+            {
+              "kind": "roleInRegion",
+              "params": {
+                "region": "Search Results",
+                "role": "link"
+              }
+            },
+            {
+              "kind": "ordinalInScope",
+              "params": {
+                "role": "link",
+                "index": 0
+              }
+            }
+          ],
+          "cardinality": "exactlyOne",
+          "rationale": "Identified by role plus accessible name, which is stable across this product's versions. This surface has no test ids and uses table-based layout, so structural selectors are not viable. 2 verified fallback(s) recorded."
+        }
+      },
+      "checkpoint": {
+        "kind": "exists",
+        "target": {
+          "scope": {
+            "path": [
+              {
+                "by": "name",
+                "value": "content"
+              }
+            ],
+            "region": {
+              "by": "heading",
+              "value": "Accounts"
+            }
+          },
+          "expectedRole": "cell",
+          "primary": {
+            "kind": "anchoredCell",
+            "params": {
+              "rowKey": "Savings",
+              "columnHeader": "Current Balance"
+            }
+          },
+          "fallbacks": [],
+          "cardinality": "exactlyOne",
+          "rationale": "Identified by row-key by column-header anchoring, which survives column reordering and added columns on a table with no ids. This surface has no test ids and uses table-based layout, so structural selectors are not viable."
+        }
+      },
+      "robustness": "strong",
+      "provenance": "llm"
+    }
+  ],
+  "successCheckpoint": {
+    "kind": "exists",
+    "target": {
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "expectedRole": "cell",
+      "primary": {
+        "kind": "anchoredCell",
+        "params": {
+          "rowKey": "Savings",
+          "columnHeader": "Current Balance"
+        }
+      },
+      "fallbacks": [],
+      "cardinality": "exactlyOne",
+      "rationale": "Identified by row-key by column-header anchoring, which survives column reordering and added columns on a table with no ids. This surface has no test ids and uses table-based layout, so structural selectors are not viable."
+    }
+  },
+  "outcomes": [],
+  "escalation": {
+    "onHardFailure": "escalate",
+    "onUnresolvedTarget": "escalate",
+    "onAmbiguousTarget": "escalate",
+    "onUnknownState": "escalate",
+    "operatorTimeoutSeconds": 900
+  },
+  "provenance": {
+    "generatedBy": "llm-discovery",
+    "discoveredAt": "2026-09-10T04:56:50.667Z",
+    "runId": "disc_a174cd7c",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "evidenceRunRef": "evidence/discovery-run",
+    "goal": "look up member 100234 and read their current savings balance",
+    "llmStepCount": 3,
+    "humanStepCount": 0
+  },
+  "review": {
+    "notes": "Reviewed after the live discovery run: every target is semantic (labelled, role+name, row/column anchored), the member link is parameterized to the memberId input so the recording is not pinned to one member, savingsBalance is tagged financial, and no weak target was recorded. Risk confirmed as read-only in effect. Approved for unattended replay.",
+    "weakTargets": [],
+    "reviewedBy": "human"
+  }
+}

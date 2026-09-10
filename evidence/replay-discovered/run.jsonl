@@ -1,0 +1,25 @@
+{"type":"run_started","runId":"replay_08a532a7","mode":"replay","capabilityId":"corebank.member.readSavingsBalance.discovered","capabilityVersion":"1.0.0","goal":"look up member 100234 and read their current savings balance","at":"2026-09-10T05:11:02.310Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:11:02.311Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_1.json","at":"2026-09-10T05:11:02.366Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-10T05:11:02.368Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_2.json","at":"2026-09-10T05:11:02.382Z"}
+{"type":"action","stepId":"s1","intent":"Enter member ID to search","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":39,"at":"2026-09-10T05:11:02.407Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_3.json","at":"2026-09-10T05:11:02.419Z"}
+{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-10T05:11:02.420Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:11:02.420Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_4.json","at":"2026-09-10T05:11:02.434Z"}
+{"type":"action","stepId":"s2","intent":"Click Search to retrieve member details after entering Member ID","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":95,"at":"2026-09-10T05:11:02.515Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_5.json","at":"2026-09-10T05:11:02.524Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_6.json","at":"2026-09-10T05:11:02.542Z"}
+{"type":"checkpoint","stepId":"s2","passed":true,"detail":"s2: resolved at tier 0","at":"2026-09-10T05:11:02.543Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:11:02.543Z"}
+{"type":"observation","observationId":"obs_7","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_7.json","at":"2026-09-10T05:11:02.554Z"}
+{"type":"action","stepId":"s3","intent":"Open member details for ID 100234 to view savings balance","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":41,"at":"2026-09-10T05:11:02.584Z"}
+{"type":"observation","observationId":"obs_8","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_8.json","at":"2026-09-10T05:11:02.601Z"}
+{"type":"checkpoint","stepId":"s3","passed":true,"detail":"s3: resolved at tier 0","at":"2026-09-10T05:11:02.602Z"}
+{"type":"observation","observationId":"obs_9","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_9.json","at":"2026-09-10T05:11:02.613Z"}
+{"type":"observation","observationId":"obs_10","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-discovered\\observations\\obs_10.json","at":"2026-09-10T05:11:02.622Z"}
+{"type":"extraction","output":"currentSavingsBalance","ok":true,"at":"2026-09-10T05:11:02.623Z"}
+{"type":"run_finished","runId":"replay_08a532a7","status":"success","durationMs":313,"at":"2026-09-10T05:11:02.623Z"}
+{"type":"run_finished","runId":"replay_32ee7500","status":"escalated","durationMs":900068,"at":"2026-09-10T05:11:57.373Z"}
+{"type":"run_finished","runId":"replay_496dd2c5","status":"escalated","durationMs":900282,"at":"2026-09-10T05:18:52.514Z"}

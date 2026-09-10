@@ -95,6 +95,14 @@ control the next step needs is now reachable* instead of asserting where the add
 **Entry runs through the same outcome table**, via a synthetic step. Without that, a session timeout
 *at entry* was an entry failure rather than the declared recoverable condition it plainly is.
 
+**Waiting is symmetric.** Target resolution retried a transient load for ten seconds, but checkpoint
+assertion was a single look — an asymmetry that only shows up against a real server-rendered app,
+where a click navigates and the assertion lands before the new page does. It reported steps that had
+worked as failures. Post-action checkpoints now get the same ten-second grace; preconditions
+deliberately do not, because they describe the state *before* acting, so nothing is in flight to
+wait for. A checkpoint that passes immediately still costs nothing, and outcome detection runs
+first, so a known business outcome never pays the wait on its way to being returned.
+
 ## Heterogeneity and multi-tenant
 
 Nothing in the model is web-specific: `ScopePath` is a containment path addressed by *how* it is
@@ -151,10 +159,24 @@ no unexplained human-shaped gap in it.
   appears in evidence.
 - **Redaction happens at the sink**, so no call site can forget it, and the model sees financial
   figures only as `[FINANCIAL]`.
+- **Data is never used as an address.** The recorder will not locate a table cell by the value it is
+  displaying. The live run first recorded the balance cell as `roleAndName cell "$4,182.55"`, which
+  is wrong twice over: it pins the capability to one member's balance, and it writes a financial
+  value into an artifact that is meant to be reviewable and shareable. Row-key by column-header
+  anchoring survives because "Savings" identifies the row rather than its contents. The rule is
+  scoped to cells by role — a link or a button is named by its label, which *is* its identity.
 
 ## Cuts
 
 Stated plainly, because each one is a real limit.
+
+- **The live discovery run is one model on one surface.** Four defects surfaced only when a real
+  model drove a real browser, none of which a scripted test had caught: the loop observed before the
+  click had landed, the recorder addressed a cell by its contents, a repeated extraction counted as
+  "no progress" and escalated a run that had already succeeded, and checkpoints asserted without the
+  grace that target resolution already had. All four are fixed and carry regression tests. The
+  lesson I would carry forward is that the scripted harness proves the *plumbing*; only the live run
+  proves the *judgment calls*, and the two failure sets barely overlap.
 
 - **No desktop surface.** The seam is designed and the model is surface-neutral, but only the web
   adapter exists. An adapter that has never run proves nothing.

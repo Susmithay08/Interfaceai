@@ -8,14 +8,14 @@
       "intent": "Enter the member ID into the search form",
       "actionKind": "fill",
       "tier": 0,
-      "durationMs": 38
+      "durationMs": 32
     },
     {
       "stepId": "s2",
       "intent": "Submit the member search",
       "actionKind": "click",
       "tier": 0,
-      "durationMs": 67
+      "durationMs": 68
     }
   ],
   "evidenceRef": "evidence/replay-business-outcome"

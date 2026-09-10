@@ -11,28 +11,28 @@
       "intent": "Enter the member ID into the search form",
       "actionKind": "fill",
       "tier": 0,
-      "durationMs": 38
+      "durationMs": 45
     },
     {
       "stepId": "s2",
       "intent": "Submit the member search",
       "actionKind": "click",
       "tier": 0,
-      "durationMs": 58
+      "durationMs": 96
     },
     {
       "stepId": "s3",
       "intent": "Open the matching member's detail screen from the results table",
       "actionKind": "click",
       "tier": 0,
-      "durationMs": 46
+      "durationMs": 52
     },
     {
       "stepId": "s4",
       "intent": "Wait for the accounts table to be present before reading the balance",
       "actionKind": "wait",
       "tier": null,
-      "durationMs": 10
+      "durationMs": 12
     }
   ],
   "evidenceRef": "evidence/replay-success",

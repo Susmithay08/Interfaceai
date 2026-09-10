@@ -1,0 +1,22 @@
+{
+  "status": "escalated",
+  "interventionId": "iv_3be8c930",
+  "reason": "checkpointFailed",
+  "steps": [
+    {
+      "stepId": "s1",
+      "intent": "Enter member ID to search",
+      "actionKind": "fill",
+      "tier": 0,
+      "durationMs": 46
+    },
+    {
+      "stepId": "s2",
+      "intent": "Click Search to retrieve member details after entering Member ID",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 64
+    }
+  ],
+  "evidenceRef": "evidence/replay-discovered"
+}

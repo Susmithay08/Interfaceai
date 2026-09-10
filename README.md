@@ -105,6 +105,27 @@ The recorded artifact is always `status: "draft"`. Discovery never approves its 
 reviews the risk class, the output sensitivities, and any weak target before it can replay
 unattended. Add `--save` to write it into `capabilities/`.
 
+Evidence from a real run against `openai/gpt-oss-120b` is in `evidence/discovery-run/`.
+
+### 6. The round trip — replay what the model discovered
+
+Discovery with `--save` writes the draft into `capabilities/`. Replaying a **draft** escalates
+rather than running unattended, which is the approval gate doing its job; promote it to
+`approved` after reviewing its locators and output sensitivities, then:
+
+```bash
+npm run cli -- replay corebank.member.readSavingsBalance.discovered   --inputs '{"memberId":"100234"}' --evidence-dir evidence/replay-discovered
+```
+
+```
+status: success
+{ "currentSavingsBalance": "$4,182.55" }
+steps: s1(tier 0) -> s2(tier 0) -> s3(tier 0)
+```
+
+Every step resolves at tier 0 — the primary locator, no fallback needed. See
+`evidence/replay-discovered/`.
+
 ### Faults you can arm
 
 `notFound`, `validationError`, `interstitial`, `sessionExpired`, `permissionDenied`, `slowLoad`,
