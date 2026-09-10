@@ -1,31 +1,43 @@
-{"type":"run_started","runId":"disc_a174cd7c","mode":"discovery","goal":"look up member 100234 and read their current savings balance","at":"2026-09-10T04:55:58.492Z"}
-{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-10T04:55:58.494Z"}
-{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_1.json","at":"2026-09-10T04:55:58.547Z"}
-{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_1.json","at":"2026-09-10T04:55:58.548Z"}
-{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"act:fill","rationale":"Enter member ID to search","targetRef":"obs_1f2n18","at":"2026-09-10T04:55:59.335Z"}
-{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"readOnly","at":"2026-09-10T04:55:59.338Z"}
-{"type":"action","stepId":"s1","actionKind":"fill","resolutionTier":0,"durationMs":31,"at":"2026-09-10T04:55:59.370Z"}
-{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_2.json","at":"2026-09-10T04:55:59.383Z"}
-{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_2.json","at":"2026-09-10T04:55:59.384Z"}
-{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"act:click","rationale":"Click Search to retrieve member details after entering Member ID","targetRef":"obs_2f2n21","at":"2026-09-10T04:55:59.889Z"}
-{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T04:55:59.890Z"}
-{"type":"action","stepId":"s2","actionKind":"click","resolutionTier":0,"durationMs":58,"at":"2026-09-10T04:55:59.949Z"}
-{"type":"observation","observationId":"obs_3","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_3.json","at":"2026-09-10T04:56:00.066Z"}
-{"type":"observation","observationId":"obs_4","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_4.json","at":"2026-09-10T04:56:00.077Z"}
-{"type":"observation","observationId":"obs_4","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_4.json","at":"2026-09-10T04:56:00.078Z"}
-{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"act:click","rationale":"Open member details for ID 100234 to view savings balance","targetRef":"obs_4f2n20","at":"2026-09-10T04:56:05.757Z"}
-{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T04:56:05.759Z"}
-{"type":"action","stepId":"s3","actionKind":"click","resolutionTier":0,"durationMs":73,"at":"2026-09-10T04:56:05.832Z"}
-{"type":"observation","observationId":"obs_5","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_5.json","at":"2026-09-10T04:56:05.990Z"}
-{"type":"observation","observationId":"obs_6","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_6.json","at":"2026-09-10T04:56:06.033Z"}
-{"type":"observation","observationId":"obs_6","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_6.json","at":"2026-09-10T04:56:06.037Z"}
-{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"extract","rationale":"Extract the current balance for the Savings account","targetRef":"obs_6f2n27","at":"2026-09-10T04:56:22.228Z"}
-{"type":"extraction","output":"currentSavingsBalance","ok":true,"detail":"[FINANCIAL]","at":"2026-09-10T04:56:22.231Z"}
-{"type":"observation","observationId":"obs_7","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_7.json","at":"2026-09-10T04:56:22.273Z"}
-{"type":"observation","observationId":"obs_7","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_7.json","at":"2026-09-10T04:56:22.278Z"}
-{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"extract","rationale":"Extract the current balance for the Savings account","targetRef":"obs_7f2n27","at":"2026-09-10T04:56:35.778Z"}
-{"type":"extraction","output":"currentSavingsBalance","ok":true,"detail":"[FINANCIAL]","at":"2026-09-10T04:56:35.779Z"}
-{"type":"observation","observationId":"obs_8","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_8.json","at":"2026-09-10T04:56:35.809Z"}
-{"type":"observation","observationId":"obs_8","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_8.json","at":"2026-09-10T04:56:35.812Z"}
-{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"done","rationale":"Retrieved current savings balance for member 100234","at":"2026-09-10T04:56:50.662Z"}
-{"type":"run_finished","runId":"disc_a174cd7c","status":"recorded","durationMs":52176,"at":"2026-09-10T04:56:50.668Z"}
+{"type":"run_started","runId":"disc_1d2762f3","mode":"discovery","goal":"look up member 100234 and read their current savings balance","at":"2026-09-10T05:23:39.391Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:23:39.393Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_1.json","at":"2026-09-10T05:23:39.447Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_1.json","at":"2026-09-10T05:23:39.449Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"act:fill","rationale":"Enter the member ID to look up the member","targetRef":"obs_1f2n19","at":"2026-09-10T05:23:40.278Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:23:40.282Z"}
+{"type":"action","stepId":"s1","actionKind":"fill","resolutionTier":0,"durationMs":30,"at":"2026-09-10T05:23:40.312Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_2.json","at":"2026-09-10T05:23:40.325Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_2.json","at":"2026-09-10T05:23:40.326Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"act:click","rationale":"Click Search to retrieve member details","targetRef":"obs_2f2n22","at":"2026-09-10T05:23:40.887Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:23:40.889Z"}
+{"type":"action","stepId":"s2","actionKind":"click","resolutionTier":0,"durationMs":57,"at":"2026-09-10T05:23:40.947Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_3.json","at":"2026-09-10T05:23:41.071Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_4.json","at":"2026-09-10T05:23:41.080Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_4.json","at":"2026-09-10T05:23:41.081Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"act:click","rationale":"Open member 100234 details to view savings balance","targetRef":"obs_4f2n18","at":"2026-09-10T05:23:42.214Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:23:42.216Z"}
+{"type":"action","stepId":"s3","actionKind":"click","resolutionTier":0,"durationMs":48,"at":"2026-09-10T05:23:42.265Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_5.json","at":"2026-09-10T05:23:42.402Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_6.json","at":"2026-09-10T05:23:42.434Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_6.json","at":"2026-09-10T05:23:42.436Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"extract","rationale":"Extract the current balance for the Savings account","targetRef":"obs_6f2n28","at":"2026-09-10T05:23:43.554Z"}
+{"type":"extraction","output":"currentSavingsBalance","ok":true,"detail":"[FINANCIAL]","at":"2026-09-10T05:23:43.557Z"}
+{"type":"observation","observationId":"obs_7","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_7.json","at":"2026-09-10T05:23:43.594Z"}
+{"type":"observation","observationId":"obs_7","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_7.json","at":"2026-09-10T05:23:43.597Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"extract","rationale":"Extract the current balance for the Savings account row","targetRef":"obs_7f2n28","at":"2026-09-10T05:23:44.948Z"}
+{"type":"extraction","output":"currentSavingsBalance","ok":true,"detail":"[FINANCIAL]","at":"2026-09-10T05:23:44.950Z"}
+{"type":"observation","observationId":"obs_8","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_8.json","at":"2026-09-10T05:23:44.981Z"}
+{"type":"observation","observationId":"obs_8","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_8.json","at":"2026-09-10T05:23:44.986Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"extract","rationale":"Read the Savings account current balance","targetRef":"obs_8f2n28","at":"2026-09-10T05:23:50.657Z"}
+{"type":"extraction","output":"currentSavingsBalance","ok":true,"detail":"[FINANCIAL]","at":"2026-09-10T05:23:50.659Z"}
+{"type":"observation","observationId":"obs_9","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_9.json","at":"2026-09-10T05:23:50.691Z"}
+{"type":"observation","observationId":"obs_9","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_9.json","at":"2026-09-10T05:23:50.693Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"extract","rationale":"Read the current balance for the Savings account from the Accounts table","targetRef":"obs_9f2n28","at":"2026-09-10T05:24:03.830Z"}
+{"type":"extraction","output":"currentSavingsBalance","ok":true,"detail":"[FINANCIAL]","at":"2026-09-10T05:24:03.831Z"}
+{"type":"observation","observationId":"obs_10","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_10.json","at":"2026-09-10T05:24:03.862Z"}
+{"type":"observation","observationId":"obs_10","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_10.json","at":"2026-09-10T05:24:03.867Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"extract","rationale":"Read the current balance for the Savings account","targetRef":"obs_10f2n28","at":"2026-09-10T05:24:20.018Z"}
+{"type":"extraction","output":"currentSavingsBalance","ok":true,"detail":"[FINANCIAL]","at":"2026-09-10T05:24:20.019Z"}
+{"type":"observation","observationId":"obs_11","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_11.json","at":"2026-09-10T05:24:20.052Z"}
+{"type":"observation","observationId":"obs_11","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\discovery-run\\observations\\obs_11.json","at":"2026-09-10T05:24:20.054Z"}
+{"type":"llm_decision","provider":"groq","model":"openai/gpt-oss-120b","decision":"done","rationale":"Retrieved current savings balance for member 100234","at":"2026-09-10T05:24:32.907Z"}
+{"type":"run_finished","runId":"disc_1d2762f3","status":"recorded","durationMs":53519,"at":"2026-09-10T05:24:32.910Z"}

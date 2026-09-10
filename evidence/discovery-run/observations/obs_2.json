@@ -237,7 +237,7 @@
       }
     },
     {
-      "ref": "obs_2f2n11",
+      "ref": "obs_2f2n12",
       "role": "form",
       "name": "Member ID",
       "value": "Member ID",
@@ -267,7 +267,7 @@
       }
     },
     {
-      "ref": "obs_2f2n12",
+      "ref": "obs_2f2n13",
       "role": "table",
       "value": "Member ID",
       "state": {
@@ -296,42 +296,10 @@
       }
     },
     {
-      "ref": "obs_2f2n15",
+      "ref": "obs_2f2n16",
       "role": "cell",
       "name": "Member ID",
       "value": "Member ID",
-      "state": {
-        "visible": true
-      },
-      "scope": {
-        "path": [
-          {
-            "by": "name",
-            "value": "content"
-          }
-        ],
-        "region": {
-          "by": "heading",
-          "value": "Member Search"
-        }
-      },
-      "anchors": [
-        {
-          "kind": "rowHeader",
-          "text": "Member ID"
-        },
-        {
-          "kind": "sectionHeading",
-          "text": "Member Search"
-        }
-      ],
-      "attrs": {
-        "tagName": "td"
-      }
-    },
-    {
-      "ref": "obs_2f2n17",
-      "role": "cell",
       "state": {
         "visible": true
       },
@@ -363,6 +331,38 @@
     },
     {
       "ref": "obs_2f2n18",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f2n19",
       "role": "textbox",
       "name": "Member ID",
       "value": "100234",
@@ -397,7 +397,7 @@
       }
     },
     {
-      "ref": "obs_2f2n20",
+      "ref": "obs_2f2n21",
       "role": "cell",
       "state": {
         "visible": true
@@ -433,7 +433,7 @@
       }
     },
     {
-      "ref": "obs_2f2n21",
+      "ref": "obs_2f2n22",
       "role": "button",
       "name": "Search",
       "value": "Search",
@@ -464,5 +464,5 @@
       }
     }
   ],
-  "capturedAt": "2026-09-10T04:55:59.383Z"
+  "capturedAt": "2026-09-10T05:23:40.325Z"
 }

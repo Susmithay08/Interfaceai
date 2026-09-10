@@ -1,22 +1,47 @@
 {
-  "status": "escalated",
-  "interventionId": "iv_3be8c930",
-  "reason": "checkpointFailed",
+  "status": "success",
+  "outputs": {
+    "currentSavingsBalance": "$4,182.55"
+  },
   "steps": [
     {
       "stepId": "s1",
-      "intent": "Enter member ID to search",
+      "intent": "Enter the member ID to look up the member",
       "actionKind": "fill",
       "tier": 0,
-      "durationMs": 46
+      "durationMs": 36
     },
     {
       "stepId": "s2",
-      "intent": "Click Search to retrieve member details after entering Member ID",
+      "intent": "Click Search to retrieve member details",
       "actionKind": "click",
       "tier": 0,
       "durationMs": 64
+    },
+    {
+      "stepId": "s3",
+      "intent": "Open member 100234 details to view savings balance",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 39
     }
   ],
-  "evidenceRef": "evidence/replay-discovered"
+  "evidenceRef": "evidence/replay-discovered",
+  "resolutionReport": [
+    {
+      "stepId": "s1",
+      "tier": 0,
+      "strategyKind": "labelled"
+    },
+    {
+      "stepId": "s2",
+      "tier": 0,
+      "strategyKind": "roleAndName"
+    },
+    {
+      "stepId": "s3",
+      "tier": 0,
+      "strategyKind": "roleAndName"
+    }
+  ]
 }

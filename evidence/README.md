@@ -11,8 +11,9 @@ read side by side.
 | `replay-business-outcome/` | Member `999999` — `MEMBER_NOT_FOUND`, returned as an answer, exit 0. |
 | `replay-escalation/` | `PERMISSION_DENIED` — escalated on first sight, never retried, with the intervention a human would act on. |
 
-Each contains `run.jsonl` (the event log), `result.json` (the structured result), `observations/`,
-`screenshots/`, and, where a run escalated, `interventions/`.
+Each contains `run.jsonl` (the event log), `observations/`, `screenshots/`, a `result.json` for a
+replay or a `capability-draft.json` for a discovery run, and, where a run escalated,
+`interventions/`.
 
 ## The discovery run
 
@@ -31,8 +32,11 @@ never saw or authored a selector. It recorded three steps and one output:
 the recording is not pinned to member 100234. `replay-discovered/` then runs it with no LLM and
 resolves every step at tier 0 — the primary locator, no fallback needed.
 
-The artifact was recorded as `status: draft`. Replaying a draft escalates rather than running
-unattended; it was promoted to `approved` only after the review recorded in its `review` block.
+`discovery-run/capability-draft.json` is the artifact exactly as the run recorded it —
+`status: "draft"`. Replaying a draft escalates rather than running unattended, so the copy in
+`capabilities/` is the same artifact promoted to `approved` after the review recorded in its
+`review` block. Diffing the two shows precisely what the human review changed: the status and the
+note, and nothing else.
 
 ## Redaction
 
