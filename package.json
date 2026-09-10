@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "Computer-use automation: LLM discovery -> capability artifact -> deterministic replay",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc --noEmit",

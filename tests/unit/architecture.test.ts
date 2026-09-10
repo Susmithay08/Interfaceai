@@ -93,3 +93,52 @@ describe("module graph", () => {
     }
   });
 });
+
+/**
+ * Config drift is invisible to every other test here, because the suite injects its own
+ * credential resolver rather than reading the environment. That is exactly how the shipped
+ * .env.example came to document COREBANK_TELLER_USERNAME while the runtime looked up
+ * CRED_COREBANK_TELLER_USERNAME - a reviewer following the README got a hard failure on the
+ * one path the write-up says recovers.
+ */
+describe("shipped configuration", () => {
+  /** The runtime's ref -> env var mapping, kept in step with apps/cli/runtime.ts. */
+  const envVarFor = (ref: string) => `CRED_${ref.toUpperCase().replace(/[^A-Z0-9]/g, "_")}`;
+
+  const credentialRefs = (): string[] => {
+    const roots = [join(ROOT, "profiles"), join(ROOT, "capabilities")];
+    const json = roots.flatMap((dir) =>
+      readdirSync(dir, { recursive: true, encoding: "utf8" })
+        .map((e) => join(dir, e))
+        .filter((p) => p.endsWith(".json")),
+    );
+    const refs = new Set<string>();
+    for (const file of json) {
+      for (const m of readFileSync(file, "utf8").matchAll(
+        /"from"\s*:\s*"credential"\s*,\s*"ref"\s*:\s*"([^"]+)"/g,
+      )) {
+        refs.add(m[1]!);
+      }
+    }
+    return [...refs];
+  };
+
+  it("documents an env var for every credential the shipped artifacts refer to", () => {
+    const example = readFileSync(join(ROOT, ".env.example"), "utf8");
+    const refs = credentialRefs();
+    expect(refs.length, "no credential refs found - check the matcher").toBeGreaterThan(0);
+    for (const ref of refs) {
+      expect(example, `.env.example does not document ${ref}`).toContain(`${envVarFor(ref)}=`);
+    }
+  });
+
+  it("never commits a real value for a documented credential", () => {
+    for (const line of readFileSync(join(ROOT, ".env.example"), "utf8").split("\n")) {
+      const m = /^(CRED_[A-Z0-9_]+|GROQ_API_KEY)=(.*)$/.exec(line.trim());
+      if (!m) continue;
+      const value = m[2]!.trim();
+      if (m[1] === "GROQ_API_KEY") expect(value, "a key must never be committed").toBe("");
+      else expect(value, `${m[1]} must stay an obvious placeholder`).toMatch(/demo|not-real|^$/);
+    }
+  });
+});

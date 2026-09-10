@@ -7,3 +7,8 @@ dist/
 # assignment brief — not part of the deliverable
 Assignment A — Computer-Use Automation System.pdf
 .scratch/
+
+# Ad-hoc run bundles. A run without --evidence-dir names its own directory; only the
+# curated bundles named in evidence/README.md are part of the submission.
+evidence/replay-replay_*
+evidence/discovery-disc_*
