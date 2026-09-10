@@ -2,7 +2,7 @@ import type { LlmClient } from "../llm-client.js";
 import { GroqClient } from "./groq.js";
 
 const DEFAULT_MODELS: Record<string, string> = {
-  groq: "llama-3.3-70b-versatile",
+  groq: "openai/gpt-oss-120b",
   anthropic: "claude-sonnet-5",
   openai: "gpt-4o",
 };

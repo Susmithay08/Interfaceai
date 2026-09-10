@@ -41,6 +41,26 @@ function isDataDependent(value: string, volatile: VolatileValues): boolean {
   return Object.values(volatile).some((v) => v.length > 0 && value !== v && value.includes(v));
 }
 
+/**
+ * Roles whose accessible name IS the data they display. A link or a button is named by
+ * its label, which is its identity and worth targeting; a table cell is "named" by
+ * whatever value it happens to be showing, which is not.
+ */
+const CONTENT_ROLES: ReadonlySet<string> = new Set(["cell", "gridcell"]);
+
+/**
+ * True if a node's accessible name is just the content it is carrying.
+ *
+ * `isDataDependent` catches run data that came IN as an input. This catches the other
+ * direction: data that came OUT of the application. A balance cell is named "$4,182.55"
+ * because that is what it holds, so locating it by that name pins the capability to one
+ * member's balance and writes a financial value into the artifact. The row-key anchor
+ * survives precisely because "Savings" identifies the row rather than its contents.
+ */
+function isContentDerived(node: UiNode): boolean {
+  return CONTENT_ROLES.has(node.role) && node.value !== undefined && node.value === node.name;
+}
+
 function scopeOf(node: UiNode, volatile: VolatileValues, withRegion: boolean): ScopePath {
   if (!withRegion || !node.scope.region) return { path: node.scope.path };
   // A region derived from a heading like "Member: Dana Whitfield" is data-dependent and
@@ -89,7 +109,7 @@ function candidatesFor(node: UiNode, volatile: VolatileValues): Candidate[] {
     });
   }
 
-  if (node.name && !isDataDependent(node.name, volatile)) {
+  if (node.name && !isDataDependent(node.name, volatile) && !isContentDerived(node)) {
     out.push({
       strategy: {
         kind: "roleAndName",
@@ -176,9 +196,20 @@ export function describeTarget(
   if (survivors.length === 0) return null;
 
   const primary = survivors[0]!;
-  const fallbacks = survivors
-    .slice(1, 4)
-    .filter((c) => JSON.stringify(c.strategy) !== JSON.stringify(primary.strategy));
+
+  // Fallbacks carry a strategy but not their own scope, so two survivors that differed
+  // only by scope collapse into the same recorded fallback. Dedupe on what is actually
+  // written - against the primary AND against each other - or the artifact ships the
+  // same locator twice and a reviewer has to work out that it is not a real alternative.
+  const seen = new Set([JSON.stringify(primary.strategy)]);
+  const fallbacks: Candidate[] = [];
+  for (const c of survivors.slice(1)) {
+    const key = JSON.stringify(c.strategy);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    fallbacks.push(c);
+    if (fallbacks.length === 3) break;
+  }
 
   const surfaceNote =
     "This surface has no test ids and uses table-based layout, so structural selectors are not viable.";

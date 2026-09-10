@@ -51,6 +51,17 @@ export interface ReplayOptions {
 const RESOLVE_RETRY_MS = 10_000;
 const RESOLVE_POLL_MS = 250;
 
+/**
+ * How long a post-action checkpoint waits for the state it asserts.
+ *
+ * Target resolution already retries for a transient load; a checkpoint needs the same
+ * grace for the same reason. A click on a server-rendered page navigates, and asserting
+ * the moment execute() returns judges the screen we just left - which reports a step
+ * that worked as a failure. Preconditions deliberately do NOT get this: they describe
+ * the state before we act, so there is nothing in flight to wait for.
+ */
+const CHECKPOINT_WAIT_MS = RESOLVE_RETRY_MS;
+
 export class ReplayEngine {
   #steps: StepTrace[] = [];
   #resolution: ResolutionReportEntry[] = [];
@@ -196,7 +207,13 @@ export class ReplayEngine {
 
     // 6. Success checkpoint gates extraction: nothing is returned from a run that did
     //    not actually reach the state the artifact says it should have reached.
-    const success = await this.#assert(capability.successCheckpoint, ctx, "successCheckpoint");
+    const success = await this.#assert(
+      capability.successCheckpoint,
+      ctx,
+      "successCheckpoint",
+      undefined,
+      CHECKPOINT_WAIT_MS,
+    );
     if (!success.ok) {
       return this.#fail(
         capability.steps.at(-1)?.id ?? null,
@@ -370,7 +387,13 @@ export class ReplayEngine {
 
     // Checkpoint.
     if (step.checkpoint !== null) {
-      const check = await this.#assert(step.checkpoint, ctx, step.id, observation);
+      const check = await this.#assert(
+        step.checkpoint,
+        ctx,
+        step.id,
+        observation,
+        CHECKPOINT_WAIT_MS,
+      );
       this.deps.evidence.event({
         type: "checkpoint",
         stepId: step.id,
@@ -704,12 +727,27 @@ export class ReplayEngine {
     ctx: BindContext,
     label: string,
     existing?: Observation,
+    waitMs = 0,
   ): Promise<{ ok: boolean; detail: string; observed?: string }> {
     const bound = bindCondition(condition, ctx);
     if (!bound.ok) return { ok: false, detail: `${label}: ${bound.error}` };
 
     const observation = existing ?? (await this.deps.surface.observe());
-    const result = evaluateCondition(bound.condition, observation);
+    let result = evaluateCondition(bound.condition, observation);
+
+    // Only re-observe if we were given a budget and the first look failed. A checkpoint
+    // that passes immediately costs nothing, so the wait is paid only where the page is
+    // genuinely still arriving - or, once, on the way to a real failure.
+    if (!result.passed && waitMs > 0) {
+      const waited = await waitFor(
+        bound.condition,
+        () => this.deps.surface.observe(),
+        waitMs,
+        RESOLVE_POLL_MS,
+      );
+      result = evaluateCondition(bound.condition, waited.observation);
+    }
+
     return {
       ok: result.passed,
       detail: `${label}: ${result.detail}`,

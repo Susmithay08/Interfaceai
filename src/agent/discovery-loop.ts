@@ -46,6 +46,8 @@ export interface DiscoveryOptions {
   readonly wallClockMs?: number;
   /** Identical screens in a row before the loop concludes it is going nowhere. */
   readonly noProgressLimit?: number;
+  /** How long to wait after acting for the screen to change. Tests shrink it. */
+  readonly settleMs?: number;
 }
 
 export type DiscoveryResult =
@@ -58,6 +60,18 @@ export type DiscoveryResult =
     };
 
 const DEFAULTS = { maxSteps: 20, wallClockMs: 180_000, noProgressLimit: 3 };
+
+/**
+ * How long the loop waits after acting for the screen to become a different screen.
+ * A server-rendered click navigates, and the new screen is not there the instant the
+ * surface returns: observing straight away shows the model the screen it just left.
+ * Replay does not need this - its checkpoints poll for the state they expect - but
+ * discovery has no declared expectation to poll on, only "something should have changed".
+ */
+const SETTLE = { budgetMs: 3_000, pollMs: 100 };
+
+/** Actions whose whole point is to move the screen on. A fill leaves it where it was. */
+const NAVIGATING: readonly ActionKind[] = ["click", "dismiss", "pressKey", "select"];
 
 /** Discovery may look and type. It may not navigate away or wait on a declared condition. */
 const DISCOVERY_ACTIONS: readonly ActionKind[] = ["click", "fill", "select", "pressKey", "dismiss"];
@@ -82,6 +96,7 @@ export class DiscoveryLoop {
     const maxSteps = opts.maxSteps ?? DEFAULTS.maxSteps;
     const wallClockMs = opts.wallClockMs ?? DEFAULTS.wallClockMs;
     const noProgressLimit = opts.noProgressLimit ?? DEFAULTS.noProgressLimit;
+    const settleMs = opts.settleMs ?? SETTLE.budgetMs;
     const started = Date.now();
 
     this.deps.evidence.event({
@@ -92,7 +107,13 @@ export class DiscoveryLoop {
       at: new Date().toISOString(),
     });
 
-    const result = await this.#loop(opts, { maxSteps, wallClockMs, noProgressLimit, started });
+    const result = await this.#loop(opts, {
+      maxSteps,
+      wallClockMs,
+      noProgressLimit,
+      settleMs,
+      started,
+    });
 
     this.deps.evidence.event({
       type: "run_finished",
@@ -106,7 +127,13 @@ export class DiscoveryLoop {
 
   async #loop(
     opts: DiscoveryOptions,
-    limits: { maxSteps: number; wallClockMs: number; noProgressLimit: number; started: number },
+    limits: {
+      maxSteps: number;
+      wallClockMs: number;
+      noProgressLimit: number;
+      settleMs: number;
+      started: number;
+    },
   ): Promise<DiscoveryResult> {
     this.deps.lease.acquire("automation", "discovery run");
 
@@ -170,13 +197,24 @@ export class DiscoveryLoop {
       if (decision.kind === "extract") {
         const node = observation.nodes.find((n) => n.ref === decision.ref)!;
         const sample = readNode(node, "value") ?? readNode(node, "text") ?? "";
-        this.#outputs.push({
+        const output = {
           field: decision.field,
           as: decision.as,
           target,
           sampleValue: sample,
           afterStepId: `s${this.#steps.length}`,
-        });
+        };
+        // Outputs are keyed by field name in the artifact, so extracting the same field
+        // twice must overwrite rather than append - otherwise the last one silently wins
+        // anyway and the artifact carries a contradictory duplicate. A model that
+        // re-extracts is usually unsure it succeeded, so tell it that it has the value.
+        const already = this.#outputs.findIndex((o) => o.field === decision.field);
+        if (already >= 0) {
+          this.#outputs[already] = output;
+          pendingNote = `you have already extracted "${decision.field}" - if the goal is met, say done`;
+        } else {
+          this.#outputs.push(output);
+        }
         this.deps.evidence.event({
           type: "extraction",
           output: decision.field,
@@ -203,7 +241,14 @@ export class DiscoveryLoop {
         continue;
       }
 
+      // Only a turn that actually acted can fail to make progress. Reading a value off
+      // the screen is not supposed to change it, so counting extractions here would
+      // escalate a run that is doing exactly what it was asked to.
+      this.#signatures.push(observation.screenSignature);
       await this.#act(action, decision.ref, opts.inputs, turn);
+      if (NAVIGATING.includes(action.kind)) {
+        await this.#settle(observation.screenSignature, limits.settleMs);
+      }
       this.#steps.push({ action, rationale: decision.rationale, provenance: "llm" });
       this.#history.push(summary(turn, action.kind, decision.rationale));
     }
@@ -290,7 +335,6 @@ export class DiscoveryLoop {
       ref: ref.path,
       at: new Date().toISOString(),
     });
-    this.#signatures.push(o.screenSignature);
   }
 
   #recordDecision(d: AgentDecision): void {
@@ -317,6 +361,25 @@ export class DiscoveryLoop {
   }
 
   /** `limit` consecutive actions that left the screen identical means the loop is going nowhere. */
+  /**
+   * Poll until the screen is no longer the one we acted on, or the budget runs out.
+   * Bounded on both axes, and surface-neutral by construction: it compares observations
+   * and knows nothing about pages, frames or load states. A click that legitimately
+   * changes nothing costs the budget once, which is the honest price of not being able
+   * to tell that case apart from a slow one.
+   *
+   * These observations are deliberately not recorded as evidence - they are the same
+   * screen repeated, and the settled one is recorded by the next turn.
+   */
+  async #settle(before: string, budgetMs: number): Promise<void> {
+    const deadline = Date.now() + budgetMs;
+    while (Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, SETTLE.pollMs));
+      const o = await this.deps.surface.observe().catch(() => null);
+      if (o && o.screenSignature !== before) return;
+    }
+  }
+
   #stalled(limit: number): boolean {
     const recent = this.#signatures.slice(-(limit + 1));
     return recent.length > limit && new Set(recent).size === 1;

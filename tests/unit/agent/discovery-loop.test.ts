@@ -93,6 +93,9 @@ const OPTS = {
   entryPath: "/teller",
   runId: "run_disc_test",
   capabilityId: "test.discovered.readBalance",
+  // The fake surface changes screens the instant it is asked, so there is nothing to
+  // wait for. The real budget is exercised against the browser in the integration tests.
+  settleMs: 20,
 };
 
 // The search screen appears twice: filling the field does not navigate away from it.
@@ -197,6 +200,52 @@ describe("DiscoveryLoop", () => {
     const result = await loop.run({ ...OPTS, noProgressLimit: 2 });
     expect(result.status).toBe("escalated");
     if (result.status === "escalated") expect(result.reason).toBe("noProgress");
+  });
+
+  // Regression, both from one live run: the model read the balance, was not sure it had
+  // worked, and read it twice more. Reading does not move the screen, so the loop called
+  // that "no progress" and escalated a run that had already met its goal.
+  it("does not count an extraction as a failure to make progress", async () => {
+    const readBalance = (r: DecisionRequest) =>
+      extract(pickCell(r, "Current Balance"), "savingsBalance", "number");
+    const { loop } = harness(
+      [
+        (r: DecisionRequest) => act(pick(r, "textbox"), { kind: "fill", inputName: "memberId" }),
+        (r: DecisionRequest) => act(pick(r, "button"), { kind: "click" }),
+        (r: DecisionRequest) => act(pick(r, "link", "100234"), { kind: "click" }),
+        readBalance,
+        readBalance,
+        readBalance,
+        () => ({ kind: "done", summary: "balance read" }) as AgentDecision,
+      ],
+      [...happyPath(), ...Array(3).fill(loadObservation("member-detail"))],
+    );
+
+    const result = await loop.run({ ...OPTS, noProgressLimit: 2 });
+    expect(result.status).toBe("recorded");
+  });
+
+  it("keeps one output per field when the same field is extracted twice", async () => {
+    const readBalance = (r: DecisionRequest) =>
+      extract(pickCell(r, "Current Balance"), "savingsBalance", "number");
+    const { loop, llm } = harness(
+      [
+        (r: DecisionRequest) => act(pick(r, "textbox"), { kind: "fill", inputName: "memberId" }),
+        (r: DecisionRequest) => act(pick(r, "button"), { kind: "click" }),
+        (r: DecisionRequest) => act(pick(r, "link", "100234"), { kind: "click" }),
+        readBalance,
+        readBalance,
+        () => ({ kind: "done", summary: "balance read" }) as AgentDecision,
+      ],
+      [...happyPath(), ...Array(2).fill(loadObservation("member-detail"))],
+    );
+
+    const result = await loop.run(OPTS);
+    expect(result.status).toBe("recorded");
+    if (result.status !== "recorded") return;
+    expect(Object.keys(parseCapability(result.capability).outputs)).toEqual(["savingsBalance"]);
+    // And the model is told it already has the value, so it can conclude.
+    expect(llm.seen.at(-1)?.history.at(-1)?.note).toMatch(/already extracted/);
   });
 
   it("stops at maxSteps and escalates rather than running forever", async () => {

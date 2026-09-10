@@ -67,6 +67,42 @@ describe("describeTarget", () => {
     expect(describeTarget(asRef("n2"), twinButtons())).toBeNull();
   });
 
+  // Regression: the live discovery run recorded the balance cell with the observed
+  // amount as a fallback locator, twice over. Both halves of that are fixed here.
+  it("never locates a cell by the value it is carrying", () => {
+    const t = describeTarget(asRef("n1"), balanceCell())!;
+    const asText = JSON.stringify(t);
+    expect(t.primary.kind).toBe("anchoredCell");
+    expect(asText, "the balance must not appear anywhere in the descriptor").not.toContain(
+      "4,182.55",
+    );
+    for (const f of t.fallbacks) expect(f.kind).not.toBe("roleAndName");
+  });
+
+  // The guard above must not swallow the ordinary case: the browser reports a link's
+  // name and its text as the same string too, and there the name is the identity.
+  it("still targets a link by its name, parameterized to the input it matches", () => {
+    const o = loadObservation("search-results");
+    const link = o.nodes.find((n) => n.role === "link" && n.value === "100234");
+    if (!link) return;
+    const t = describeTarget(link.ref, o, { memberId: "100234" })!;
+    expect(JSON.stringify(t)).toContain('"from":"input"');
+  });
+
+  it("records no fallback twice", () => {
+    for (const name of FIXTURE_NAMES) {
+      const o = loadObservation(name);
+      for (const node of o.nodes) {
+        const t = describeTarget(node.ref, o);
+        if (!t) continue;
+        const written = [t.primary, ...t.fallbacks].map((s) => JSON.stringify(s));
+        expect(new Set(written).size, `${name}/${node.ref} recorded a duplicate locator`).toBe(
+          written.length,
+        );
+      }
+    }
+  });
+
   it("parameterizes a param that equals a supplied input value", () => {
     const o = loadObservation("search-results");
     const t = describeTarget(refOf(o, (n) => n.value === "100234"), o, { memberId: "100234" })!;
@@ -191,6 +227,34 @@ function sampleArgs() {
 const CONTENT = [{ by: "name" as const, value: "content" }];
 
 /** Two indistinguishable controls in one region: nothing can single either one out. */
+/**
+ * A balance cell as the real browser reports it: the accessible name of a table cell is
+ * its own text, so name and value are the same string. The fixtures carry a value and no
+ * name, which is why this case only showed up against the live surface.
+ */
+function balanceCell(): Observation {
+  return {
+    observationId: "balance",
+    surfaceKind: "web",
+    screenSignature: "balance",
+    nodes: [
+      {
+        ref: asRef("n1"),
+        role: "cell",
+        name: "$4,182.55",
+        value: "$4,182.55",
+        state: { visible: true },
+        scope: { path: CONTENT, region: { by: "heading" as const, value: "Accounts" } },
+        anchors: [
+          { kind: "rowHeader" as const, text: "Savings" },
+          { kind: "columnHeader" as const, text: "Current Balance" },
+        ],
+      },
+    ],
+    capturedAt: "2026-01-01T00:00:00.000Z",
+  };
+}
+
 function twinButtons(): Observation {
   const node = (ref: string) => ({
     ref: asRef(ref),
