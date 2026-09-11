@@ -1,0 +1,22 @@
+{
+  "runId": "replay_takeover_demo",
+  "mode": "replay",
+  "capabilityId": "corebank.member.readSavingsBalance",
+  "goal": "Read a member's current savings balance",
+  "stepId": "s3",
+  "stepIntent": "Open the matching member's detail screen from the results table",
+  "reason": "riskyAction",
+  "expected": "no declared outcome permitting progress",
+  "observed": "PERMISSION_DENIED: The automation identity lacks entitlement for this screen. Requires a human decision, and must never be retried.",
+  "observationRef": "evidence\\replay-takeover\\observations\\escalation-1789094798581.json",
+  "screenshotRef": "evidence\\replay-takeover\\screenshots\\1789094798563-escalation-riskyAction.png",
+  "resumePlan": {
+    "resumeAtStepId": "s3",
+    "mode": "retryStep"
+  },
+  "id": "iv_7bf32206",
+  "createdAt": "2026-09-11T02:46:38.583Z",
+  "status": "resolved",
+  "resolutionNote": "operator handed back; post-handoff verification: success - s3 after handback: resolved at tier 0",
+  "resolvedAt": "2026-09-11T02:46:39.500Z"
+}

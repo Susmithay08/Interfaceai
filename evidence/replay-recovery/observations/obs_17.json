@@ -1,0 +1,868 @@
+{
+  "observationId": "obs_17",
+  "surfaceKind": "web",
+  "locationHint": "/teller",
+  "title": "CoreBank Teller",
+  "screenSignature": "bba156884301f5d7",
+  "nodes": [
+    {
+      "ref": "obs_17f1n4",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_17f1n7",
+      "role": "cell",
+      "name": "Member Search Account Servicing",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search Account Servicing"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f1n8",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_17f1n11",
+      "role": "cell",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f1n12",
+      "role": "link",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_17f1n14",
+      "role": "cell",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Servicing"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f1n15",
+      "role": "link",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_17f2n4",
+      "role": "table",
+      "value": "Member Detail Member: Dana Whitfield Member ID100234 Accounts Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_17f2n7",
+      "role": "cell",
+      "value": "Member Detail Member: Dana Whitfield Member ID100234 Accounts Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Detail Member: Dana Whitfield Member ID100234 Accounts Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n8",
+      "role": "heading",
+      "name": "Member Detail",
+      "value": "Member Detail",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_17f2n10",
+      "role": "heading",
+      "name": "Member: Dana Whitfield",
+      "value": "Member: Dana Whitfield",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Detail"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Member Detail"
+        }
+      ],
+      "attrs": {
+        "tagName": "h3"
+      }
+    },
+    {
+      "ref": "obs_17f2n11",
+      "role": "table",
+      "name": "Member: Dana Whitfield",
+      "value": "Member ID100234",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member: Dana Whitfield"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Member: Dana Whitfield"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_17f2n14",
+      "role": "cell",
+      "name": "Member ID",
+      "value": "Member ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member: Dana Whitfield"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member: Dana Whitfield"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n15",
+      "role": "cell",
+      "name": "100234",
+      "value": "100234",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member: Dana Whitfield"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member: Dana Whitfield"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n16",
+      "role": "heading",
+      "name": "Accounts",
+      "value": "Accounts",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member: Dana Whitfield"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Member: Dana Whitfield"
+        }
+      ],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_17f2n17",
+      "role": "table",
+      "name": "Accounts",
+      "value": "Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_17f2n20",
+      "role": "cell",
+      "name": "Account Type",
+      "value": "Account Type",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Type"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "th"
+      }
+    },
+    {
+      "ref": "obs_17f2n21",
+      "role": "cell",
+      "name": "Account",
+      "value": "Account",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Type"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "th"
+      }
+    },
+    {
+      "ref": "obs_17f2n22",
+      "role": "cell",
+      "name": "Current Balance",
+      "value": "Current Balance",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Type"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "th"
+      }
+    },
+    {
+      "ref": "obs_17f2n23",
+      "role": "cell",
+      "name": "Status",
+      "value": "Status",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Type"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "th"
+      }
+    },
+    {
+      "ref": "obs_17f2n25",
+      "role": "cell",
+      "name": "Savings",
+      "value": "Savings",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Savings"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Account Type"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n26",
+      "role": "cell",
+      "name": "[REDACTED-ACCT]",
+      "value": "[REDACTED-ACCT]",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Savings"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Account"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n27",
+      "role": "cell",
+      "name": "[FINANCIAL]",
+      "value": "[FINANCIAL]",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Savings"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Current Balance"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n28",
+      "role": "cell",
+      "name": "Open",
+      "value": "Open",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Savings"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Status"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n30",
+      "role": "cell",
+      "name": "Checking",
+      "value": "Checking",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Checking"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Account Type"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n31",
+      "role": "cell",
+      "name": "[REDACTED-ACCT]",
+      "value": "[REDACTED-ACCT]",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Checking"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Account"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n32",
+      "role": "cell",
+      "name": "[FINANCIAL]",
+      "value": "[FINANCIAL]",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Checking"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Current Balance"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_17f2n33",
+      "role": "cell",
+      "name": "Open",
+      "value": "Open",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Accounts"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Checking"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Status"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Accounts"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    }
+  ],
+  "capturedAt": "2026-09-11T02:44:50.891Z"
+}

@@ -10,6 +10,25 @@ import { EscalationService } from "../../src/session/escalation.js";
 import { MemoryEvidenceSink } from "../../src/evidence/sink.js";
 import { createOperatorConsole } from "../../apps/operator-console/server.js";
 import { ControlNotHeldError } from "../../src/model/escalation.js";
+import { waitFor } from "../../src/replay/waiter.js";
+import type { ConcreteCondition } from "../../src/model/condition.js";
+
+/**
+ * The state the operator's manual search should leave behind: member 100234's row in the
+ * results table, inside the content frame. Expressed as a Condition rather than a DOM
+ * query so the wait is the same semantic checkpoint the replay engine re-asserts.
+ */
+const SEARCH_RESULTS_FOR_100234: ConcreteCondition = {
+  kind: "exists",
+  target: {
+    scope: { path: [{ by: "name", value: "content" }] },
+    expectedRole: "link",
+    primary: { kind: "roleAndName", params: { role: "link", name: "100234" } },
+    fallbacks: [],
+    cardinality: "exactlyOne",
+    rationale: "The result row the operator's manual search should have produced.",
+  },
+};
 
 let appServer: Server;
 let base: string;
@@ -61,7 +80,6 @@ describe("operator handoff", () => {
     const content = surface.rawPage().frame({ name: "content" })!;
     await content.fill('input[name="memberId"]', "100234");
     await content.click('input[type="submit"]');
-    await content.waitForLoadState("domcontentloaded");
 
     // 4. Control comes back, and it is the same browser context throughout - same
     //    cookies, same session, the page left exactly where the human left it.
@@ -82,7 +100,21 @@ describe("operator handoff", () => {
     );
 
     // 5. Automation resumes against whatever state the human left behind.
-    const after = await surface.observe();
+    //
+    //    Asserting on a single observe() here raced the human's own click: a click on a
+    //    server-rendered form navigates, and the frame's load state can settle against the
+    //    document the operator just left. So the resumed automation polls for the state it
+    //    expects exactly as the replay engine does on hand-back - a semantic condition
+    //    through waitFor, not a sleep and not a weaker assertion.
+    const waited = await waitFor(
+      SEARCH_RESULTS_FOR_100234,
+      () => surface.observe(),
+      10_000,
+      250,
+    );
+    expect(waited.ok, waited.detail).toBe(true);
+
+    const after = waited.observation;
     expect(after.nodes.some((n) => n.value === "100234" || n.name === "100234")).toBe(true);
   }, 60_000);
 

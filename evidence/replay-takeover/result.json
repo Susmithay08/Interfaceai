@@ -1,0 +1,32 @@
+{
+  "status": "escalated",
+  "interventionId": "iv_7bf32206",
+  "reason": "riskyAction",
+  "resumedBy": "operator",
+  "finalStatus": "success",
+  "verification": "s3 after handback: resolved at tier 0",
+  "steps": [
+    {
+      "stepId": "s1",
+      "intent": "Enter the member ID into the search form",
+      "actionKind": "fill",
+      "tier": 0,
+      "durationMs": 178
+    },
+    {
+      "stepId": "s2",
+      "intent": "Submit the member search",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 1617
+    },
+    {
+      "stepId": "s3",
+      "intent": "Open the matching member's detail screen from the results table",
+      "actionKind": "click",
+      "tier": 0,
+      "durationMs": 263
+    }
+  ],
+  "evidenceRef": "evidence/replay-takeover"
+}

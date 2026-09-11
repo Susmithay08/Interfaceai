@@ -15,6 +15,7 @@ import { FileCapabilityStore } from "../../src/store/capability-store.js";
 import { ReplayEngine } from "../../src/replay/replay-engine.js";
 import type { Capability } from "../../src/model/capability.js";
 import type { RunEvent } from "../../src/model/evidence.js";
+import type { Condition } from "../../src/model/condition.js";
 
 const CAP_ID = "corebank.member.readSavingsBalance";
 
@@ -257,6 +258,133 @@ describe("hard failures", () => {
       expect(iv.status).toBe("timedOut");
     }
   }, 40_000);
+
+  /**
+   * What the run is allowed to claim once a human hands control back.
+   *
+   * The bug these pin down: `finalStatus` used to be `success` whenever the step had no
+   * checkpoint, because "nothing to re-assert" was treated as "nothing went wrong". A run
+   * could therefore report success with the blocking condition still on the screen and
+   * the operator having done nothing at all.
+   */
+  describe("post-handoff verification", () => {
+    /** Plays the operator: waits for the lease, does something, hands control back. */
+    const operator = async (act: () => Promise<void>): Promise<void> => {
+      await lease.waitUntilHeldBy("operator", 30_000);
+      await act();
+      lease.transfer("operator", "automation", "operator handed back");
+    };
+
+    /**
+     * The content frame of the teller shell, once it is actually attached.
+     *
+     * A real operator sees the page settle before they hand back. Reaching for the frame
+     * the instant goto() resolves races the frameset, and handing control back mid-load
+     * would have the engine verify a screen the human never finished leaving.
+     */
+    const operatorScreen = async () => {
+      const page = surface.rawPage();
+      await page.goto(`${base}/teller`, { waitUntil: "domcontentloaded" });
+      const content = await page.frameLocator('frame[name="content"]').owner().contentFrame();
+      if (!content) throw new Error("the teller content frame never attached");
+      return content;
+    };
+
+    /**
+     * A permission denial can be detected either on the step that provoked it or on the
+     * next one, depending on how fast the denial page renders. These tests are about what
+     * hand-back verification concludes, not about which step caught the denial, so the
+     * capability is shaped to make every step behave the same way and the assertions
+     * speak to the property rather than to a step id.
+     */
+    const escalatingReplay = (runId: string, steps: Capability["steps"]) =>
+      engine.replay(
+        {
+          ...capability,
+          escalation: { ...capability.escalation, operatorTimeoutSeconds: 60 },
+          steps,
+        },
+        { memberId: "100234" },
+        { unattended: true, runId },
+      );
+
+    const withNoCheckpoints = (): Capability["steps"] =>
+      capability.steps.map((s) => ({
+        ...s,
+        checkpoint: null,
+        checkpointOmittedReason: "Removed by this test: the point is that nothing can be re-asserted.",
+      }));
+
+    it("reports unverified, not success, when the step it stopped on has no checkpoint", async () => {
+      await arm("permissionDenied");
+      const run = escalatingReplay("t-handback-unverified", withNoCheckpoints());
+
+      // The human clears the entitlement problem and leaves a clean screen behind. No step
+      // declares a checkpoint, so there is nothing for the engine to re-assert - and that
+      // must read as "unverified", never as success.
+      await operator(async () => {
+        await arm(null);
+        const content = await operatorScreen();
+        // Hand back only once the clean search form is genuinely on screen.
+        await content.locator('input[name="memberId"]').waitFor({ state: "visible" });
+      });
+
+      const r = await run;
+      expect(r.status).toBe("escalated");
+      if (r.status !== "escalated") return;
+      expect(r.resumedBy).toBe("operator");
+      expect(r.finalStatus, r.verification).toBe("unverified");
+      expect(r.verification).toContain("declares no checkpoint");
+      expect(events().some((e) => e.type === "handback_verification")).toBe(true);
+    }, 60_000);
+
+    it("reports failed when the condition that stopped the run is still on the screen", async () => {
+      await arm("permissionDenied");
+      const run = escalatingReplay("t-handback-still-blocked", withNoCheckpoints());
+
+      // The human hands control back without fixing anything.
+      await operator(async () => {
+        /* deliberately nothing */
+      });
+
+      const r = await run;
+      expect(r.status).toBe("escalated");
+      if (r.status !== "escalated") return;
+      expect(r.finalStatus).toBe("failed");
+      expect(r.verification).toContain("PERMISSION_DENIED");
+    }, 60_000);
+
+    it("reports success only when a real checkpoint re-asserts after hand-back", async () => {
+      // Same escalation, but now every step asserts the member's result row, so whichever
+      // step catches the denial has something real to re-assert once the human is done.
+      const s3Action = capability.steps[2]!.action;
+      const s3Target = "target" in s3Action ? s3Action.target : undefined;
+      if (!s3Target) throw new Error("s3 is expected to act on a target");
+      const memberRow: Condition = { kind: "exists", target: s3Target };
+
+      await arm("permissionDenied");
+      const run = escalatingReplay(
+        "t-handback-success",
+        capability.steps.map((s) => ({ ...s, checkpoint: memberRow })),
+      );
+
+      // The human fixes the entitlement problem and completes the search by hand, leaving
+      // exactly the state step s2 was supposed to reach.
+      await operator(async () => {
+        await arm(null);
+        const content = await operatorScreen();
+        await content.locator('input[name="memberId"]').fill("100234");
+        await content.locator('input[type="submit"]').click();
+        // Hand back only once the result row the checkpoint asserts is actually there.
+        await content.locator('a:text("100234")').waitFor({ state: "visible" });
+      });
+
+      const r = await run;
+      expect(r.status).toBe("escalated");
+      if (r.status !== "escalated") return;
+      expect(r.finalStatus, r.verification).toBe("success");
+    }, 60_000);
+  });
 
   it("fails with a debuggable error when a target cannot be resolved", async () => {
     const broken: Capability = {

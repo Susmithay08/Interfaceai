@@ -1,0 +1,36 @@
+{"type":"run_started","runId":"replay_a31cd85e","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-11T02:44:50.411Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-11T02:44:50.413Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"7abd7e4be6710a67","nodeCount":26,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_1.json","at":"2026-09-11T02:44:50.472Z"}
+{"type":"outcome_detected","stepId":"entry","code":"SESSION_EXPIRED","outcomeClass":"recoverable","at":"2026-09-11T02:44:50.474Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"7abd7e4be6710a67","nodeCount":26,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_2.json","at":"2026-09-11T02:44:50.487Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"7abd7e4be6710a67","nodeCount":26,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_3.json","at":"2026-09-11T02:44:50.531Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"7abd7e4be6710a67","nodeCount":26,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_4.json","at":"2026-09-11T02:44:50.549Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"c2620c3425ca3478","nodeCount":23,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_5.json","at":"2026-09-11T02:44:50.626Z"}
+{"type":"recovery_attempt","stepId":"entry","code":"SESSION_EXPIRED","attempt":1,"maxAttempts":2,"resume":"restart","verified":true,"at":"2026-09-11T02:44:50.627Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_6.json","at":"2026-09-11T02:44:50.658Z"}
+{"type":"observation","observationId":"obs_7","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_7.json","at":"2026-09-11T02:44:50.669Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-11T02:44:50.670Z"}
+{"type":"observation","observationId":"obs_8","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_8.json","at":"2026-09-11T02:44:50.678Z"}
+{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":25,"at":"2026-09-11T02:44:50.695Z"}
+{"type":"observation","observationId":"obs_9","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_9.json","at":"2026-09-11T02:44:50.703Z"}
+{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-11T02:44:50.704Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T02:44:50.704Z"}
+{"type":"observation","observationId":"obs_10","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_10.json","at":"2026-09-11T02:44:50.714Z"}
+{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":69,"at":"2026-09-11T02:44:50.773Z"}
+{"type":"observation","observationId":"obs_11","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_11.json","at":"2026-09-11T02:44:50.789Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T02:44:50.790Z"}
+{"type":"observation","observationId":"obs_12","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_12.json","at":"2026-09-11T02:44:50.800Z"}
+{"type":"action","stepId":"s3","intent":"Open the matching member's detail screen from the results table","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":44,"at":"2026-09-11T02:44:50.834Z"}
+{"type":"observation","observationId":"obs_13","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_13.json","at":"2026-09-11T02:44:50.851Z"}
+{"type":"checkpoint","stepId":"s3","passed":true,"detail":"s3: resolved at tier 0","at":"2026-09-11T02:44:50.852Z"}
+{"type":"policy_verdict","actionKind":"wait","verdict":"yes","risk":"readOnly","at":"2026-09-11T02:44:50.852Z"}
+{"type":"observation","observationId":"obs_14","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_14.json","at":"2026-09-11T02:44:50.864Z"}
+{"type":"action","stepId":"s4","intent":"Wait for the accounts table to be present before reading the balance","actionKind":"wait","resolutionTier":null,"durationMs":13,"at":"2026-09-11T02:44:50.865Z"}
+{"type":"observation","observationId":"obs_15","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_15.json","at":"2026-09-11T02:44:50.873Z"}
+{"type":"checkpoint","stepId":"s4","passed":true,"detail":"s4: resolved at tier 0","at":"2026-09-11T02:44:50.873Z"}
+{"type":"observation","observationId":"obs_16","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_16.json","at":"2026-09-11T02:44:50.882Z"}
+{"type":"observation","observationId":"obs_17","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-recovery\\observations\\obs_17.json","at":"2026-09-11T02:44:50.891Z"}
+{"type":"extraction","output":"memberName","ok":true,"at":"2026-09-11T02:44:50.892Z"}
+{"type":"extraction","output":"savingsBalance","ok":true,"at":"2026-09-11T02:44:50.893Z"}
+{"type":"extraction","output":"savingsAccountLast4","ok":true,"at":"2026-09-11T02:44:50.893Z"}
+{"type":"run_finished","runId":"replay_a31cd85e","status":"success","durationMs":482,"at":"2026-09-11T02:44:50.893Z"}

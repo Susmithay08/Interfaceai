@@ -175,6 +175,13 @@ function report(r: ReplayResult): number {
     case "escalated":
       err(`status: escalated (${r.reason})`);
       err(`intervention: ${r.interventionId}`);
+      if (r.resumedBy) {
+        err(`resumed by: ${r.resumedBy}`);
+        // "unverified" is reported as loudly as a failure. A run a human touched and
+        // nobody re-checked must not read as a success.
+        err(`post-handoff: ${r.finalStatus ?? "unknown"}`);
+        if (r.verification) err(`  ${r.verification}`);
+      }
       err(`evidence: ${r.evidenceRef}`);
       return EXIT.escalated;
 

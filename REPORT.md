@@ -43,9 +43,11 @@ artifact that could not be replayed fails at parse, not halfway through a live b
 Three decisions carry most of the weight.
 
 **Targets are descriptions, not selectors.** Each step names a `TargetDescriptor`: a scope, an
-expected role, a primary strategy and verified fallbacks, and a written rationale. The ladder is
-`labelled` → `anchoredCell` → `roleAndName` → `roleInRegion` → `ordinalInScope`, and every
-resolution reports which tier matched, so silent drift onto a weak strategy shows up in the trace.
+expected role, a primary strategy and verified fallbacks, and a written rationale. The recorder
+generates candidates in preference order — `anchoredCell` → `labelled` → `roleAndName` (unscoped,
+then narrowed to a region) → `roleInRegion` → `ordinalInScope` — and whichever survives validation
+first becomes the primary, with the rest recorded as fallbacks. Every resolution reports which tier
+matched, so silent drift onto a weak strategy shows up in the trace.
 
 **Values are typed sources, never interpolated strings.** `{from:"input"|"output"|"literal"|
 "credential"}`. There is no string templating anywhere in the artifact, so there is no injection
@@ -55,6 +57,17 @@ surface, and the credential channel is structurally distinct from anything persi
 design and it is what makes one recording serve every member: the search-result row is selected by
 `rowKey: {from:"input", name:"memberId"}`. Binding is a separate, pure pass, so `resolveTarget`
 stays a total function of (concrete descriptor, observation).
+
+**Discovery records structure; review attaches the outcome table.** A discovered artifact carries
+everything the flow needs to execute — ordered steps, target descriptors and their fallbacks, typed
+inputs and outputs, transforms, checkpoints. It carries no outcomes, and deliberately so: one
+successful run has not seen a permission denial or a session timeout, and a model asked to guess at
+them would be inventing a safety contract from a happy path. Outcomes live in an app profile
+(`profiles/corebank-teller-8.json`) and are attached at review time through `inheritsOutcomesFrom`.
+That is the same mechanism that makes the table reusable across tenants, so the cost is one field
+set by the reviewer who was already reading the artifact. The shipped `.discovered` artifact has an
+empty `outcomes` array and the reviewed reference artifact inherits the full table; the difference
+is exactly what review is for.
 
 The recorder is the part that makes this safe. `describeTarget` generates candidates from a node's
 own metadata, then **self-validates every one**: it runs each back through the real resolver against
@@ -74,7 +87,7 @@ Outcomes are a **four-arm contract**, and the second arm is the point:
 |---|---|---|
 | `success` | outputs, typed and transformed | 0 |
 | `business_outcome` | the app answered — `MEMBER_NOT_FOUND`, `INVALID_MEMBER_ID` | **0** |
-| `escalated` | a human is needed, with the context to act | 2 |
+| `escalated` | a human is needed, with the context to act; after a hand-back, `finalStatus` says what was then verified — `success`, `failed`, or `unverified` | 2 |
 | `failed` | hard failure: step, expected, observed, every strategy attempted | 3 |
 
 Conflating "no such member" with a crash is the specific mistake this contract exists to prevent.
@@ -102,6 +115,15 @@ worked as failures. Post-action checkpoints now get the same ten-second grace; p
 deliberately do not, because they describe the state *before* acting, so nothing is in flight to
 wait for. A checkpoint that passes immediately still costs nothing, and outcome detection runs
 first, so a known business outcome never pays the wait on its way to being returned.
+
+The last place that asymmetry was hiding was **recovery verification**, and it was the most
+expensive one. A frame mid-swap is observable with both documents' nodes in it at once — the notice
+being dismissed *and* the screen replacing it — so `absent(Acknowledge)` asserted against that
+snapshot fails. A recovery that had plainly worked was therefore declared `RECOVERY_EXHAUSTED`
+roughly one run in four, and the run escalated and then sat waiting fifteen minutes for an operator
+who was never coming. Recovery verification now gets the same ten-second grace as a checkpoint. The
+general lesson is that on a server-rendered surface *every* assertion following an action has to be
+a poll, and they are worth auditing as a set rather than one at a time.
 
 ## Heterogeneity and multi-tenant
 
@@ -137,13 +159,30 @@ the operator on a login screen.
 
 While the operator holds control the page is instrumented, so their clicks, changes and submits land
 in the same evidence stream as automation's actions, with the same vocabulary — a run's evidence has
-no unexplained human-shaped gap in it.
+no unexplained human-shaped gap in it. `evidence/replay-takeover/` is one such run end to end: the
+denial, the intervention, four `human_action` events from the operator's own clicks, control coming
+back, and the verification that followed.
+
+**What the run may claim afterwards.** On hand-back the engine re-observes and checks two things: is
+the declared outcome that stopped us still on the screen, and does the stopped step declare a
+checkpoint it can re-assert? `finalStatus` is `failed` if the blocking condition survived the human,
+`success` only if a real checkpoint passed, and `unverified` when the step declares no checkpoint —
+because there is then nothing to check, and calling that success would report a state nobody looked
+at. This was the sharpest thing a review caught: the earlier code treated "nothing to re-assert" as
+"nothing went wrong", so a run could report success with the permission denial still on screen and
+the operator having done nothing at all.
 
 ## Safety
 
-- **One choke point.** Both the discovery loop and the replay engine call `PolicyEngine` before any
-  action reaches a surface. Origin, path prefix, and action kind are allowlisted; a non-allowlisted
-  action is blocked, not degraded.
+- **One choke point, by convention.** Both the discovery loop and the replay engine call
+  `PolicyEngine` before any action reaches a surface. Origin, path prefix, and action kind are
+  allowlisted; a non-allowlisted action is blocked, not degraded. Worth being precise about the
+  strength of this: unlike the no-LLM-in-replay claim, which a module-graph test makes structurally
+  impossible to violate, the allowlist is enforced by its two callers. `Surface.execute` asserts the
+  control lease but not policy, and `rawPage()` hands out the live page deliberately for the
+  operator handoff. New code that called either directly would act unallowlisted. Making that
+  impossible would mean pushing policy into the surface, which would put the allowlist behind the
+  seam that is meant to be swappable per surface — so it is a stated limit, not an oversight.
 - **A draft never runs unattended.** Discovery always emits `status: "draft"`, derives `risk` from
   what the recorded actions actually do, and lists weak targets for review. Policy refuses
   unattended replay of anything not `approved`.
@@ -158,7 +197,10 @@ no unexplained human-shaped gap in it.
   written into an artifact, and the re-authentication test asserts the credential value never
   appears in evidence.
 - **Redaction happens at the sink**, so no call site can forget it, and the model sees financial
-  figures only as `[FINANCIAL]`.
+  figures only as `[FINANCIAL]`. It covers events and attached observations. It does **not** cover
+  screenshots: a PNG is a buffer and is written verbatim. Captures only fire on an outcome or an
+  escalation, so nothing in `/evidence/` shows a balance today, but that is where the code happens
+  to capture rather than something the redaction layer guarantees.
 - **Data is never used as an address.** The recorder will not locate a table cell by the value it is
   displaying. The live run first recorded the balance cell as `roleAndName cell "$4,182.55"`, which
   is wrong twice over: it pins the capability to one member's balance, and it writes a financial

@@ -1,0 +1,816 @@
+{
+  "observationId": "obs_2",
+  "surfaceKind": "web",
+  "locationHint": "/teller",
+  "title": "CoreBank Teller",
+  "screenSignature": "7abd7e4be6710a67",
+  "nodes": [
+    {
+      "ref": "obs_2f1n4",
+      "role": "table",
+      "value": "Session Expired User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_2f1n7",
+      "role": "cell",
+      "name": "Session Expired User ID Password",
+      "value": "Session Expired User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Session Expired User ID Password"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f1n8",
+      "role": "heading",
+      "name": "Session Expired",
+      "value": "Session Expired",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_2f1n11",
+      "role": "form",
+      "name": "User ID Password",
+      "value": "User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "form"
+      }
+    },
+    {
+      "ref": "obs_2f1n12",
+      "role": "table",
+      "value": "User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_2f1n15",
+      "role": "cell",
+      "name": "User ID",
+      "value": "User ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f1n17",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f1n18",
+      "role": "textbox",
+      "name": "User ID",
+      "value": "",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "label",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "text"
+      }
+    },
+    {
+      "ref": "obs_2f1n20",
+      "role": "cell",
+      "name": "Password",
+      "value": "Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Password"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f1n22",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Password"
+        },
+        {
+          "kind": "columnHeader",
+          "text": ""
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f1n23",
+      "role": "textbox",
+      "name": "Password",
+      "value": "",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "label",
+          "text": "Password"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "password"
+      }
+    },
+    {
+      "ref": "obs_2f1n25",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": ""
+        },
+        {
+          "kind": "columnHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f1n26",
+      "role": "button",
+      "name": "Sign On",
+      "value": "Sign On",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "submit"
+      }
+    },
+    {
+      "ref": "obs_2f2n4",
+      "role": "table",
+      "value": "Session Expired User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_2f2n7",
+      "role": "cell",
+      "name": "Session Expired User ID Password",
+      "value": "Session Expired User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Session Expired User ID Password"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f2n8",
+      "role": "heading",
+      "name": "Session Expired",
+      "value": "Session Expired",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_2f2n12",
+      "role": "form",
+      "name": "User ID Password",
+      "value": "User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "form"
+      }
+    },
+    {
+      "ref": "obs_2f2n13",
+      "role": "table",
+      "value": "User ID Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_2f2n16",
+      "role": "cell",
+      "name": "User ID",
+      "value": "User ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f2n18",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f2n19",
+      "role": "textbox",
+      "name": "User ID",
+      "value": "",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "label",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "text"
+      }
+    },
+    {
+      "ref": "obs_2f2n21",
+      "role": "cell",
+      "name": "Password",
+      "value": "Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Password"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f2n23",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Password"
+        },
+        {
+          "kind": "columnHeader",
+          "text": ""
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f2n24",
+      "role": "textbox",
+      "name": "Password",
+      "value": "",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "label",
+          "text": "Password"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "password"
+      }
+    },
+    {
+      "ref": "obs_2f2n26",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": ""
+        },
+        {
+          "kind": "columnHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_2f2n27",
+      "role": "button",
+      "name": "Sign On",
+      "value": "Sign On",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "submit"
+      }
+    }
+  ],
+  "capturedAt": "2026-09-11T02:44:50.487Z"
+}

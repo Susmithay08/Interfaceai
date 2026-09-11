@@ -56,7 +56,17 @@ export type ReplayResult =
       readonly interventionId: string;
       readonly reason: string;
       readonly resumedBy?: "operator";
-      readonly finalStatus?: "success" | "failed" | "business_outcome";
+      /**
+       * What was actually established after the operator handed control back.
+       *
+       * "unverified" is a first-class answer, not a gap: if the step the run stopped on
+       * declares no checkpoint, there is nothing to re-assert, and calling that success
+       * would report a state nobody checked. The caller is told the human was here and
+       * that the outcome is unconfirmed, which is the truth.
+       */
+      readonly finalStatus?: "success" | "failed" | "unverified" | "business_outcome";
+      /** Why finalStatus is what it is - the condition checked, or why none could be. */
+      readonly verification?: string;
       readonly outputs?: Readonly<Record<string, unknown>>;
       readonly steps: readonly StepTrace[];
       readonly evidenceRef: string;

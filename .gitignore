@@ -12,3 +12,11 @@ Assignment A — Computer-Use Automation System.pdf
 # curated bundles named in evidence/README.md are part of the submission.
 evidence/replay-replay_*
 evidence/discovery-disc_*
+
+# Everything the README demo produces. The curated bundles beside it are the submission
+# and must survive a reviewer running the demo, so every documented command writes here.
+evidence/demo/
+
+# Capabilities a reviewer records by following the README. The shipped catalog is the
+# submission; a demo run must not collide with it or dirty the tree.
+capabilities/*.demo/

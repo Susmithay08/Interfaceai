@@ -67,6 +67,12 @@ export class ReplayEngine {
   #resolution: ResolutionReportEntry[] = [];
   #outputs: Record<string, unknown> = {};
   #recoveryAttempts = new Map<string, number>();
+  /**
+   * The run's binding context, kept so an escalation can verify hand-back against the
+   * real inputs. Reading it back from `#run` would mean threading it through four call
+   * sites that have no other use for it.
+   */
+  #ctx: BindContext | null = null;
 
   constructor(private readonly deps: ReplayDeps) {}
 
@@ -80,6 +86,7 @@ export class ReplayEngine {
     this.#resolution = [];
     this.#outputs = {};
     this.#recoveryAttempts = new Map();
+    this.#ctx = null;
 
     this.deps.evidence.event({
       type: "run_started",
@@ -127,6 +134,7 @@ export class ReplayEngine {
       outputs: this.#outputs,
       credentials: this.deps.credentials,
     };
+    this.#ctx = ctx;
 
     // 2. Approval gate. A draft capability does not run unattended.
     const gate = this.deps.policy.checkAction(capability.steps[0]!.action, {
@@ -530,7 +538,18 @@ export class ReplayEngine {
 
     let verified: boolean | undefined;
     if (recovery.verify) {
-      const v = await this.#assert(recovery.verify, ctx, `${definition.code} recovery`);
+      // The same grace a post-action checkpoint gets, and for the same reason. A recovery
+      // action is usually a click that navigates, and a frame mid-swap is observable with
+      // BOTH documents' nodes in it - the notice being dismissed AND the screen replacing
+      // it. Asserting `absent(Acknowledge)` on that snapshot fails, which declared a
+      // recovery that had plainly worked exhausted and escalated the run to a human.
+      const v = await this.#assert(
+        recovery.verify,
+        ctx,
+        `${definition.code} recovery`,
+        undefined,
+        CHECKPOINT_WAIT_MS,
+      );
       verified = v.ok;
       if (!v.ok) {
         return {
@@ -923,18 +942,23 @@ export class ReplayEngine {
       at: new Date().toISOString(),
     });
 
-    // Resume: re-observe and re-assert. Never assume the human left the wanted state.
-    const resumeCheck = step?.checkpoint
-      ? await this.#assert(step.checkpoint, {
-          inputs: {},
-          outputs: this.#outputs,
-          credentials: this.deps.credentials,
-        }, `${step.id} after handback`)
-      : { ok: true, detail: "no checkpoint to re-assert" };
+    // Resume: re-observe and verify. Never assume the human left the wanted state.
+    const verdict = await this.#verifyHandback(step, capability, this.#ctx ?? {
+      inputs: {},
+      outputs: this.#outputs,
+      credentials: this.deps.credentials,
+    });
+    this.deps.evidence.event({
+      type: "handback_verification",
+      ...(step ? { stepId: step.id } : {}),
+      finalStatus: verdict.finalStatus,
+      detail: verdict.verification,
+      at: new Date().toISOString(),
+    });
 
     this.deps.escalation.resolve(
       intervention.id,
-      resumeCheck.ok ? "operator resolved; automation resumed" : "operator handed back",
+      `operator handed back; post-handoff verification: ${verdict.finalStatus} - ${verdict.verification}`,
     );
 
     return {
@@ -942,9 +966,73 @@ export class ReplayEngine {
       interventionId: intervention.id,
       reason,
       resumedBy: "operator",
-      finalStatus: resumeCheck.ok ? "success" : "failed",
+      finalStatus: verdict.finalStatus,
+      verification: verdict.verification,
       steps: this.#steps,
       evidenceRef: this.deps.evidence.runDir,
+    };
+  }
+
+  /**
+   * What the run can honestly claim once the human hands control back.
+   *
+   * Two checks, in this order, and neither of them is optional:
+   *
+   *  1. Is the condition that stopped us still on the screen? A declared outcome that
+   *     still fires means the operator did not clear it, whatever else they did. That is
+   *     a verified failure, and it is the check that matters most - the escalation exists
+   *     precisely because this state was reached.
+   *  2. Does the step declare a checkpoint? If so, re-assert it.
+   *
+   * If neither applies there is nothing meaningful to verify, and the answer is
+   * "unverified" rather than "success". A step with no checkpoint gives the engine
+   * nothing to check, and reporting success off the back of that would be asserting a
+   * state nobody looked at.
+   */
+  async #verifyHandback(
+    step: Step | null,
+    capability: Capability,
+    ctx: BindContext,
+  ): Promise<{ finalStatus: "success" | "failed" | "unverified"; verification: string }> {
+    const observation = await this.deps.surface.observe();
+
+    const stillBlocked = checkOutcomes(
+      this.deps.outcomes,
+      step?.id ?? "entry",
+      observation,
+      ctx,
+    );
+    if (stillBlocked && stillBlocked.definition.class !== "recoverable") {
+      return {
+        finalStatus: "failed",
+        verification:
+          `${stillBlocked.definition.code} is still present after hand-back - ` +
+          `the condition that stopped the run was not cleared`,
+      };
+    }
+
+    if (step?.checkpoint) {
+      const check = await this.#assert(
+        step.checkpoint,
+        ctx,
+        `${step.id} after handback`,
+        observation,
+        CHECKPOINT_WAIT_MS,
+      );
+      return {
+        finalStatus: check.ok ? "success" : "failed",
+        verification: check.detail,
+      };
+    }
+
+    return {
+      finalStatus: "unverified",
+      verification:
+        step === null
+          ? `the run stopped before any step, so there is no checkpoint to re-assert; ` +
+            `entry for ${capability.id} was not re-verified`
+          : `step ${step.id} declares no checkpoint (${step.checkpointOmittedReason ?? "no reason recorded"}), ` +
+            `so nothing could be re-asserted after hand-back`,
     };
   }
 

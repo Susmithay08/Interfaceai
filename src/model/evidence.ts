@@ -121,6 +121,14 @@ export type RunEvent =
       readonly at: string;
     }
   | {
+      /** What the run could actually establish once the operator handed control back. */
+      readonly type: "handback_verification";
+      readonly stepId?: string;
+      readonly finalStatus: "success" | "failed" | "unverified";
+      readonly detail: string;
+      readonly at: string;
+    }
+  | {
       readonly type: "note";
       readonly message: string;
       readonly at: string;
