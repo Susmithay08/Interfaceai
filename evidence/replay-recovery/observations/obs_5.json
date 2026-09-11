@@ -3,10 +3,10 @@
   "surfaceKind": "web",
   "locationHint": "/teller",
   "title": "CoreBank Teller",
-  "screenSignature": "c2620c3425ca3478",
+  "screenSignature": "7abd7e4be6710a67",
   "nodes": [
     {
-      "ref": "obs_5f1n4",
+      "ref": "obs_5f1n5",
       "role": "table",
       "value": "Session Expired User ID Password",
       "state": {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "ref": "obs_5f1n7",
+      "ref": "obs_5f1n8",
       "role": "cell",
       "name": "Session Expired User ID Password",
       "value": "Session Expired User ID Password",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "ref": "obs_5f1n8",
+      "ref": "obs_5f1n9",
       "role": "heading",
       "name": "Session Expired",
       "value": "Session Expired",
@@ -73,7 +73,7 @@
       }
     },
     {
-      "ref": "obs_5f1n11",
+      "ref": "obs_5f1n12",
       "role": "form",
       "name": "User ID Password",
       "value": "User ID Password",
@@ -103,7 +103,7 @@
       }
     },
     {
-      "ref": "obs_5f1n12",
+      "ref": "obs_5f1n13",
       "role": "table",
       "value": "User ID Password",
       "state": {
@@ -132,7 +132,7 @@
       }
     },
     {
-      "ref": "obs_5f1n15",
+      "ref": "obs_5f1n16",
       "role": "cell",
       "name": "User ID",
       "value": "User ID",
@@ -166,7 +166,7 @@
       }
     },
     {
-      "ref": "obs_5f1n17",
+      "ref": "obs_5f1n18",
       "role": "cell",
       "state": {
         "visible": true
@@ -198,7 +198,7 @@
       }
     },
     {
-      "ref": "obs_5f1n18",
+      "ref": "obs_5f1n19",
       "role": "textbox",
       "name": "User ID",
       "value": "",
@@ -233,7 +233,7 @@
       }
     },
     {
-      "ref": "obs_5f1n20",
+      "ref": "obs_5f1n21",
       "role": "cell",
       "name": "Password",
       "value": "Password",
@@ -271,7 +271,7 @@
       }
     },
     {
-      "ref": "obs_5f1n22",
+      "ref": "obs_5f1n23",
       "role": "cell",
       "state": {
         "visible": true
@@ -307,7 +307,7 @@
       }
     },
     {
-      "ref": "obs_5f1n23",
+      "ref": "obs_5f1n24",
       "role": "textbox",
       "name": "Password",
       "value": "",
@@ -342,7 +342,7 @@
       }
     },
     {
-      "ref": "obs_5f1n25",
+      "ref": "obs_5f1n26",
       "role": "cell",
       "state": {
         "visible": true
@@ -378,7 +378,7 @@
       }
     },
     {
-      "ref": "obs_5f1n26",
+      "ref": "obs_5f1n27",
       "role": "button",
       "name": "Sign On",
       "value": "Sign On",
@@ -409,9 +409,9 @@
       }
     },
     {
-      "ref": "obs_5f2n4",
+      "ref": "obs_5f2n5",
       "role": "table",
-      "value": "Member Search Member ID",
+      "value": "Session Expired User ID Password",
       "state": {
         "visible": true
       },
@@ -429,10 +429,10 @@
       }
     },
     {
-      "ref": "obs_5f2n7",
+      "ref": "obs_5f2n8",
       "role": "cell",
-      "name": "Member Search Member ID",
-      "value": "Member Search Member ID",
+      "name": "Session Expired User ID Password",
+      "value": "Session Expired User ID Password",
       "state": {
         "visible": true
       },
@@ -447,7 +447,7 @@
       "anchors": [
         {
           "kind": "rowHeader",
-          "text": "Member Search Member ID"
+          "text": "Session Expired User ID Password"
         }
       ],
       "attrs": {
@@ -455,10 +455,10 @@
       }
     },
     {
-      "ref": "obs_5f2n8",
+      "ref": "obs_5f2n9",
       "role": "heading",
-      "name": "Member Search",
-      "value": "Member Search",
+      "name": "Session Expired",
+      "value": "Session Expired",
       "state": {
         "visible": true
       },
@@ -476,10 +476,10 @@
       }
     },
     {
-      "ref": "obs_5f2n10",
+      "ref": "obs_5f2n13",
       "role": "form",
-      "name": "Member ID",
-      "value": "Member ID",
+      "name": "User ID Password",
+      "value": "User ID Password",
       "state": {
         "visible": true
       },
@@ -492,13 +492,13 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Member Search"
+          "value": "Session Expired"
         }
       },
       "anchors": [
         {
           "kind": "sectionHeading",
-          "text": "Member Search"
+          "text": "Session Expired"
         }
       ],
       "attrs": {
@@ -506,9 +506,9 @@
       }
     },
     {
-      "ref": "obs_5f2n11",
+      "ref": "obs_5f2n14",
       "role": "table",
-      "value": "Member ID",
+      "value": "User ID Password",
       "state": {
         "visible": true
       },
@@ -521,13 +521,13 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Member Search"
+          "value": "Session Expired"
         }
       },
       "anchors": [
         {
           "kind": "sectionHeading",
-          "text": "Member Search"
+          "text": "Session Expired"
         }
       ],
       "attrs": {
@@ -535,76 +535,10 @@
       }
     },
     {
-      "ref": "obs_5f2n14",
-      "role": "cell",
-      "name": "Member ID",
-      "value": "Member ID",
-      "state": {
-        "visible": true
-      },
-      "scope": {
-        "path": [
-          {
-            "by": "name",
-            "value": "content"
-          }
-        ],
-        "region": {
-          "by": "heading",
-          "value": "Member Search"
-        }
-      },
-      "anchors": [
-        {
-          "kind": "rowHeader",
-          "text": "Member ID"
-        },
-        {
-          "kind": "sectionHeading",
-          "text": "Member Search"
-        }
-      ],
-      "attrs": {
-        "tagName": "td"
-      }
-    },
-    {
-      "ref": "obs_5f2n16",
-      "role": "cell",
-      "state": {
-        "visible": true
-      },
-      "scope": {
-        "path": [
-          {
-            "by": "name",
-            "value": "content"
-          }
-        ],
-        "region": {
-          "by": "heading",
-          "value": "Member Search"
-        }
-      },
-      "anchors": [
-        {
-          "kind": "rowHeader",
-          "text": "Member ID"
-        },
-        {
-          "kind": "sectionHeading",
-          "text": "Member Search"
-        }
-      ],
-      "attrs": {
-        "tagName": "td"
-      }
-    },
-    {
       "ref": "obs_5f2n17",
-      "role": "textbox",
-      "name": "Member ID",
-      "value": "",
+      "role": "cell",
+      "name": "User ID",
+      "value": "User ID",
       "state": {
         "visible": true
       },
@@ -617,22 +551,21 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Member Search"
+          "value": "Session Expired"
         }
       },
       "anchors": [
         {
-          "kind": "label",
-          "text": "Member ID"
+          "kind": "rowHeader",
+          "text": "User ID"
         },
         {
           "kind": "sectionHeading",
-          "text": "Member Search"
+          "text": "Session Expired"
         }
       ],
       "attrs": {
-        "tagName": "input",
-        "inputType": "text"
+        "tagName": "td"
       }
     },
     {
@@ -650,21 +583,17 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Member Search"
+          "value": "Session Expired"
         }
       },
       "anchors": [
         {
           "kind": "rowHeader",
-          "text": ""
-        },
-        {
-          "kind": "columnHeader",
-          "text": "Member ID"
+          "text": "User ID"
         },
         {
           "kind": "sectionHeading",
-          "text": "Member Search"
+          "text": "Session Expired"
         }
       ],
       "attrs": {
@@ -673,9 +602,9 @@
     },
     {
       "ref": "obs_5f2n20",
-      "role": "button",
-      "name": "Search",
-      "value": "Search",
+      "role": "textbox",
+      "name": "User ID",
+      "value": "demo.teller",
       "state": {
         "visible": true
       },
@@ -688,13 +617,193 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Member Search"
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "label",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "text"
+      }
+    },
+    {
+      "ref": "obs_5f2n22",
+      "role": "cell",
+      "name": "Password",
+      "value": "Password",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Password"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_5f2n24",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Password"
+        },
+        {
+          "kind": "columnHeader",
+          "text": ""
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_5f2n25",
+      "role": "textbox",
+      "name": "Password",
+      "value": "demo-pass-not-real",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "label",
+          "text": "Password"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "input",
+        "inputType": "password"
+      }
+    },
+    {
+      "ref": "obs_5f2n27",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": ""
+        },
+        {
+          "kind": "columnHeader",
+          "text": "User ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Session Expired"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_5f2n28",
+      "role": "button",
+      "name": "Sign On",
+      "value": "Sign On",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Session Expired"
         }
       },
       "anchors": [
         {
           "kind": "sectionHeading",
-          "text": "Member Search"
+          "text": "Session Expired"
         }
       ],
       "attrs": {
@@ -703,5 +812,5 @@
       }
     }
   ],
-  "capturedAt": "2026-09-11T02:44:50.626Z"
+  "capturedAt": "2026-09-11T05:04:01.742Z"
 }

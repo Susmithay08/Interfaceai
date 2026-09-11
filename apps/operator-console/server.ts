@@ -3,6 +3,7 @@ import type { Server } from "node:http";
 import type { InterventionRequest } from "../../src/model/escalation.js";
 import type { EscalationService } from "../../src/session/escalation.js";
 import type { OperatorHandoff } from "../../src/session/operator-handoff.js";
+import { CONSOLE_STYLE } from "./theme.js";
 
 export interface ConsoleDeps {
   readonly escalation: EscalationService;
@@ -78,67 +79,88 @@ const esc = (s: string): string =>
   s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
 const page = (title: string, body: string): string => `<!doctype html>
-<html><head><meta charset="utf-8"><title>${esc(title)} - Operator console</title>
-<style>
- body{font:14px/1.5 system-ui,sans-serif;margin:2rem;max-width:60rem;color:#1a1a1a}
- h1{font-size:1.3rem} h2{font-size:1rem;margin-top:1.6rem}
- table{border-collapse:collapse;width:100%} td,th{border:1px solid #ddd;padding:.4rem .6rem;text-align:left}
- dt{font-weight:600;margin-top:.6rem} dd{margin:0}
- .who{padding:.3rem .6rem;background:#eef;border-radius:4px;display:inline-block}
- button{padding:.4rem .9rem;font:inherit;cursor:pointer}
- .empty{color:#666}
-</style></head><body>${body}</body></html>`;
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)} - Operator console</title>
+<style>${CONSOLE_STYLE}</style></head><body>${body}</body></html>`;
+
+/** Who is driving the live session. The one thing an operator needs to know first. */
+function controlBanner(deps: ConsoleDeps, hint: string): string {
+  const who = deps.handoff.holder();
+  return `<div class="control${who === "operator" ? " is-operator" : ""}">
+    <span class="lab">Session control</span>
+    <span class="who">${esc(who)}</span>
+    <span class="hint">${esc(hint)}</span>
+  </div>`;
+}
 
 function queueBody(deps: ConsoleDeps): string {
   const open = deps.escalation.listOpen();
+  const held = deps.handoff.holder() === "operator";
   const rows = open
     .map(
-      (r) => `<tr><td><a href="/interventions/${esc(r.id)}">${esc(r.id)}</a></td>
-        <td>${esc(r.mode)}</td><td>${esc(r.reason)}</td><td>${esc(r.stepId ?? "-")}</td>
-        <td>${esc(r.status)}</td><td>${esc(r.createdAt)}</td></tr>`,
+      (r) => `<tr>
+        <td><a href="/interventions/${esc(r.id)}">${esc(r.id)}</a></td>
+        <td>${esc(r.reason)}</td>
+        <td>${esc(r.stepId ?? "-")}</td>
+        <td>${esc(r.mode)}</td>
+        <td><span class="tag ${esc(r.status)}">${esc(r.status)}</span></td>
+        <td>${esc(r.createdAt)}</td>
+      </tr>`,
     )
     .join("");
+
   return `<h1>Operator queue</h1>
-    <p>Session control: <span class="who">${esc(deps.handoff.holder())}</span></p>
-    ${
+    <p class="lede">Runs that stopped and need a person. Opening one shows why it stopped and
+      hands you the live browser session it was driving.</p>
+    ${controlBanner(deps, held ? "you are driving" : "automation is driving")}
+    <div class="panel">${
       open.length === 0
         ? `<p class="empty">Nothing is waiting on a human.</p>`
-        : `<table><tr><th>id</th><th>mode</th><th>reason</th><th>step</th><th>status</th><th>raised</th></tr>${rows}</table>`
-    }`;
+        : `<table>
+             <thead><tr>
+               <th>Intervention</th><th>Reason</th><th>Step</th>
+               <th>Mode</th><th>Status</th><th>Raised</th>
+             </tr></thead>
+             <tbody>${rows}</tbody>
+           </table>`
+    }</div>`;
 }
 
 function detailBody(iv: InterventionRequest, deps: ConsoleDeps): string {
   const held = deps.handoff.holder() === "operator";
-  const field = (label: string, value?: string): string =>
-    value ? `<dt>${esc(label)}</dt><dd>${esc(value)}</dd>` : "";
+  const field = (label: string, value?: string, cls = ""): string =>
+    value ? `<dt>${esc(label)}</dt><dd class="${cls}">${esc(value)}</dd>` : "";
 
-  return `<p><a href="/">&larr; queue</a></p>
-    <h1>${esc(iv.id)} <small>(${esc(iv.status)})</small></h1>
-    <dl>
-      ${field("Goal", iv.goal)}
-      ${field("Capability", iv.capabilityId)}
-      ${field("Stopped at", iv.stepId ? `${iv.stepId} - ${iv.stepIntent ?? ""}` : undefined)}
-      ${field("Why", iv.reason)}
-      ${field("Expected", iv.expected)}
-      ${field("Observed", iv.observed)}
-      ${field("Screenshot", iv.screenshotRef)}
-      ${field("Observation", iv.observationRef)}
-      ${field("Resume", `${iv.resumePlan.mode} at ${iv.resumePlan.resumeAtStepId ?? "the start"}`)}
-    </dl>
+  const control = held
+    ? `<form method="post" action="/interventions/${esc(iv.id)}/release">
+         <p class="lede">Finish the step in the browser window, then hand control back.
+            Everything you did was recorded into the run's evidence.</p>
+         <input type="text" name="note" placeholder="What you did">
+         <button type="submit">Release &amp; resume</button>
+       </form>`
+    : `<form method="post" action="/interventions/${esc(iv.id)}/take">
+         <p class="lede">Taking control pauses automation on the same live page and starts
+            recording your actions.</p>
+         <button type="submit">Take control</button>
+       </form>`;
+
+  return `<a class="back" href="/">&larr; Operator queue</a>
+    <h1>${esc(iv.id)} <small>${esc(iv.status)}</small></h1>
+    ${controlBanner(deps, held ? "you are driving" : "automation is paused")}
+    <div class="panel">
+      <dl>
+        ${field("Goal", iv.goal)}
+        ${field("Capability", iv.capabilityId)}
+        ${field("Stopped at", iv.stepId ? `${iv.stepId} - ${iv.stepIntent ?? ""}` : undefined)}
+        ${field("Why", iv.reason)}
+        ${field("Expected", iv.expected)}
+        ${field("Observed", iv.observed, "observed")}
+        ${field("Screenshot", iv.screenshotRef)}
+        ${field("Observation", iv.observationRef)}
+        ${field("Resume", `${iv.resumePlan.mode} at ${iv.resumePlan.resumeAtStepId ?? "the start"}`)}
+      </dl>
+    </div>
     <h2>Control</h2>
-    <p>Session control: <span class="who">${esc(deps.handoff.holder())}</span></p>
-    ${
-      held
-        ? `<form method="post" action="/interventions/${esc(iv.id)}/release">
-             <p>Finish the step in the browser window, then hand control back.
-                Everything you did was recorded into the run's evidence.</p>
-             <input name="note" size="60" placeholder="what you did">
-             <button type="submit">Release &amp; resume</button>
-           </form>`
-        : `<form method="post" action="/interventions/${esc(iv.id)}/take">
-             <p>Taking control pauses automation on the same live page and starts
-                recording your actions.</p>
-             <button type="submit">Take control</button>
-           </form>`
-    }`;
+    <div class="panel">${control}</div>`;
 }

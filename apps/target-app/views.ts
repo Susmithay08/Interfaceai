@@ -1,4 +1,5 @@
 import type { Member } from "./state.js";
+import { THEME } from "./theme.js";
 
 /**
  * Deliberately hostile markup, modelled on real legacy back-office screens:
@@ -11,6 +12,11 @@ import type { Member } from "./state.js";
  * What IS stable: <label for> relationships, table header cells, and heading text.
  * That is exactly the metadata semantic targeting relies on, and the reason a
  * positional selector breaks here while role+name+anchor survives.
+ *
+ * A stylesheet is injected into <head> (see theme.ts) because a re-skinned legacy app
+ * is what institutions actually run: modern chrome, 1997 bones. It is paint only - the
+ * markup below is unchanged, so every claim above still holds and the locator engine
+ * sees exactly what it saw before.
  */
 
 const esc = (s: string): string =>
@@ -29,9 +35,14 @@ function jitterWrap(html: string): string {
   return out;
 }
 
-function page(title: string, body: string): string {
-  return `<html><head><title>${esc(title)}</title></head>
-<body class="bg">
+/**
+ * `bodyClass` only ever adds a styling hook. `roleOf` in perceive.ts assigns no role to
+ * <body>, so the element is never perceived and the extra class cannot reach a target,
+ * an anchor, or a node count.
+ */
+function page(title: string, body: string, bodyClass = "bg"): string {
+  return `<html><head><title>${esc(title)}</title>${THEME}</head>
+<body class="${bodyClass}">
 <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="tdl">
 ${body}
 </td></tr></table>
@@ -39,8 +50,10 @@ ${body}
 }
 
 export function frameset(): string {
+  // frameborder/framespacing are chrome only: the frames, their names and their sources
+  // are untouched, so frame scoping resolves exactly as before.
   return `<html><head><title>CoreBank Teller</title></head>
-<frameset cols="180,*">
+<frameset cols="180,*" frameborder="0" border="0" framespacing="0">
   <frame name="nav" src="/teller/nav">
   <frame name="content" src="/teller/search">
 </frameset>
@@ -54,6 +67,7 @@ export function nav(): string {
   <tr><td class="c3"><a href="/teller/search" target="content">Member Search</a></td></tr>
   <tr><td class="c3"><a href="/teller/search" target="content">Account Servicing</a></td></tr>
 </table>`,
+    "bg nav",
   );
 }
 

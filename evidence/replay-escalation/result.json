@@ -1,6 +1,6 @@
 {
   "status": "escalated",
-  "interventionId": "iv_aa7bd25f",
+  "interventionId": "iv_cc08c20d",
   "reason": "riskyAction",
   "steps": [
     {
@@ -8,14 +8,14 @@
       "intent": "Enter the member ID into the search form",
       "actionKind": "fill",
       "tier": 0,
-      "durationMs": 34
+      "durationMs": 47
     },
     {
       "stepId": "s2",
       "intent": "Submit the member search",
       "actionKind": "click",
       "tier": 0,
-      "durationMs": 63
+      "durationMs": 71
     }
   ],
   "evidenceRef": "evidence/replay-escalation"

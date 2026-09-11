@@ -1,29 +1,29 @@
-{"type":"run_started","runId":"replay_93987010","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-10T05:12:30.748Z"}
-{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:12:30.749Z"}
-{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_1.json","at":"2026-09-10T05:12:30.820Z"}
-{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_2.json","at":"2026-09-10T05:12:30.839Z"}
-{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-10T05:12:30.841Z"}
-{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_3.json","at":"2026-09-10T05:12:30.855Z"}
-{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":45,"at":"2026-09-10T05:12:30.886Z"}
-{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_4.json","at":"2026-09-10T05:12:30.903Z"}
-{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-10T05:12:30.905Z"}
-{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:12:30.905Z"}
-{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_5.json","at":"2026-09-10T05:12:30.919Z"}
-{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":96,"at":"2026-09-10T05:12:31.001Z"}
-{"type":"observation","observationId":"obs_6","screenSignature":"64807aa08029937c","nodeCount":7,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_6.json","at":"2026-09-10T05:12:31.018Z"}
-{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:12:31.019Z"}
-{"type":"observation","observationId":"obs_7","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_7.json","at":"2026-09-10T05:12:31.037Z"}
-{"type":"action","stepId":"s3","intent":"Open the matching member's detail screen from the results table","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":52,"at":"2026-09-10T05:12:31.071Z"}
-{"type":"observation","observationId":"obs_8","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_8.json","at":"2026-09-10T05:12:31.090Z"}
-{"type":"checkpoint","stepId":"s3","passed":true,"detail":"s3: resolved at tier 0","at":"2026-09-10T05:12:31.091Z"}
-{"type":"policy_verdict","actionKind":"wait","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:12:31.092Z"}
-{"type":"observation","observationId":"obs_9","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_9.json","at":"2026-09-10T05:12:31.103Z"}
-{"type":"action","stepId":"s4","intent":"Wait for the accounts table to be present before reading the balance","actionKind":"wait","resolutionTier":null,"durationMs":12,"at":"2026-09-10T05:12:31.104Z"}
-{"type":"observation","observationId":"obs_10","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_10.json","at":"2026-09-10T05:12:31.114Z"}
-{"type":"checkpoint","stepId":"s4","passed":true,"detail":"s4: resolved at tier 0","at":"2026-09-10T05:12:31.115Z"}
-{"type":"observation","observationId":"obs_11","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_11.json","at":"2026-09-10T05:12:31.125Z"}
-{"type":"observation","observationId":"obs_12","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_12.json","at":"2026-09-10T05:12:31.136Z"}
-{"type":"extraction","output":"memberName","ok":true,"at":"2026-09-10T05:12:31.137Z"}
-{"type":"extraction","output":"savingsBalance","ok":true,"at":"2026-09-10T05:12:31.138Z"}
-{"type":"extraction","output":"savingsAccountLast4","ok":true,"at":"2026-09-10T05:12:31.138Z"}
-{"type":"run_finished","runId":"replay_93987010","status":"success","durationMs":390,"at":"2026-09-10T05:12:31.138Z"}
+{"type":"run_started","runId":"replay_681285d0","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-11T05:03:43.776Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:03:43.779Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_1.json","at":"2026-09-11T05:03:43.875Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_2.json","at":"2026-09-11T05:03:43.892Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-11T05:03:43.900Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_3.json","at":"2026-09-11T05:03:43.912Z"}
+{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":42,"at":"2026-09-11T05:03:43.942Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_4.json","at":"2026-09-11T05:03:43.961Z"}
+{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-11T05:03:43.962Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:03:43.963Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_5.json","at":"2026-09-11T05:03:43.976Z"}
+{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":61,"at":"2026-09-11T05:03:44.024Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_6.json","at":"2026-09-11T05:03:44.037Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:03:44.038Z"}
+{"type":"observation","observationId":"obs_7","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_7.json","at":"2026-09-11T05:03:44.073Z"}
+{"type":"action","stepId":"s3","intent":"Open the matching member's detail screen from the results table","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":83,"at":"2026-09-11T05:03:44.121Z"}
+{"type":"observation","observationId":"obs_8","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_8.json","at":"2026-09-11T05:03:44.152Z"}
+{"type":"checkpoint","stepId":"s3","passed":true,"detail":"s3: resolved at tier 0","at":"2026-09-11T05:03:44.153Z"}
+{"type":"policy_verdict","actionKind":"wait","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:03:44.154Z"}
+{"type":"observation","observationId":"obs_9","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_9.json","at":"2026-09-11T05:03:44.170Z"}
+{"type":"action","stepId":"s4","intent":"Wait for the accounts table to be present before reading the balance","actionKind":"wait","resolutionTier":null,"durationMs":17,"at":"2026-09-11T05:03:44.171Z"}
+{"type":"observation","observationId":"obs_10","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_10.json","at":"2026-09-11T05:03:44.184Z"}
+{"type":"checkpoint","stepId":"s4","passed":true,"detail":"s4: resolved at tier 0","at":"2026-09-11T05:03:44.186Z"}
+{"type":"observation","observationId":"obs_11","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_11.json","at":"2026-09-11T05:03:44.197Z"}
+{"type":"observation","observationId":"obs_12","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-success\\observations\\obs_12.json","at":"2026-09-11T05:03:44.210Z"}
+{"type":"extraction","output":"memberName","ok":true,"at":"2026-09-11T05:03:44.211Z"}
+{"type":"extraction","output":"savingsBalance","ok":true,"at":"2026-09-11T05:03:44.212Z"}
+{"type":"extraction","output":"savingsAccountLast4","ok":true,"at":"2026-09-11T05:03:44.212Z"}
+{"type":"run_finished","runId":"replay_681285d0","status":"success","durationMs":436,"at":"2026-09-11T05:03:44.212Z"}

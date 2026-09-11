@@ -6,7 +6,7 @@
   "screenSignature": "fd4417de741a02c0",
   "nodes": [
     {
-      "ref": "obs_6f1n4",
+      "ref": "obs_6f1n5",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "ref": "obs_6f1n7",
+      "ref": "obs_6f1n8",
       "role": "cell",
       "name": "Member Search Account Servicing",
       "value": "Member Search Account Servicing",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "ref": "obs_6f1n8",
+      "ref": "obs_6f1n9",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -72,7 +72,7 @@
       }
     },
     {
-      "ref": "obs_6f1n11",
+      "ref": "obs_6f1n12",
       "role": "cell",
       "name": "Member Search",
       "value": "Member Search",
@@ -98,7 +98,7 @@
       }
     },
     {
-      "ref": "obs_6f1n12",
+      "ref": "obs_6f1n13",
       "role": "link",
       "name": "Member Search",
       "value": "Member Search",
@@ -119,7 +119,7 @@
       }
     },
     {
-      "ref": "obs_6f1n14",
+      "ref": "obs_6f1n15",
       "role": "cell",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -149,7 +149,7 @@
       }
     },
     {
-      "ref": "obs_6f1n15",
+      "ref": "obs_6f1n16",
       "role": "link",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -170,7 +170,7 @@
       }
     },
     {
-      "ref": "obs_6f2n4",
+      "ref": "obs_6f2n5",
       "role": "table",
       "value": "Search Results No matching member for that ID. Member Search Member ID",
       "state": {
@@ -190,7 +190,7 @@
       }
     },
     {
-      "ref": "obs_6f2n7",
+      "ref": "obs_6f2n8",
       "role": "cell",
       "name": "Search Results No matching member for that ID. Member Search Member ID",
       "value": "Search Results No matching member for that ID. Member Search Member ID",
@@ -216,7 +216,7 @@
       }
     },
     {
-      "ref": "obs_6f2n8",
+      "ref": "obs_6f2n9",
       "role": "heading",
       "name": "Search Results",
       "value": "Search Results",
@@ -237,7 +237,7 @@
       }
     },
     {
-      "ref": "obs_6f2n9",
+      "ref": "obs_6f2n10",
       "role": "table",
       "name": "Search Results",
       "value": "No matching member for that ID.",
@@ -267,7 +267,7 @@
       }
     },
     {
-      "ref": "obs_6f2n12",
+      "ref": "obs_6f2n13",
       "role": "cell",
       "name": "No matching member for that ID.",
       "value": "No matching member for that ID.",
@@ -301,7 +301,7 @@
       }
     },
     {
-      "ref": "obs_6f2n13",
+      "ref": "obs_6f2n14",
       "role": "status",
       "name": "No matching member for that ID.",
       "value": "No matching member for that ID.",
@@ -331,7 +331,7 @@
       }
     },
     {
-      "ref": "obs_6f2n15",
+      "ref": "obs_6f2n16",
       "role": "heading",
       "name": "Member Search",
       "value": "Member Search",
@@ -361,7 +361,7 @@
       }
     },
     {
-      "ref": "obs_6f2n16",
+      "ref": "obs_6f2n17",
       "role": "form",
       "name": "Member ID",
       "value": "Member ID",
@@ -391,7 +391,7 @@
       }
     },
     {
-      "ref": "obs_6f2n17",
+      "ref": "obs_6f2n18",
       "role": "table",
       "value": "Member ID",
       "state": {
@@ -420,42 +420,10 @@
       }
     },
     {
-      "ref": "obs_6f2n20",
+      "ref": "obs_6f2n21",
       "role": "cell",
       "name": "Member ID",
       "value": "Member ID",
-      "state": {
-        "visible": true
-      },
-      "scope": {
-        "path": [
-          {
-            "by": "name",
-            "value": "content"
-          }
-        ],
-        "region": {
-          "by": "heading",
-          "value": "Member Search"
-        }
-      },
-      "anchors": [
-        {
-          "kind": "rowHeader",
-          "text": "Member ID"
-        },
-        {
-          "kind": "sectionHeading",
-          "text": "Member Search"
-        }
-      ],
-      "attrs": {
-        "tagName": "td"
-      }
-    },
-    {
-      "ref": "obs_6f2n22",
-      "role": "cell",
       "state": {
         "visible": true
       },
@@ -487,6 +455,38 @@
     },
     {
       "ref": "obs_6f2n23",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_6f2n24",
       "role": "textbox",
       "name": "Member ID",
       "value": "",
@@ -521,7 +521,7 @@
       }
     },
     {
-      "ref": "obs_6f2n25",
+      "ref": "obs_6f2n26",
       "role": "cell",
       "state": {
         "visible": true
@@ -557,7 +557,7 @@
       }
     },
     {
-      "ref": "obs_6f2n26",
+      "ref": "obs_6f2n27",
       "role": "button",
       "name": "Search",
       "value": "Search",
@@ -588,5 +588,5 @@
       }
     }
   ],
-  "capturedAt": "2026-09-10T05:12:44.819Z"
+  "capturedAt": "2026-09-11T05:03:47.311Z"
 }

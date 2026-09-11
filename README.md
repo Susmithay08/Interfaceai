@@ -8,6 +8,14 @@ The target is `apps/target-app/`, a synthetic "CoreBank Teller": framesets, tabl
 ids, wrapper depth that shifts between renders, and seven injectable faults. All data in it is
 invented.
 
+It is **re-skinned, not rebuilt** — which is what institutions actually do to software like this.
+`apps/target-app/theme.ts` is a stylesheet and nothing else: it adds no element, renames no class,
+and hides nothing, so the markup underneath is exactly as hostile as it was and the locator engine
+sees an identical DOM. The chrome being modern is the point. A clean-looking app with no test ids,
+no semantic sectioning and a frameset is a more honest picture of the estate than a deliberately
+ugly one, and it is a useful reminder that "looks modern" says nothing about whether a surface is
+automatable.
+
 ---
 
 ## Prerequisites
@@ -164,7 +172,7 @@ checkpoint it can re-assert. The result reports only what it could actually esta
 
 ```
 status: escalated (riskyAction)
-intervention: iv_7bf32206
+intervention: iv_d9da5520
 resumed by: operator
 post-handoff: success
   s3 after handback: resolved at tier 0
@@ -331,7 +339,7 @@ red suite.
 | `src/agent/` | The discovery loop, the provider seam, and the self-validating recorder. |
 | `src/surface/` | Playwright perception normalized into `Observation`. |
 | `src/policy/`, `src/session/`, `src/evidence/` | Allowlist, control lease, redacting evidence sink. |
-| `apps/` | Target app, CLI, operator console. |
+| `apps/` | Target app, CLI, operator console. The two `theme.ts` files are presentation only — no behaviour, no markup changes. |
 | `capabilities/` | The catalog: one directory per capability, one file per version. |
 | `evidence/` | Curated live runs — discovery, its replay, a business outcome, a recovery, an escalation, and a completed human takeover. `evidence/demo/` is where the README's commands write and is gitignored. |
 | `REPORT.md` | The design write-up: architecture, schema, determinism, safety, and what I cut. |

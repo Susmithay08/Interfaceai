@@ -1,30 +1,30 @@
-{"type":"run_started","runId":"replay_takeover_demo","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-11T02:46:36.084Z"}
-{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-11T02:46:36.086Z"}
-{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_1.json","at":"2026-09-11T02:46:36.304Z"}
-{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_2.json","at":"2026-09-11T02:46:36.328Z"}
-{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-11T02:46:36.331Z"}
-{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_3.json","at":"2026-09-11T02:46:36.346Z"}
-{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":178,"at":"2026-09-11T02:46:36.509Z"}
-{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_4.json","at":"2026-09-11T02:46:36.521Z"}
-{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-11T02:46:36.522Z"}
-{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T02:46:36.522Z"}
-{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_5.json","at":"2026-09-11T02:46:36.537Z"}
-{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":1617,"at":"2026-09-11T02:46:38.139Z"}
-{"type":"observation","observationId":"obs_6","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_6.json","at":"2026-09-11T02:46:38.161Z"}
-{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T02:46:38.163Z"}
-{"type":"observation","observationId":"obs_7","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_7.json","at":"2026-09-11T02:46:38.222Z"}
-{"type":"action","stepId":"s3","intent":"Open the matching member's detail screen from the results table","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":263,"at":"2026-09-11T02:46:38.426Z"}
-{"type":"observation","observationId":"obs_8","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_8.json","at":"2026-09-11T02:46:38.441Z"}
-{"type":"outcome_detected","stepId":"s3","code":"PERMISSION_DENIED","outcomeClass":"hard","observed":"You are not authorized to view this member.","at":"2026-09-11T02:46:38.443Z"}
-{"type":"observation","observationId":"obs_9","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_9.json","at":"2026-09-11T02:46:38.580Z"}
-{"type":"escalation","interventionId":"iv_7bf32206","reason":"riskyAction","stepId":"s3","at":"2026-09-11T02:46:38.583Z"}
-{"type":"control_transfer","from":"automation","to":"operator","reason":"escalation iv_7bf32206","at":"2026-09-11T02:46:38.585Z"}
-{"type":"human_action","actor":"operator","actionKind":"change","role":"textbox","accessibleName":"Member ID","value":"100234","at":"2026-09-11T02:46:39.101Z"}
-{"type":"human_action","actor":"operator","actionKind":"click","role":"button","accessibleName":"Search","at":"2026-09-11T02:46:39.104Z"}
-{"type":"human_action","actor":"operator","actionKind":"submit","role":"form","accessibleName":"Member ID","at":"2026-09-11T02:46:39.105Z"}
-{"type":"human_action","actor":"operator","actionKind":"click","role":"link","accessibleName":"100234","at":"2026-09-11T02:46:39.311Z"}
-{"type":"control_transfer","from":"operator","to":"automation","reason":"operator returned control for iv_7bf32206","at":"2026-09-11T02:46:39.484Z"}
-{"type":"control_transfer","from":"operator","to":"automation","reason":"resume iv_7bf32206","at":"2026-09-11T02:46:39.484Z"}
-{"type":"observation","observationId":"obs_10","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_10.json","at":"2026-09-11T02:46:39.498Z"}
-{"type":"handback_verification","stepId":"s3","finalStatus":"success","detail":"s3 after handback: resolved at tier 0","at":"2026-09-11T02:46:39.499Z"}
-{"type":"run_finished","runId":"replay_takeover_demo","status":"escalated","durationMs":3416,"at":"2026-09-11T02:46:39.500Z"}
+{"type":"run_started","runId":"replay_takeover_demo","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-11T05:05:02.621Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:05:02.627Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_1.json","at":"2026-09-11T05:05:02.905Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_2.json","at":"2026-09-11T05:05:02.936Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-11T05:05:02.944Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_3.json","at":"2026-09-11T05:05:02.962Z"}
+{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":196,"at":"2026-09-11T05:05:03.140Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_4.json","at":"2026-09-11T05:05:03.154Z"}
+{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-11T05:05:03.155Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:05:03.156Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_5.json","at":"2026-09-11T05:05:03.170Z"}
+{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":1750,"at":"2026-09-11T05:05:04.905Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_6.json","at":"2026-09-11T05:05:04.950Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:05:04.953Z"}
+{"type":"observation","observationId":"obs_7","screenSignature":"d6312f00a31e4fd6","nodeCount":18,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_7.json","at":"2026-09-11T05:05:04.990Z"}
+{"type":"action","stepId":"s3","intent":"Open the matching member's detail screen from the results table","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":631,"at":"2026-09-11T05:05:05.584Z"}
+{"type":"observation","observationId":"obs_8","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_8.json","at":"2026-09-11T05:05:05.616Z"}
+{"type":"outcome_detected","stepId":"s3","code":"PERMISSION_DENIED","outcomeClass":"hard","observed":"You are not authorized to view this member.","at":"2026-09-11T05:05:05.619Z"}
+{"type":"observation","observationId":"obs_9","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_9.json","at":"2026-09-11T05:05:06.255Z"}
+{"type":"escalation","interventionId":"iv_d9da5520","reason":"riskyAction","stepId":"s3","at":"2026-09-11T05:05:06.258Z"}
+{"type":"control_transfer","from":"automation","to":"operator","reason":"escalation iv_d9da5520","at":"2026-09-11T05:05:06.260Z"}
+{"type":"human_action","actor":"operator","actionKind":"change","role":"textbox","accessibleName":"Member ID","value":"100234","at":"2026-09-11T05:05:06.974Z"}
+{"type":"human_action","actor":"operator","actionKind":"click","role":"button","accessibleName":"Search","at":"2026-09-11T05:05:06.981Z"}
+{"type":"human_action","actor":"operator","actionKind":"submit","role":"form","accessibleName":"Member ID","at":"2026-09-11T05:05:06.983Z"}
+{"type":"human_action","actor":"operator","actionKind":"click","role":"link","accessibleName":"100234","at":"2026-09-11T05:05:07.212Z"}
+{"type":"control_transfer","from":"operator","to":"automation","reason":"operator returned control for iv_d9da5520","at":"2026-09-11T05:05:07.368Z"}
+{"type":"control_transfer","from":"operator","to":"automation","reason":"resume iv_d9da5520","at":"2026-09-11T05:05:07.369Z"}
+{"type":"observation","observationId":"obs_10","screenSignature":"bba156884301f5d7","nodeCount":28,"locationHint":"/teller","ref":"evidence\\replay-takeover\\observations\\obs_10.json","at":"2026-09-11T05:05:07.394Z"}
+{"type":"handback_verification","stepId":"s3","finalStatus":"success","detail":"s3 after handback: resolved at tier 0","at":"2026-09-11T05:05:07.396Z"}
+{"type":"run_finished","runId":"replay_takeover_demo","status":"escalated","durationMs":4775,"at":"2026-09-11T05:05:07.396Z"}

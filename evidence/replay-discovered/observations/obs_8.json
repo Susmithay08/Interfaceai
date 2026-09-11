@@ -6,7 +6,7 @@
   "screenSignature": "bba156884301f5d7",
   "nodes": [
     {
-      "ref": "obs_8f1n4",
+      "ref": "obs_8f1n5",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "ref": "obs_8f1n7",
+      "ref": "obs_8f1n8",
       "role": "cell",
       "name": "Member Search Account Servicing",
       "value": "Member Search Account Servicing",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "ref": "obs_8f1n8",
+      "ref": "obs_8f1n9",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -72,7 +72,7 @@
       }
     },
     {
-      "ref": "obs_8f1n11",
+      "ref": "obs_8f1n12",
       "role": "cell",
       "name": "Member Search",
       "value": "Member Search",
@@ -98,7 +98,7 @@
       }
     },
     {
-      "ref": "obs_8f1n12",
+      "ref": "obs_8f1n13",
       "role": "link",
       "name": "Member Search",
       "value": "Member Search",
@@ -119,7 +119,7 @@
       }
     },
     {
-      "ref": "obs_8f1n14",
+      "ref": "obs_8f1n15",
       "role": "cell",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -149,7 +149,7 @@
       }
     },
     {
-      "ref": "obs_8f1n15",
+      "ref": "obs_8f1n16",
       "role": "link",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -170,7 +170,7 @@
       }
     },
     {
-      "ref": "obs_8f2n4",
+      "ref": "obs_8f2n5",
       "role": "table",
       "value": "Member Detail Member: Dana Whitfield Member ID100234 Accounts Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
       "state": {
@@ -190,7 +190,7 @@
       }
     },
     {
-      "ref": "obs_8f2n7",
+      "ref": "obs_8f2n8",
       "role": "cell",
       "value": "Member Detail Member: Dana Whitfield Member ID100234 Accounts Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
       "state": {
@@ -215,7 +215,7 @@
       }
     },
     {
-      "ref": "obs_8f2n8",
+      "ref": "obs_8f2n9",
       "role": "heading",
       "name": "Member Detail",
       "value": "Member Detail",
@@ -864,5 +864,5 @@
       }
     }
   ],
-  "capturedAt": "2026-09-10T05:25:14.898Z"
+  "capturedAt": "2026-09-11T05:03:51.148Z"
 }

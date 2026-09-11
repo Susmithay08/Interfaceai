@@ -1,0 +1,335 @@
+{
+  "observationId": "obs_33",
+  "surfaceKind": "web",
+  "locationHint": "/teller",
+  "title": "CoreBank Teller",
+  "screenSignature": "5e292b3a3a7bff67",
+  "nodes": [
+    {
+      "ref": "obs_33f1n5",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_33f1n8",
+      "role": "cell",
+      "name": "Member Search Account Servicing",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search Account Servicing"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_33f1n9",
+      "role": "table",
+      "value": "Member Search Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_33f1n12",
+      "role": "cell",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_33f1n13",
+      "role": "link",
+      "name": "Member Search",
+      "value": "Member Search",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_33f1n15",
+      "role": "cell",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Account Servicing"
+        },
+        {
+          "kind": "columnHeader",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_33f1n16",
+      "role": "link",
+      "name": "Account Servicing",
+      "value": "Account Servicing",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "nav"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "a"
+      }
+    },
+    {
+      "ref": "obs_33f2n5",
+      "role": "table",
+      "value": "Access Denied You are not authorized to view this member.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_33f2n8",
+      "role": "cell",
+      "name": "Access Denied You are not authorized to view this member.",
+      "value": "Access Denied You are not authorized to view this member.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Access Denied You are not authorized to view this member."
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_33f2n9",
+      "role": "heading",
+      "name": "Access Denied",
+      "value": "Access Denied",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ]
+      },
+      "anchors": [],
+      "attrs": {
+        "tagName": "h2"
+      }
+    },
+    {
+      "ref": "obs_33f2n10",
+      "role": "table",
+      "name": "Access Denied",
+      "value": "You are not authorized to view this member.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Access Denied"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Access Denied"
+        }
+      ],
+      "attrs": {
+        "tagName": "table"
+      }
+    },
+    {
+      "ref": "obs_33f2n13",
+      "role": "cell",
+      "name": "You are not authorized to view this member.",
+      "value": "You are not authorized to view this member.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Access Denied"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "You are not authorized to view this member."
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Access Denied"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_33f2n14",
+      "role": "alert",
+      "name": "You are not authorized to view this member.",
+      "value": "You are not authorized to view this member.",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Access Denied"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Access Denied"
+        }
+      ],
+      "attrs": {
+        "tagName": "span"
+      }
+    }
+  ],
+  "capturedAt": "2026-09-11T05:04:13.407Z"
+}

@@ -6,7 +6,7 @@
   "screenSignature": "bba156884301f5d7",
   "nodes": [
     {
-      "ref": "obs_9f1n4",
+      "ref": "obs_9f1n5",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "ref": "obs_9f1n7",
+      "ref": "obs_9f1n8",
       "role": "cell",
       "name": "Member Search Account Servicing",
       "value": "Member Search Account Servicing",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "ref": "obs_9f1n8",
+      "ref": "obs_9f1n9",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -72,7 +72,7 @@
       }
     },
     {
-      "ref": "obs_9f1n11",
+      "ref": "obs_9f1n12",
       "role": "cell",
       "name": "Member Search",
       "value": "Member Search",
@@ -98,7 +98,7 @@
       }
     },
     {
-      "ref": "obs_9f1n12",
+      "ref": "obs_9f1n13",
       "role": "link",
       "name": "Member Search",
       "value": "Member Search",
@@ -119,7 +119,7 @@
       }
     },
     {
-      "ref": "obs_9f1n14",
+      "ref": "obs_9f1n15",
       "role": "cell",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -149,7 +149,7 @@
       }
     },
     {
-      "ref": "obs_9f1n15",
+      "ref": "obs_9f1n16",
       "role": "link",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -170,7 +170,7 @@
       }
     },
     {
-      "ref": "obs_9f2n4",
+      "ref": "obs_9f2n5",
       "role": "table",
       "value": "Member Detail Member: Dana Whitfield Member ID100234 Accounts Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
       "state": {
@@ -190,7 +190,7 @@
       }
     },
     {
-      "ref": "obs_9f2n7",
+      "ref": "obs_9f2n8",
       "role": "cell",
       "value": "Member Detail Member: Dana Whitfield Member ID100234 Accounts Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
       "state": {
@@ -215,7 +215,7 @@
       }
     },
     {
-      "ref": "obs_9f2n8",
+      "ref": "obs_9f2n9",
       "role": "heading",
       "name": "Member Detail",
       "value": "Member Detail",
@@ -236,7 +236,7 @@
       }
     },
     {
-      "ref": "obs_9f2n12",
+      "ref": "obs_9f2n13",
       "role": "heading",
       "name": "Member: Dana Whitfield",
       "value": "Member: Dana Whitfield",
@@ -266,7 +266,7 @@
       }
     },
     {
-      "ref": "obs_9f2n13",
+      "ref": "obs_9f2n14",
       "role": "table",
       "name": "Member: Dana Whitfield",
       "value": "Member ID100234",
@@ -296,7 +296,7 @@
       }
     },
     {
-      "ref": "obs_9f2n16",
+      "ref": "obs_9f2n17",
       "role": "cell",
       "name": "Member ID",
       "value": "Member ID",
@@ -330,7 +330,7 @@
       }
     },
     {
-      "ref": "obs_9f2n17",
+      "ref": "obs_9f2n18",
       "role": "cell",
       "name": "100234",
       "value": "100234",
@@ -364,7 +364,7 @@
       }
     },
     {
-      "ref": "obs_9f2n18",
+      "ref": "obs_9f2n19",
       "role": "heading",
       "name": "Accounts",
       "value": "Accounts",
@@ -394,7 +394,7 @@
       }
     },
     {
-      "ref": "obs_9f2n19",
+      "ref": "obs_9f2n20",
       "role": "table",
       "name": "Accounts",
       "value": "Account TypeAccountCurrent BalanceStatus Savings [REDACTED-ACCT] [FINANCIAL] Open Checking [REDACTED-ACCT] [FINANCIAL] Open",
@@ -424,7 +424,7 @@
       }
     },
     {
-      "ref": "obs_9f2n22",
+      "ref": "obs_9f2n23",
       "role": "cell",
       "name": "Account Type",
       "value": "Account Type",
@@ -458,7 +458,7 @@
       }
     },
     {
-      "ref": "obs_9f2n23",
+      "ref": "obs_9f2n24",
       "role": "cell",
       "name": "Account",
       "value": "Account",
@@ -492,7 +492,7 @@
       }
     },
     {
-      "ref": "obs_9f2n24",
+      "ref": "obs_9f2n25",
       "role": "cell",
       "name": "Current Balance",
       "value": "Current Balance",
@@ -526,7 +526,7 @@
       }
     },
     {
-      "ref": "obs_9f2n25",
+      "ref": "obs_9f2n26",
       "role": "cell",
       "name": "Status",
       "value": "Status",
@@ -560,7 +560,7 @@
       }
     },
     {
-      "ref": "obs_9f2n27",
+      "ref": "obs_9f2n28",
       "role": "cell",
       "name": "Savings",
       "value": "Savings",
@@ -598,7 +598,7 @@
       }
     },
     {
-      "ref": "obs_9f2n28",
+      "ref": "obs_9f2n29",
       "role": "cell",
       "name": "[REDACTED-ACCT]",
       "value": "[REDACTED-ACCT]",
@@ -636,7 +636,7 @@
       }
     },
     {
-      "ref": "obs_9f2n29",
+      "ref": "obs_9f2n30",
       "role": "cell",
       "name": "[FINANCIAL]",
       "value": "[FINANCIAL]",
@@ -674,7 +674,7 @@
       }
     },
     {
-      "ref": "obs_9f2n30",
+      "ref": "obs_9f2n31",
       "role": "cell",
       "name": "Open",
       "value": "Open",
@@ -712,7 +712,7 @@
       }
     },
     {
-      "ref": "obs_9f2n32",
+      "ref": "obs_9f2n33",
       "role": "cell",
       "name": "Checking",
       "value": "Checking",
@@ -750,7 +750,7 @@
       }
     },
     {
-      "ref": "obs_9f2n33",
+      "ref": "obs_9f2n34",
       "role": "cell",
       "name": "[REDACTED-ACCT]",
       "value": "[REDACTED-ACCT]",
@@ -788,7 +788,7 @@
       }
     },
     {
-      "ref": "obs_9f2n34",
+      "ref": "obs_9f2n35",
       "role": "cell",
       "name": "[FINANCIAL]",
       "value": "[FINANCIAL]",
@@ -826,7 +826,7 @@
       }
     },
     {
-      "ref": "obs_9f2n35",
+      "ref": "obs_9f2n36",
       "role": "cell",
       "name": "Open",
       "value": "Open",
@@ -864,5 +864,5 @@
       }
     }
   ],
-  "capturedAt": "2026-09-10T05:12:31.103Z"
+  "capturedAt": "2026-09-11T05:03:44.170Z"
 }

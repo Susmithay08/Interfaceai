@@ -1,18 +1,57 @@
-{"type":"run_started","runId":"replay_47d282d3","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-10T05:12:52.431Z"}
-{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:12:52.432Z"}
-{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_1.json","at":"2026-09-10T05:12:52.483Z"}
-{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_2.json","at":"2026-09-10T05:12:52.493Z"}
-{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-10T05:12:52.495Z"}
-{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_3.json","at":"2026-09-10T05:12:52.506Z"}
-{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":34,"at":"2026-09-10T05:12:52.529Z"}
-{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_4.json","at":"2026-09-10T05:12:52.537Z"}
-{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-10T05:12:52.538Z"}
-{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-10T05:12:52.539Z"}
-{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_5.json","at":"2026-09-10T05:12:52.547Z"}
-{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":63,"at":"2026-09-10T05:12:52.602Z"}
-{"type":"observation","observationId":"obs_6","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_6.json","at":"2026-09-10T05:12:52.617Z"}
-{"type":"outcome_detected","stepId":"s2","code":"PERMISSION_DENIED","outcomeClass":"hard","observed":"You are not authorized to view this member.","at":"2026-09-10T05:12:52.618Z"}
-{"type":"observation","observationId":"obs_7","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_7.json","at":"2026-09-10T05:12:52.695Z"}
-{"type":"escalation","interventionId":"iv_aa7bd25f","reason":"riskyAction","stepId":"s2","at":"2026-09-10T05:12:52.696Z"}
-{"type":"control_transfer","from":"automation","to":"operator","reason":"escalation iv_aa7bd25f","at":"2026-09-10T05:12:52.697Z"}
-{"type":"run_finished","runId":"replay_47d282d3","status":"escalated","durationMs":15272,"at":"2026-09-10T05:13:07.703Z"}
+{"type":"run_started","runId":"replay_5fc21c8e","mode":"replay","capabilityId":"corebank.member.readSavingsBalance","capabilityVersion":"1.0.0","goal":"Read a member's current savings balance","at":"2026-09-11T05:04:05.863Z"}
+{"type":"policy_verdict","actionKind":"navigate","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:04:05.866Z"}
+{"type":"observation","observationId":"obs_1","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_1.json","at":"2026-09-11T05:04:05.956Z"}
+{"type":"observation","observationId":"obs_2","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_2.json","at":"2026-09-11T05:04:05.975Z"}
+{"type":"policy_verdict","actionKind":"fill","verdict":"yes","risk":"reversible","at":"2026-09-11T05:04:05.982Z"}
+{"type":"observation","observationId":"obs_3","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_3.json","at":"2026-09-11T05:04:05.996Z"}
+{"type":"action","stepId":"s1","intent":"Enter the member ID into the search form","actionKind":"fill","resolutionTier":0,"strategyKind":"labelled","durationMs":47,"at":"2026-09-11T05:04:06.029Z"}
+{"type":"observation","observationId":"obs_4","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_4.json","at":"2026-09-11T05:04:06.043Z"}
+{"type":"checkpoint","stepId":"s1","passed":true,"detail":"s1: resolved at tier 0","at":"2026-09-11T05:04:06.045Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:04:06.045Z"}
+{"type":"observation","observationId":"obs_5","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_5.json","at":"2026-09-11T05:04:06.060Z"}
+{"type":"action","stepId":"s2","intent":"Submit the member search","actionKind":"click","resolutionTier":0,"strategyKind":"roleAndName","durationMs":71,"at":"2026-09-11T05:04:06.116Z"}
+{"type":"observation","observationId":"obs_6","screenSignature":"aa02fa4b9c8e0239","nodeCount":17,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_6.json","at":"2026-09-11T05:04:06.135Z"}
+{"type":"policy_verdict","actionKind":"click","verdict":"yes","risk":"readOnly","at":"2026-09-11T05:04:06.137Z"}
+{"type":"observation","observationId":"obs_7","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_7.json","at":"2026-09-11T05:04:06.169Z"}
+{"type":"observation","observationId":"obs_8","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_8.json","at":"2026-09-11T05:04:06.448Z"}
+{"type":"observation","observationId":"obs_9","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_9.json","at":"2026-09-11T05:04:06.723Z"}
+{"type":"observation","observationId":"obs_10","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_10.json","at":"2026-09-11T05:04:07.001Z"}
+{"type":"observation","observationId":"obs_11","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_11.json","at":"2026-09-11T05:04:07.284Z"}
+{"type":"observation","observationId":"obs_12","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_12.json","at":"2026-09-11T05:04:07.565Z"}
+{"type":"observation","observationId":"obs_13","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_13.json","at":"2026-09-11T05:04:07.844Z"}
+{"type":"observation","observationId":"obs_14","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_14.json","at":"2026-09-11T05:04:08.123Z"}
+{"type":"observation","observationId":"obs_15","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_15.json","at":"2026-09-11T05:04:08.390Z"}
+{"type":"observation","observationId":"obs_16","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_16.json","at":"2026-09-11T05:04:08.666Z"}
+{"type":"observation","observationId":"obs_17","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_17.json","at":"2026-09-11T05:04:08.942Z"}
+{"type":"observation","observationId":"obs_18","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_18.json","at":"2026-09-11T05:04:09.230Z"}
+{"type":"observation","observationId":"obs_19","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_19.json","at":"2026-09-11T05:04:09.508Z"}
+{"type":"observation","observationId":"obs_20","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_20.json","at":"2026-09-11T05:04:09.789Z"}
+{"type":"observation","observationId":"obs_21","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_21.json","at":"2026-09-11T05:04:10.066Z"}
+{"type":"observation","observationId":"obs_22","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_22.json","at":"2026-09-11T05:04:10.343Z"}
+{"type":"observation","observationId":"obs_23","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_23.json","at":"2026-09-11T05:04:10.618Z"}
+{"type":"observation","observationId":"obs_24","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_24.json","at":"2026-09-11T05:04:10.894Z"}
+{"type":"observation","observationId":"obs_25","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_25.json","at":"2026-09-11T05:04:11.180Z"}
+{"type":"observation","observationId":"obs_26","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_26.json","at":"2026-09-11T05:04:11.467Z"}
+{"type":"observation","observationId":"obs_27","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_27.json","at":"2026-09-11T05:04:11.752Z"}
+{"type":"observation","observationId":"obs_28","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_28.json","at":"2026-09-11T05:04:12.023Z"}
+{"type":"observation","observationId":"obs_29","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_29.json","at":"2026-09-11T05:04:12.306Z"}
+{"type":"observation","observationId":"obs_30","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_30.json","at":"2026-09-11T05:04:12.582Z"}
+{"type":"observation","observationId":"obs_31","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_31.json","at":"2026-09-11T05:04:12.858Z"}
+{"type":"observation","observationId":"obs_32","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_32.json","at":"2026-09-11T05:04:13.132Z"}
+{"type":"observation","observationId":"obs_33","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_33.json","at":"2026-09-11T05:04:13.407Z"}
+{"type":"observation","observationId":"obs_34","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_34.json","at":"2026-09-11T05:04:13.701Z"}
+{"type":"observation","observationId":"obs_35","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_35.json","at":"2026-09-11T05:04:13.976Z"}
+{"type":"observation","observationId":"obs_36","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_36.json","at":"2026-09-11T05:04:14.252Z"}
+{"type":"observation","observationId":"obs_37","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_37.json","at":"2026-09-11T05:04:14.534Z"}
+{"type":"observation","observationId":"obs_38","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_38.json","at":"2026-09-11T05:04:14.811Z"}
+{"type":"observation","observationId":"obs_39","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_39.json","at":"2026-09-11T05:04:15.087Z"}
+{"type":"observation","observationId":"obs_40","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_40.json","at":"2026-09-11T05:04:15.353Z"}
+{"type":"observation","observationId":"obs_41","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_41.json","at":"2026-09-11T05:04:15.633Z"}
+{"type":"observation","observationId":"obs_42","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_42.json","at":"2026-09-11T05:04:15.911Z"}
+{"type":"observation","observationId":"obs_43","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_43.json","at":"2026-09-11T05:04:16.189Z"}
+{"type":"observation","observationId":"obs_44","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_44.json","at":"2026-09-11T05:04:16.208Z"}
+{"type":"outcome_detected","stepId":"s3","code":"PERMISSION_DENIED","outcomeClass":"hard","observed":"You are not authorized to view this member.","at":"2026-09-11T05:04:16.209Z"}
+{"type":"observation","observationId":"obs_45","screenSignature":"5e292b3a3a7bff67","nodeCount":13,"locationHint":"/teller","ref":"evidence\\replay-escalation\\observations\\obs_45.json","at":"2026-09-11T05:04:16.574Z"}
+{"type":"escalation","interventionId":"iv_cc08c20d","reason":"riskyAction","stepId":"s3","at":"2026-09-11T05:04:16.576Z"}
+{"type":"control_transfer","from":"automation","to":"operator","reason":"escalation iv_cc08c20d","at":"2026-09-11T05:04:16.577Z"}
+{"type":"run_finished","runId":"replay_5fc21c8e","status":"escalated","durationMs":30723,"at":"2026-09-11T05:04:36.586Z"}

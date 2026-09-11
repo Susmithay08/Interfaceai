@@ -20,6 +20,15 @@ replay or a `capability-draft.json` for a discovery run, and, where a run escala
 These bundles are immutable. Everything the README's demo commands produce goes to
 `evidence/demo/`, which is gitignored, so running the demo never overwrites what is here.
 
+One dating note, so nothing here is mistaken for more than it is: the `replay-*` bundles were
+re-recorded after the target app was re-skinned, so their screenshots match what you will see
+running the demo today. `discovery-run/` is the original live model run and predates the re-skin —
+its observations therefore show the same DOM with the older styling. Nothing it depended on
+changed: the re-skin is a stylesheet that adds no element and renames no class, and
+`replay-discovered/` re-runs that artifact against the current app and still resolves every step at
+tier 0. It was left alone rather than re-run because a genuine model run is a record of something
+that happened, not an asset to regenerate for tidiness.
+
 ## The discovery run
 
 Goal: *"look up member 100234 and read their current savings balance"*, against
@@ -71,7 +80,7 @@ order:
 ```
 action                 s3   click
 outcome_detected       s3   PERMISSION_DENIED   hard
-escalation             iv_7bf32206   riskyAction   s3
+escalation             iv_d9da5520   riskyAction   s3
 control_transfer       automation -> operator
 human_action           operator   change   textbox "Member ID"
 human_action           operator   click    button "Search"

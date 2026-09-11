@@ -9,21 +9,21 @@
       "intent": "Enter the member ID to look up the member",
       "actionKind": "fill",
       "tier": 0,
-      "durationMs": 36
+      "durationMs": 48
     },
     {
       "stepId": "s2",
       "intent": "Click Search to retrieve member details",
       "actionKind": "click",
       "tier": 0,
-      "durationMs": 64
+      "durationMs": 80
     },
     {
       "stepId": "s3",
       "intent": "Open member 100234 details to view savings balance",
       "actionKind": "click",
       "tier": 0,
-      "durationMs": 39
+      "durationMs": 97
     }
   ],
   "evidenceRef": "evidence/replay-discovered",

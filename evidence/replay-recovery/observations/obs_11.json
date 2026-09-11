@@ -3,10 +3,10 @@
   "surfaceKind": "web",
   "locationHint": "/teller",
   "title": "CoreBank Teller",
-  "screenSignature": "d6312f00a31e4fd6",
+  "screenSignature": "aa02fa4b9c8e0239",
   "nodes": [
     {
-      "ref": "obs_11f1n4",
+      "ref": "obs_11f1n5",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -26,7 +26,7 @@
       }
     },
     {
-      "ref": "obs_11f1n7",
+      "ref": "obs_11f1n8",
       "role": "cell",
       "name": "Member Search Account Servicing",
       "value": "Member Search Account Servicing",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "ref": "obs_11f1n8",
+      "ref": "obs_11f1n9",
       "role": "table",
       "value": "Member Search Account Servicing",
       "state": {
@@ -72,7 +72,7 @@
       }
     },
     {
-      "ref": "obs_11f1n11",
+      "ref": "obs_11f1n12",
       "role": "cell",
       "name": "Member Search",
       "value": "Member Search",
@@ -98,7 +98,7 @@
       }
     },
     {
-      "ref": "obs_11f1n12",
+      "ref": "obs_11f1n13",
       "role": "link",
       "name": "Member Search",
       "value": "Member Search",
@@ -119,7 +119,7 @@
       }
     },
     {
-      "ref": "obs_11f1n14",
+      "ref": "obs_11f1n15",
       "role": "cell",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -149,7 +149,7 @@
       }
     },
     {
-      "ref": "obs_11f1n15",
+      "ref": "obs_11f1n16",
       "role": "link",
       "name": "Account Servicing",
       "value": "Account Servicing",
@@ -170,9 +170,9 @@
       }
     },
     {
-      "ref": "obs_11f2n4",
+      "ref": "obs_11f2n5",
       "role": "table",
-      "value": "Search Results MemberNameStatus 100234 Dana Whitfield Active",
+      "value": "Member Search Member ID",
       "state": {
         "visible": true
       },
@@ -190,10 +190,10 @@
       }
     },
     {
-      "ref": "obs_11f2n7",
+      "ref": "obs_11f2n8",
       "role": "cell",
-      "name": "Search Results MemberNameStatus 100234 Dana Whitfield Active",
-      "value": "Search Results MemberNameStatus 100234 Dana Whitfield Active",
+      "name": "Member Search Member ID",
+      "value": "Member Search Member ID",
       "state": {
         "visible": true
       },
@@ -208,7 +208,7 @@
       "anchors": [
         {
           "kind": "rowHeader",
-          "text": "Search Results MemberNameStatus 100234 Dana Whitfield Active"
+          "text": "Member Search Member ID"
         }
       ],
       "attrs": {
@@ -216,10 +216,10 @@
       }
     },
     {
-      "ref": "obs_11f2n8",
+      "ref": "obs_11f2n9",
       "role": "heading",
-      "name": "Search Results",
-      "value": "Search Results",
+      "name": "Member Search",
+      "value": "Member Search",
       "state": {
         "visible": true
       },
@@ -238,8 +238,9 @@
     },
     {
       "ref": "obs_11f2n12",
-      "role": "table",
-      "value": "MemberNameStatus 100234 Dana Whitfield Active",
+      "role": "form",
+      "name": "Member ID",
+      "value": "Member ID",
       "state": {
         "visible": true
       },
@@ -252,13 +253,42 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Search Results"
+          "value": "Member Search"
         }
       },
       "anchors": [
         {
           "kind": "sectionHeading",
-          "text": "Search Results"
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "form"
+      }
+    },
+    {
+      "ref": "obs_11f2n13",
+      "role": "table",
+      "value": "Member ID",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
         }
       ],
       "attrs": {
@@ -266,44 +296,10 @@
       }
     },
     {
-      "ref": "obs_11f2n15",
-      "role": "cell",
-      "name": "Member",
-      "value": "Member",
-      "state": {
-        "visible": true
-      },
-      "scope": {
-        "path": [
-          {
-            "by": "name",
-            "value": "content"
-          }
-        ],
-        "region": {
-          "by": "heading",
-          "value": "Search Results"
-        }
-      },
-      "anchors": [
-        {
-          "kind": "rowHeader",
-          "text": "Member"
-        },
-        {
-          "kind": "sectionHeading",
-          "text": "Search Results"
-        }
-      ],
-      "attrs": {
-        "tagName": "th"
-      }
-    },
-    {
       "ref": "obs_11f2n16",
       "role": "cell",
-      "name": "Name",
-      "value": "Name",
+      "name": "Member ID",
+      "value": "Member ID",
       "state": {
         "visible": true
       },
@@ -316,89 +312,17 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Search Results"
+          "value": "Member Search"
         }
       },
       "anchors": [
         {
           "kind": "rowHeader",
-          "text": "Member"
+          "text": "Member ID"
         },
         {
           "kind": "sectionHeading",
-          "text": "Search Results"
-        }
-      ],
-      "attrs": {
-        "tagName": "th"
-      }
-    },
-    {
-      "ref": "obs_11f2n17",
-      "role": "cell",
-      "name": "Status",
-      "value": "Status",
-      "state": {
-        "visible": true
-      },
-      "scope": {
-        "path": [
-          {
-            "by": "name",
-            "value": "content"
-          }
-        ],
-        "region": {
-          "by": "heading",
-          "value": "Search Results"
-        }
-      },
-      "anchors": [
-        {
-          "kind": "rowHeader",
-          "text": "Member"
-        },
-        {
-          "kind": "sectionHeading",
-          "text": "Search Results"
-        }
-      ],
-      "attrs": {
-        "tagName": "th"
-      }
-    },
-    {
-      "ref": "obs_11f2n19",
-      "role": "cell",
-      "name": "100234",
-      "value": "100234",
-      "state": {
-        "visible": true
-      },
-      "scope": {
-        "path": [
-          {
-            "by": "name",
-            "value": "content"
-          }
-        ],
-        "region": {
-          "by": "heading",
-          "value": "Search Results"
-        }
-      },
-      "anchors": [
-        {
-          "kind": "rowHeader",
-          "text": "100234"
-        },
-        {
-          "kind": "columnHeader",
-          "text": "Member"
-        },
-        {
-          "kind": "sectionHeading",
-          "text": "Search Results"
+          "text": "Member Search"
         }
       ],
       "attrs": {
@@ -406,9 +330,41 @@
       }
     },
     {
-      "ref": "obs_11f2n20",
-      "role": "link",
-      "name": "100234",
+      "ref": "obs_11f2n18",
+      "role": "cell",
+      "state": {
+        "visible": true
+      },
+      "scope": {
+        "path": [
+          {
+            "by": "name",
+            "value": "content"
+          }
+        ],
+        "region": {
+          "by": "heading",
+          "value": "Member Search"
+        }
+      },
+      "anchors": [
+        {
+          "kind": "rowHeader",
+          "text": "Member ID"
+        },
+        {
+          "kind": "sectionHeading",
+          "text": "Member Search"
+        }
+      ],
+      "attrs": {
+        "tagName": "td"
+      }
+    },
+    {
+      "ref": "obs_11f2n19",
+      "role": "textbox",
+      "name": "Member ID",
       "value": "100234",
       "state": {
         "visible": true
@@ -422,24 +378,27 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Search Results"
+          "value": "Member Search"
         }
       },
       "anchors": [
         {
+          "kind": "label",
+          "text": "Member ID"
+        },
+        {
           "kind": "sectionHeading",
-          "text": "Search Results"
+          "text": "Member Search"
         }
       ],
       "attrs": {
-        "tagName": "a"
+        "tagName": "input",
+        "inputType": "text"
       }
     },
     {
       "ref": "obs_11f2n21",
       "role": "cell",
-      "name": "Dana Whitfield",
-      "value": "Dana Whitfield",
       "state": {
         "visible": true
       },
@@ -452,21 +411,21 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Search Results"
+          "value": "Member Search"
         }
       },
       "anchors": [
         {
           "kind": "rowHeader",
-          "text": "100234"
+          "text": ""
         },
         {
           "kind": "columnHeader",
-          "text": "Name"
+          "text": "Member ID"
         },
         {
           "kind": "sectionHeading",
-          "text": "Search Results"
+          "text": "Member Search"
         }
       ],
       "attrs": {
@@ -475,9 +434,9 @@
     },
     {
       "ref": "obs_11f2n22",
-      "role": "cell",
-      "name": "Active",
-      "value": "Active",
+      "role": "button",
+      "name": "Search",
+      "value": "Search",
       "state": {
         "visible": true
       },
@@ -490,27 +449,20 @@
         ],
         "region": {
           "by": "heading",
-          "value": "Search Results"
+          "value": "Member Search"
         }
       },
       "anchors": [
         {
-          "kind": "rowHeader",
-          "text": "100234"
-        },
-        {
-          "kind": "columnHeader",
-          "text": "Status"
-        },
-        {
           "kind": "sectionHeading",
-          "text": "Search Results"
+          "text": "Member Search"
         }
       ],
       "attrs": {
-        "tagName": "td"
+        "tagName": "input",
+        "inputType": "submit"
       }
     }
   ],
-  "capturedAt": "2026-09-11T02:44:50.789Z"
+  "capturedAt": "2026-09-11T05:04:01.932Z"
 }
